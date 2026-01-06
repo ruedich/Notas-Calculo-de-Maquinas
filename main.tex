@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{float}
 
 \title{Apuntes - Cálculo de Máquinas}
 \date{\today}
@@ -1481,13 +1482,139 @@
 
         \paragraph{Control de un cilindro de doble efecto con retorno automático}
 
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=.75\textwidth]{imagenes/2.1.png}
+            \caption{Circuito Neumático: Control de un cilindro de doble efecto con retorno automático}
+        \end{figure}
+
+        El primer paso para entender un circuito neumático es identificar los diferentes elementos del circuito.
+
+        El primer elemento en el que ponemos el foco, es el elemento generador. 
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/EG.png}
+            \caption{Símbolo Elemento generador}
+        \end{figure}
+
+        Posteriormente nos encontramos con los elementos distribuidores. 
+
+        \begin{enumerate}
+            \item Válvula 3/2 monoestable (pulsador con muelle que reposiciona a la primera posición al soltar).
+            \item Válvula 3/2 monoestable con fin de carrera. 
+            \item Válvula 4/2 biestable doblemente pilotada.
+        \end{enumerate}
+
+        A continuación analizamos el comportamiento de los elementos distribuidores.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/Pulsador.png}
+            \caption{Válvula 3/2 monoestable (pulsador)}
+        \end{figure}
+
+        El pulsador conecta, mientras se mantenga pulsado, el elemento generador con la vávula 4/2 biestable doblemente pilotada. Al ser monoestable, indicado con el muelle en el simbolo, una vez se deja de pulsar se desconecta el elemento generador de la válvula 4/2 biestable, al ser esta biestable mantiene la posición a la espera de otra interacción.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/V32FC.png}
+            \caption{Válvula 3/2 monoestable con fin de carrera}
+        \end{figure}
+
+        La vávula 3/2 monoestable con fin de carrera actua de forma analoga al pulsador. Sin embargo, el elemento que lo activa es el fin de carrera pulsado una vez se cruza cierto limite, marcado en la figura con la linea 1.3, por el vastago del cilindro de émbolo de doble efecto. Al activarse el fin de carrera, se conecta el elemento generador con la válvula 4/2 biestable alterando su estado.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/V4_2B.png}
+            \caption{Válvula 4/2 biestable doblemente pilotada}
+        \end{figure}
+
+        La válvula 4/2 biestable, indicado con la ausencia de muelles, mantiene un tipo de conexión dependiendo de si recibe una conexión por un lado o otro, manteniendo el último estado.
+
+        Por último, nos encontramos con el elemento receptor, cilindro de émbolo de doble efecto.
+
+        \subparagraph{Análisis del comportamiento}
+
+        A continuación representamos las conexiones en los hipoteticos estados del sistema: sin pulsar, pulsado y émbolo limite.
+        
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=.75\textwidth]{imagenes/NP.png}
+            \caption{Conexiones: sin pulsar}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=.75\textwidth]{imagenes/P.png}
+            \caption{Conexiones: pulsado}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=.75\textwidth]{imagenes/EL.png}
+            \caption{Conexiones: émbolo limite}
+        \end{figure}
+
         \paragraph{Movimiento de vaivén}
+
+        En el circuito neumático del movimiento de vaivén no se introduce ningún nuevo elemento así que nos centramos en analizar el comportamiento.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/2.2.png}
+            \caption{Circuito Neumático: Movimiento de vaivén}
+        \end{figure}
+
+        \subparagraph{Análisis del comportamiento} Distinguimos los siguientes estados: reposo, inicio, avance, retroceso. 
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/MV_Reposo.png}
+            \caption{Conexiones: Reposo}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/MV_Inicio.png}
+            \caption{Conexiones: Inicio}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/MV_Avance.png}
+            \caption{Conexiones: Avance}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/MV_Retroceso.png}
+            \caption{Conexiones: Retroceso}
+        \end{figure}
+
+        Como podemos observar, el mecanismo neumático funciona mientras se mantenga pulsado el pulsador, ya que es este el que introduce la energía que mueve la valvula biestable. Es interesante dibujar el diagrama de estados del sistema, ya que se visualizan mejor las transiciones entre estados.
+
+        Cabe destacar que el final de carrera 1.2, esta presente para que las dos valvulas 1.2 y 1.3 no estén activas simultaneamente. 
 
         \paragraph{Movimiento de vaivén temporizado}
 
-        \paragraph{Sujección de pieza} 
+        El nuevo circuito neumático propone limitar el movimiento de vaivén a un cierto tiempo. Es decir, una vez pulzado el pulsador se realiza el movimiento de vaiven durante x segundos. Posteriormente, es necesario dejar de pulsar para reiniciar el sistema.
 
-        Se pide un circuito neumático que sujete una pieza durante 10 segundos al pulsar un pulsador de inicio de operación. Posteriormente, debe retroceder aunque el pulsador esté pulsado.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/2.3.png}
+            \caption{Circuito Neumático: Movimiento de vaivén temporizado}
+        \end{figure}
+
+        Lo interesante del circuito viene del analisis del nuevo elemento.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/Temporizador.png}
+            \caption{Vávula temporizada}
+        \end{figure}
+
+        El funcionamiento consiste en que una vez entra potencia a la valvula de retención se va llenando el deposito hasta que alcanza la potencia necesaria para desplazar el biestable al nuevo estado. En cosencuencia debemos interpretar el temporizador como un retardo.
 
     \chapter{Transmisiones Flexibles}
         \section{Correas}
