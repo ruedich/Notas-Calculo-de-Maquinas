@@ -298,7 +298,7 @@
 
             Este es un ejercicio de aplicación de formulas. Asi que aplicamos las definiciones de la teoria. 
 
-            \begin{table}[h!]
+            \begin{table}[H]
                 \centering
                 \begin{tabular}{l|c}
                     $a_c = m$ & $8[mm]$\\
@@ -342,7 +342,7 @@
             \paragraph{\textbf{a)}}
 
             Obtenemos los siguientes parametros: 
-            \begin{table}[h!]
+            \begin{table}[H]
                 \centering
                 \begin{tabular}{l|c}
                     $a_c = m$ & $8[mm]$\\
@@ -364,7 +364,7 @@
 
             Podemos optar por dos metodos de resolución: gráfico o analatico.
 
-            \begin{figure}[h!]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[width=.5\textwidth]{imagenes/1.1.png}
             \end{figure}
@@ -440,7 +440,7 @@
             \paragraph{b)}
 
             Aplicamos las definiciones y obtenemos: 
-                \begin{table}[h!]
+                \begin{table}[H]
                     \centering
                     \begin{tabular}{l|c}
                         $a_c = m$ & $4[mm]$\\
@@ -505,7 +505,7 @@
             \paragraph{b)}
 
             Aplicamos las definiciones y obtenemos: 
-                \begin{table}[h!]
+                \begin{table}[H]
                     \centering
                     \begin{tabular}{l|c}
                         $a_c = m$ & $2[mm]$\\
@@ -643,7 +643,7 @@
 
         Una vez estudiados los trenes ordinarios, los cuales se caracterizan por tener todos los ejes fijos, nos proponemos estudiar los trenes de engranajes planarios. En un tren planario, al menos uno de los ejes se mueve (orbita alrededor de otro). Esto introduce un grado de libertad adicional que complica el analisis. 
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.5\textwidth]{imagenes/1.2.png}
         \end{figure}
@@ -755,7 +755,7 @@
         \subsection{Engranaje Planetario con Corona}
         Sea un engranaje planetario simple con corona, donde la potencia sale por el brazo portasatélites con un rendimiento de $0.98$ en etapas de engrane ordinario. La velocidad en el eje de entrada es de $900rpm$.
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.75\textwidth]{imagenes/1.3.png}
         \end{figure}
@@ -828,7 +828,7 @@
 
         Se un engranaje planetario, donde la potencia entra por el brazo portasatélites con un rendimiento de 0.98 en etapas de engrane ordinario. La velocidad en el eje de entrada es de 1000rpm.
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.75\textwidth]{imagenes/1.5.png}
         \end{figure}
@@ -902,7 +902,7 @@
 
         \subsection{Análisis de tren de engranajes planetario simple}
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.75\textwidth]{imagenes/1.6.png}
         \end{figure}
@@ -1002,7 +1002,7 @@
 
         La figura muestra el esquema de un tren planetario de engranajes en el que la potencia entra por el eje 2, que gira a 100rpm y sale por el eje 1, estando la rueda A fija.
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.75\textwidth]{imagenes/1.7.png}
         \end{figure}
@@ -1079,7 +1079,7 @@
 
         \subsection{Análisis Tren de engranajes compuesto}
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.75\textwidth]{imagenes/1.8.png}
         \end{figure}
@@ -1207,6 +1207,433 @@
 
     \chapter{Resortes y Mecanismos Neumáticos}
         \section{Resortes}
+
+        Los resortes son elementos elásticos que almacenan energía mediante deformación. La clave del diseño de resortes se basa en dos criterios principales:
+
+        \begin{itemize}
+            \item \textbf{Criterio de Resistencia}. Nos permite determinar la sección transversal(diámetro del alambre).
+            \item \textbf{Criterio de Elasticidad}. Determina la longitud (número de espiras).
+        \end{itemize}
+
+        Esta secuencia es universal: primero se dimensionamos para que no rompa, luego para que tenga la rigidez deseada.
+
+        \subsection{Análisis topológico}
+
+        El análisis topológico es el punto de partida para entender cualquier resorte. Se trata de una clasificiación sistemática que organiza todos los tipos de resortes existentes según dos criterios que se cruzan entre sí: la geometría del resorte y su modo de funcionamiento interno.
+        
+        Cuando hablamos de geometría, nos referimos a la forma física que adopta el material elástico. Existen tres configuraciones básicas. La primera es la geometría espiral, donde el material se enrolla en un plano formando una espiral como la de un caracol, es típica de los resortes de relojería. La segunda es la geometría helicoidal, donde el material se enrolla formando una hélice tridimensional, como los muelles clásicos que todos conocemos. La tercera es la geometría plana o recta, donde le material permanece esecialmente recto o con curvaturas suaves, como ocurre en las ballestas de los vehículos o en las barras a torsión.
+
+        El modo de funcionamiento se refiere a qué tipo de solicitación mecánica predomina internamente en el material del resorte. La solicitación interna no siempre coincide con la carga externa aplicada. Los tres modos posibles son flexión, torsión y compresión.
+
+        \subsubsection{La aparente paradoja del resorte helicoidal}
+
+        El ejemplo más ilustrativo de por qué esta clasificación es importante es el resorte helicoidal de tracción-compresión, es el muelle típico que ves en las válvulas de los motores o en los bolígrafos. Cuando aplicas una fuerza axial F para comprimirlo o estirarlo, podrías pensar que el alambre está trabajando a compresión o tracción. Sin embargo, si analizas lo que ocurre internamente en cada sección del alambre, descubres que la solicitación predominante es de torsión.
+
+        Esto ocurre porque cada espira del alambre actúa como un brazo de palanca. La fuerza F aplicada en el eje del resorte genera un momento torsor en el alambre igual a $T = F D/2$, donde $D$ es el diámetro medio de la hélice. Por eso, aunque externamente apliques una fuerza axial, internamente el alambre sufre principalmente tensiones tangenciales de torsión, y por eso este resorte aparece en la columna de "torsión" de la matriz topológica.
+
+        Esta distinción es fundamental porque determina completamente qué ecuaciones debes usar para dimensionar el resorte.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=.5\textwidth]{imagenes/MatrizDeClasificación.png}
+            \caption{Matriz de clasificación}
+        \end{figure}
+
+        Al cruzar las tres geometrías con los tres modos de funcionamiento, obtenemos las diferentes familias de resortes. No todas las combinaciones existen en la práctica, pero las más importantes son las siguientes.
+
+        En la familia de flexión encontramos los resortes espirales de torsión, que a pesar de su nombre confuso trabajan internamente a flexión. Estos son los típicos resortes planos enrollados de los relojes mecánicos o de las cintas métricas retráctiles. También encontramos los resortes de torsión helicoidales, que son esos muelles con patas que giran cuando les aplicas un par, como los que cierran las pinzas de la ropa. Y por supuesto las ballestas, que son conjuntos de láminas rectas o ligeramente curvadas que trabajan a flexión pura.
+
+        En la familia de torsión el protagonista es el resorte helicoidal de tracción-compresión que ya mencionamos. También entran aquí las barras de torsión, que son simplemente barras rectas que se retuercen, muy usadas en suspensiones de vehículos.
+
+        En la familia de compresión encontramos las arandelas Belleville o arandelas cónicas. Son discos metálicos con forma de cono truncado que, al comprimirlos axialmente, almacenan energía mediante la deformación del material a compresión. Se pueden apilar en serie o en paralelo para conseguir diferentes características de rigidez.
+
+        \subsubsection{Aplicaciones funcionales}
+
+        Además de clasificar los resortes por su geometría y modo de funcionamiento, el análisis topológico también considera las funciones que cumplen en las máquinas.
+
+        Los resortes como acumuladores de energía almacenan trabajo mecánico en forma de energía potencial elástica para liberarla posteriormente. El ejemplo clásico es el resorte principal de un reloj mecánico, que almacena la energía del cuerda y la libera gradualmente para mover las agujas. También los mecanismos de disparo o los sistemas de arranque manual de motores pequeños usan esta función.
+
+        Como aisladores de vibraciones, los resortes filtran las oscilaciones entre componentes, evitando que las vibraciones de una parte se transmitan a otra. Los silent-blocks de goma en los anclajes de motores cumplen esta función, igual que los sofisticados sistemas de aislamiento sísmico en edificios.
+
+        Como limitadores de esfuerzos o fusibles mecánicos, los resortes protegen los componentes de una máquina limitando la fuerza máxima que puede transmitirse. Las válvulas de alivio de presión funcionan así: cuando la presión supera un umbral, el resorte cede y permite el escape del fluido. Los embragues de seguridad en herramientas también usan este principio para evitar daños si la herramienta se atasca.
+
+        Finalmente, como elementos de retorno, los resortes devuelven un mecanismo a su posición inicial después de ser accionado. Los resortes de válvulas en motores de combustión cierran la válvula después de que el árbol de levas la haya abierto. Los pedales de freno, los gatillos, los pulsadores, todos vuelven a su posición gracias a un resorte de retorno.
+
+        \subsection{Caracerísticas fundamentales de los resortes}
+
+        Esta sección establece los conceptos teóricos que gobiernan el comportamiento de cualquier resorte, independientemente de su tipo.
+
+        \subsubsection{La curva esfuerzo-deflexión y el concepto de rigidez}
+
+        Todo resorte se caracteriza por la relación entre la fuerza (o par) que se le aplica y la deformación (desplazamiento lineal o angular) que experimenta. Esta relación se representa gráficamente mediante la curva esfuerzo-deflexión, donde típicamente el eje horizontal muestra la deflexión $f$ (que puede ser un desplazamiento en milímetros o un giro en radianes) y el eje vertical muestra la fuerza $F$ o el momento $M$ aplicado.
+
+        La rigidez del resorte, denotada habitualmente como $k$, se define como la pendiente de esta curva en cada punto:
+
+        $$k(f) = \frac{dF}{df}$$
+
+        Para la mayoría de resortes metálicos trabajando en régimen elástico, esta curva es una línea recta que pasa por el origen, lo que significa que la rigidez es constante. En estos casos, la relación se simplifica a $F = k \times f$, que es la conocida ley de Hooke aplicada a resortes.
+
+        Sin embargo, existen situaciones donde la rigidez no es constante. Esto puede ocurrir por dos razones fundamentales. La primera es la variabilidad de la longitud útil del resorte durante su funcionamiento. Imagina un resorte helicoidal de compresión con paso variable: a medida que lo comprimes, las espiras más juntas van tocándose entre sí y dejan de contribuir elásticamente, reduciendo progresivamente la longitud útil del resorte y aumentando su rigidez. La segunda razón es la variabilidad de la rigidez local a lo largo del resorte, aunque esta solo tiene efecto si además varía la longitud útil.
+
+        \subsubsection{La energía almacenada}
+
+        Una de las funciones principales de los resortes es almacenar energía mecánica en forma de energía potencial elástica. La cantidad de energía almacenada corresponde al área bajo la curva esfuerzo-deflexión:
+
+        $$W = \int_{f_{min}}^{f_{max}} fdF$$
+
+        Para un resorte lineal con rigidez constante $k$, esta integral se resuelve fácilmente y da como resultado la conocida expresión:
+
+        $$W = \frac{1}{2}kf^2 = \frac{1}{2} Ff = \frac{F^2}{2k}$$
+
+        Esta energía es la que el resorte puede devolver al sistema cuando se libera, y es fundamental en aplicaciones como acumuladores de energía o mecanismos de retorno.
+
+        \subsubsection{La secuencia básica de diseño}
+        
+        A la hora de diseñar resortes, seguiremos la siguiente secuencia de pasos:
+
+        \begin{enumerate}
+            \item Dimensionar la sección transversal aplicando el criterio de resistencia. Aquí se determina el tamaño de la sección del material (diámetro del alambre, espesor de la lámina, etc.) para que las tensiones máximas no superen los valores admisibles. Este paso garantiza que el resorte no romperá bajo la carga de diseño.
+            \item Dimensionar la longitud necesaria aplicando el criterio de elasticidad. Una vez conocida la sección, se calcula cuánto material se necesita (número de espiras, longitud de fleje, etc.) para conseguir la rigidez o la deflexión deseada. Este paso garantiza que el resorte tendrá el comportamiento elástico requerido.
+            \item iterar entre diferentes soluciones válidas considerando las restricciones del problema. Generalmente existen infinitas combinaciones de sección y longitud que satisfacen los requisitos de resistencia y elasticidad. La elección final depende de restricciones prácticas como el espacio disponible, el peso máximo permitido, el coste de fabricación o la disponibilidad de materiales normalizados.
+        \end{enumerate}
+
+        \subsubsection{La utilización del material}
+
+        No todos los tipos de resortes aprovechan igual de bien el material. El concepto de coeficiente de aprovechamiento $\eta_A$ cuantifica qué fracción del material está trabajando a la tensión máxima admisible.
+
+        $$W[J] = \eta_A \frac{\sigma^2[Pa]}{2E[Pa]}V[m^3] = \eta_A \frac{\tau^2[Pa]}{2G[Pa]}V[m^3]$$
+
+        En un elemento sometido a tracción-compresión pura, toda la sección transversal está uniformemente tensionada al mismo nivel, por lo que el aprovechamiento es máximo: $\eta_A = 1$.
+
+        En un elemento sometido a flexión pura con sección rectangular, la distribución de tensiones es triangular: máxima en las fibras extremas y nula en la fibra neutra. Por tanto, gran parte del material está infrautilizado y el coeficiente de aprovechamiento baja a $\eta_A = \frac{1}{3}$.
+
+        En un elemento sometido a torsión pura con sección circular, la distribución de tensiones tangenciales también varía desde cero en el centro hasta el máximo en la periferia, resultando en un aprovechamiento intermedio de $\eta_A = \frac{1}{2}$.
+
+        Estos valores tienen implicaciones prácticas importantes. Si necesitas almacenar la máxima energía posible con el mínimo peso de material, los resortes que trabajan a tracción son teóricamente óptimos. Sin embargo, trabajar a tracción tiene inconvenientes prácticos importantes: cualquier defecto superficial o concentrador de tensiones puede iniciar una grieta que se propaga rápidamente bajo cargas de tracción. Por eso, aunque sean menos eficientes en aprovechamiento del material, los resortes basados en flexión o torsión suelen ser más robustos y fiables en la práctica.
+
+        \subsubsection{Los factores de aprovechamiento comparativos}
+
+        Ademas del coeficiente de aprovechamiento, podemos recurrir al coeficiente de aprovechamiento del volumen o del peso. 
+
+        El coeficiente de aprovechamiento del volumen, $\eta_V$, indica cuanta energía se puede almacenar por unidad de volumen ocupado.
+
+        $$W = \eta_V V$$
+
+        De forma analoga, el coeficiente de aprovechamiento del peso, $\eta_Q$, indica cuánta energía se puede almacenar por unidad de peso. 
+
+        $$W = \eta_Q Q$$
+
+        \subsubsection{Tensión admisible}
+
+        El valor de la tensión admisible viene dado por dos criterios de fallo.
+
+        El criterio de relajación considera que los materiales, especialmente a temperaturas elevadas, pueden sufrir fluencia lenta (creep) que hace que el resorte pierda progresivamente su precarga o su capacidad de recuperación. Este fenómeno de viscoelasticidad es pequeño en metales a temperatura ambiente pero muy significativo en polímeros o en metales a alta temperatura. Para prevenirlo, se limita la relación entre la tensión de trabajo y el límite elástico del material.
+
+        El criterio de fatiga es crucial cuando el resorte está sometido a cargas cíclicas. Incluso tensiones muy por debajo del límite elástico pueden provocar el fallo después de millones de ciclos si existe una amplitud de tensión suficiente. El dimensionamiento a fatiga se realiza mediante los diagramas de Goodman o Wöhler, y puede mejorarse significativamente mediante tratamientos superficiales como el perdigonado (shot peening), que introduce tensiones residuales de compresión en la superficie y puede aumentar la tensión admisible a fatiga en aproximadamente un 30\%.
+
+        Presentados los conceptos teóricos básicos procedemos a plantear el modelado de las diferentes familias de resortes.
+
+        \subsection{Resortes basados en la flexión}
+
+        Los resortes basados en flexión son aquellos en los que la solicitación mecánica predominante en el material es el momento flector. Esta familia incluye varios tipos con geometrías muy diferentes pero que comparten los mismos principios físicos fundamentales.
+
+        \subsubsection{Principios básicos de la flexión}
+
+        Antes de analizar cada tipo de resorte, es esencial comprender qué ocurre cuando un elemento está sometido a flexión, ya que esto determina todas las ecuaciones de dimensionamiento.
+
+        Cuando aplicas un momento flector $M$ a una sección de un elemento, produces un cambio de curvatura en esa sección. Si el elemento tenía inicialmente una curvatura $C_0$ (que puede ser cero si era recto), después de aplicar el momento tendrá una curvatura $C$. La relación entre el cambio de curvatura y el momento aplicado viene dada por la ecuación fundamental de la flexión:
+
+        $$\frac{1}{\rho(l)} - \frac{1}{\rho_0(l)} = \Delta C(l) = \frac{M(l)}{EI(l)}$$
+
+        Donde $\rho$ es el radio de curvatura, $E$ es el módulo de elasticidad del material e $I$ es el momento de inercia de la sección.
+
+        Este cambio de curvatura produce un giro en cada sección diferencial del elemento. El giro de cada sección elemental es $d\theta(l) = C(l) dl$, y el giro total se obtiene integrando a lo largo de toda la longitud:
+
+        $$\Delta\phi = \int_{0}^{L}\frac{M}{E(l)I(l)}dl$$
+
+        Para el caso más común donde el módulo de elasticidad y el momento de inercia son constantes, esta expresión se simplifica enormemente a:
+
+        $$\Delta\phi = \frac{M}{EI}L$$
+        
+        De aquí se deduce directamente que la rigidez de un elemento a flexión es $EI/L$. Esta expresión te dice algo muy importante: para conseguir un resorte más flexible (menor rigidez) puedes aumentar la longitud, reducir el momento de inercia o usar un material con menor módulo elástico.
+
+        La tensión producida por el momento flector sigue la distribución clásica de Navier, siendo máxima en las fibras más alejadas del eje neutro. Para una sección rectangular de anchura $b$ y altura $h$, la tensión máxima es:
+
+        $$\sigma_{adm} = \frac{M}{I}y_{max} = \frac{M}{\frac{1}{12}bh^3}\frac{h}{2}$$
+
+        Para una sección circular de diámetro $d$:
+
+        $$\sigma_{adm} = \frac{M}{\frac{\pi d^4}{64}}\frac{d}{2}$$
+
+        Una observación importante es que para secciones rectangulares existe un grado de libertad adicional: puedes elegir infinitas combinaciones de $b$ y $h$ que satisfagan la condición de resistencia. Seleccionas uno de los dos parámetros según las restricciones geométricas del problema y calculas el otro. En cambio, para secciones circulares, una vez fijada la tensión admisible, el diámetro queda unívocamente determinado.
+
+        \subsubsection{Resortes de torsión helicoidales (caso particular: sección circular)}
+
+        El nombre de estos resortes puede resultar confuso porque incluye la palabra ``torsión'', pero recuerda: el nombre se refiere a la carga externa aplicada (un par torsor), no a la solicitación interna del material, que es flexión pura.
+
+        Estos resortes son los típicos muelles con ``patas'' que ves en las pinzas de la ropa, en las tapas de cajas o en mecanismos de retorno angular. Tienen forma helicoidal como los resortes de compresión, pero en lugar de cargarse axialmente, se les aplica un par torsor en los extremos que hace girar las patas.
+
+        El funcionamiento es el siguiente: cuando aplicas un par $M = F R$(donde $F$ es la fuerza en la pata y $R$ es el brazo de palanca), este par se transmite a lo largo de todo el alambre como momento flector constante. Cada sección del alambre experimenta flexión pura, lo que produce un cambio de curvatura que se acumula a lo largo de toda la longitud del alambre, resultando en un giro total de las patas.
+
+        El dimensionamiento sigue la secuencia estándar. Primero calculas el diámetro del alambre por resistencia:
+
+        $$d = \sqrt[3]{\frac{32M}{\pi\sigma_{adm}}}$$
+
+        Sin embargo, como el alambre no es recto sino que está curvado formando la hélice, existe una concentración de tensiones en la fibra interior que debe corregirse mediante un factor $q_3$ que depende de la relación $D/d$:
+
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{r c c c c c l}
+                $D/d$ & 2 & 3 & 4 & 6 & 8 & 15\\
+                \hline
+                $q_3$ & 1.59 & 1.36 & 1.25 & 1.16 & 1.12 & 1.06
+            \end{tabular}
+        \end{table}
+
+        La tensión real será $\sigma = q_3 \sigma_{calculada}$ por lo que debemos tenerlo en cuenta al dimensionar.
+
+        Una vez conocido el diámetro, calculas la longitud del alambre (número de espiras) por elasticidad. Como el momento flector es constante y la sección es uniforme, el giro total es simplemente:
+
+        $$\Delta \phi = \frac{M}{EI}L$$
+
+        Despejando la longitud necesaria para conseguir un giro determinado bajo un par dado, y sabiendo que $L = \pi D$ donde $n$ es el número de espiras, puedes calcular cuántas espiras necesitas.
+
+        La rigidez de este resorte es $EI/L$, lo que significa que a más espiras, más flexible será el resorte.
+
+        El material típico para estos resortes es el acero 1.1200 según DIN 17223, con una tensión admisible estática de aproximadamente 1650 MPa. Para cargas dinámicas (fatiga), la tensión admisible se reduce según la expresión $\sigma_{H,adm} = 690 \text{ MPa} - 0{,}25 \sigma_{U}$.
+
+        \subsubsection{Resortes de flexión rectos (Ballesta)}
+
+        Las ballestas son el ejemplo clásico de resorte plano trabajando a flexión. Las ves en suspensiones de camiones, remolques y vehículos pesados. Consisten en una o varias láminas de acero, generalmente de sección rectangular, que se flexionan bajo carga.
+
+        El caso más sencillo de analizar es la viga en voladizo con carga puntual en el extremo, o equivalentemente, la viga biapoyada con carga central (que puede tratarse como dos voladizos de longitud mitad con carga mitad).
+
+        Cuando analizas una viga en voladizo de longitud $L$ con una fuerza $F$ en el extremo, el momento flector varía linealmente desde $M = F L$
+        en el empotramiento hasta $M = 0$ en el extremo libre. Esta distribución no uniforme del momento tiene implicaciones importantes para el diseño óptimo.
+
+        \paragraph{Alternativa 1: Sección constante}
+
+        La opción más sencilla es usar una lámina de sección rectangular constante con anchura $b$ y altura $h$ uniformes a lo largo de toda la longitud. En este caso, dimensionas la sección para soportar el momento máximo en el empotramiento:
+
+        $$\sigma_{max} = \sigma_{adm} = \frac{FL}{\frac{1}{12}bh^3}\frac{h}{2}$$
+
+        El problema de esta alternativa es que el material está infrautilizado en todas las secciones excepto en el empotramiento. A medida que te alejas hacia el extremo libre, el momento flector disminuye pero la sección sigue siendo la misma, por lo que la tensión real es menor que la admisible y el material está ``sobrando''. El peso no está optimizado.
+
+        La flecha y el ángulo en el extremo para esta configuración son:
+
+        $$f = \frac{4FL^3}{Ebh^3} \quad \tan{\alpha} = \frac{6FL^2}{Ebh^3}$$
+
+        \paragraph{Alternativa 2: Anchura variable (h constante)}
+
+        Si mantienes el espesor $h$ constante pero reduces la anchura $b$ linealmente hacia el extremo (forma trapezoidal en planta), puedes conseguir que la tensión sea constante e igual a $\sigma_{adm}$ en toda la longitud. Como el momento decrece linealmente y la anchura también decrece linealmente, la relación $M/b$ permanece constante y por tanto la tensión también.
+
+        Esta alternativa optimiza el peso porque todo el material trabaja a la tensión máxima admisible.
+
+        \paragraph{Alternativa 3: Espesor variable (b constante)}
+
+        Alternativamente, puedes mantener la anchura $b$ constante y variar el espesor $h$. Como la tensión depende de $h^2$ y el momento varía linealmente, el espesor debe variar con la raíz cuadrada de la distancia al extremo para mantener la tensión constante. Esto produce una forma parabólica en el canto de la lámina.
+
+        Esta alternativa también optimiza el peso, aunque es más difícil de fabricar que la alternativa 2.
+
+        \paragraph{Las ballestas de hojas superpuestas}
+
+        En la práctica, las ballestas de los vehículos no se fabrican como una única lámina de sección variable, sino como un conjunto de hojas de longitud decreciente superpuestas. Esta configuración consigue un efecto similar a la alternativa 2: en las secciones cercanas a los apoyos hay más hojas trabajando (mayor anchura efectiva $b$), mientras que hacia el centro hay menos hojas. El resultado es una distribución más uniforme de tensiones y un uso más eficiente del material.
+
+        Se dispone de tablas de coeficientes $q_1$ y $q_2$ que permiten calcular la flecha y el ángulo para diferentes geometrías de ballesta:
+
+        $$f = q_1\frac{4FL^3}{Ebh^3} \quad \tan{\alpha} = q_2\frac{6FL^2}{Ebh^3}$$
+
+        La rigidez de la ballesta es entonces:
+
+        $$k=\frac{Ebh^3}{4q_1L^3}$$
+
+        \subsubsection{Resortes espirales de torsión}
+
+        Estos resortes son los típicos de los relojes mecánicos y las cintas métricas retráctiles. Consisten en un fleje de sección rectangular enrollado en espiral plana dentro de una carcasa cilíndrica.
+
+        Nuevamente, el nombre incluye ``torsión'' pero se refiere a la carga externa: se les aplica un par torsor en el eje central. Internamente, el fleje está sometido a flexión pura con momento flector constante a lo largo de toda su longitud.
+
+        El funcionamiento es idéntico conceptualmente al resorte de torsión helicoidal: el par aplicado $M$ produce un momento flector constante en cada sección del fleje, lo que genera cambios de curvatura que se acumulan produciendo un giro total.
+
+        Para el dimensionamiento de la sección, como el fleje es rectangular, tienes infinitas combinaciones de anchura $b$ y espesor $h$:
+
+        $$\sigma_{adm} = \frac{M}{\frac{1}{12}bh^3}\frac{h}{2}$$
+
+        Eliges una combinación según las restricciones de espacio disponible.
+
+        Para el cálculo de la longitud, como el momento es constante y la sección uniforme:
+
+        $$\Delta\phi = \frac{M}{EI}L$$
+
+        De donde puedes despejar la longitud de fleje necesaria para conseguir un giro determinado.
+
+        Un aspecto adicional importante en estos resortes es el cálculo del diámetro de la carcasa. El fleje se enrolla siguiendo aproximadamente una espiral de Arquímedes, y debes asegurar que al enrollarse completamente bajo par máximo, el fleje quepa dentro de la carcasa sin que las espiras se toquen.
+
+        \paragraph{Cálculo aproximado del diámetro de la carcasa}
+
+        A par máximo, y siendo $\gamma$ la distancia entre espiras a dicho par, suponiendo que el fleje se enrolla como una espiral de Arquímedes. El radio necesario para la carcasa será:
+        
+        $$r_c=r_{max,0} + \frac{h}{2}$$
+
+        Donde:
+
+        $$r_{max,0} = \frac{1}{\frac{1}{r_{max,M}}-\frac{M}{EI}}$$
+
+        El material típico para estos resortes es el acero 1.1200 según DIN 17223, con una tensión admisible estática de aproximadamente 1650 MPa. Para cargas dinámicas (fatiga), la tensión admisible se reduce según la expresión $\sigma_{H,adm} = 690 \text{ MPa} - 0{,}25 \sigma_{U}$.
+
+
+        \subsection{Resortes basados en la torsión}
+
+        Los resortes basados en la torsión son aquellos en los que la solicitación mecánica predominante en el material es el momento torsor. El representante más importante y frecuente de esta familia es el resorte helicoidal de tracción-compresión, ese muelle clásico que encuentras en válvulas, suspensiones, bolígrafos y un sinfín de aplicaciones.
+
+        \paragraph{Principios básicos de la torsión}
+
+        Antes de entrar en el resorte helicoidal, conviene recordar qué ocurre cuando aplicas un momento torsor a una sección circular.
+
+        Cuando sometes una barra de sección circular a un momento torsor $T$, cada sección experimenta un giro relativo respecto a la sección adyacente. La relación entre el giro por unidad de longitud y el momento aplicado viene dada por:
+
+        $$\frac{d\theta}{dl} = \frac{T}{GI_0}$$
+
+        Donde G es el módulo de la elasticidad transversal (aproximandamente $80[GPa]$ para aceros) e $I_0$ es el momento de inercia polar de la sección, que para una sección circular maciza vale $I_0 = \frac{\pi d^4}{32}$.
+
+        La tensión tangencial producida por el momento torsor varía linealmente desde cero en el centro hasta el máximo en la periferia:
+
+        $$\tau_{max} = \frac{T}{I_0}\frac{d}{2} = \frac{T}{\frac{\pi d^4}{32}}\frac{d}{2}$$
+
+        Esta distribución de tensiones explica por qué el coeficiente de aprovechamiento de la torsión pura con sección circular es $\eta_A = 0.5$: solo la mitad del material está trabajando eficientemente, ya que las fibras cercanas al centro están poco solicitadas.
+
+        \subsubsection{El resorte helicoidal de tracción-compresión}
+
+        En los resortes helicoidales de tracción-compresión, aunque su nombre indica ``tracción-compresión'' refiriéndose a la carga externa que se le aplica (una fuerza axial), internamente el alambre trabaja principalmente a torsión.
+
+        \paragraph{¿Por qué trabaja a torisión si la carga es axial?}
+
+        Imagina una espira del resorte vista desde arriba: es esencialmente un círculo de diámetro $D$. Cuando aplicas una fuerza axial $F$ en el eje del resorte, cada punto del alambre está a una distancia $D/2$ del eje de aplicación de la fuerza. Por tanto, en cada sección del alambre aparece un momento torsor:
+
+        $$T = F \frac{D}{2}$$
+
+        Es como si cada sección del alambre fuera un pequeño brazo de palanca de longitud $D/2$ sobre el que actúa la fuerza $F$. Este momento torsor es constante a lo largo de todo el alambre porque el brazo de palanca es siempre el mismo.
+
+        Además del momento torsor, cada sección también soporta una pequeña fuerza cortante directa igual a $F$, pero su contribución a la tensión total es mucho menor y generalmente se desprecia en primera aproximación. También existe un pequeño momento flector debido al ángulo de la hélice, pero como este ángulo suele ser pequeño (hélices bastante ``planas''), este efecto también se considera secundario.
+
+        \paragraph{Distribución de tensiones en la sección del alambre}
+
+        La tensión tangencial en el alambre tiene dos contribuciones. La primera y dominante es la debida al momento torsor, que produce una distribución triangular desde cero en el centro hasta el máximo en la periferia. La segunda es la debida al cortante directo $F/S$, que produce una distribución aproximadamente uniforme en toda la sección.
+
+        Sumando ambas contribuciones, la tensión máxima aparece en la fibra interior de la espira (la más cercana al eje del resorte) y vale aproximadamente:
+
+        $$\tau = \frac{F\frac{D}{2}}{I_0}\frac{d}{2} + \frac{F}{S} = \frac{F\frac{D}{2}}{\frac{\pi d^4}{32}}\frac{d}{2} + \frac{F}{\frac{\pi d^2}{4}}$$
+
+        Como el segundo término suele ser pequeño comparado con el primero, se aproxima frecuentemente a:
+
+        $$\tau \approx \frac{F\frac{D}{2}}{I_0}\frac{d}{2}$$
+
+        \paragraph{Corrección por el fleje curvo: el factor k}
+
+        La fórmula anterior asume que el alambre es recto, pero en realidad está curvado formando la hélice. Esta curvatura produce una concentración de tensiones en la fibra interior que debe corregirse mediante un factor $k$ que depende de la relación entre el diámetro medio de la hélice y el diámetro del alambre:
+
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{c c c c c c c c c c c c}
+                $\frac{D}{d}$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 12 & 15\\
+                \hline
+                k & 2.05 & 1.55 & 1.38 & 1.29 & 1.23 & 1.20 & 1.17 & 1.15 & 1.13 & 1.11 & 1.09\\
+            \end{tabular}
+        \end{table}
+
+        La tensión real corregida es:
+
+        $$\tau = k\left(\frac{F\frac{D}{2}}{I_0}y_{max} + \frac{F}{S}\right) \approx k \frac{F\frac{D}{2}}{I_0}y_{max}$$
+
+        En nuestro caso particular de alambre de sección circular maciza, tenemos:
+
+        $$\tau \approx k \frac{F \frac{D}{2}}{\frac{\pi d^4}{32}}\frac{d}{2}$$
+
+        Observa que cuando la relación $D/d$ es pequeña (alambre grueso respecto al diámetro de la hélice), el factor $k$ es muy alto porque la curvatura es muy pronunciada. A medida que aumenta $D/d$ (alambre fino respecto al diámetro), el factor tiende a 1 porque el alambre se comporta casi como si fuera recto.
+
+        \paragraph{Dimensionamiento del resorte helicoidal}
+
+        El dimensionamiento sigue la secuencia estándar de resistencia primero, elasticidad después.
+
+        \begin{enumerate}
+            \item \textbf{Criterio de resistencia: cálculo del diámetro del alambre.}
+            \\
+            Partiendo de la ecuación de la tensión tangencial e igualándola a la tensión admisible:
+
+            $$\tau_{adm} = k\frac{F\frac{D}{2}}{\frac{\pi d^4}{32}}\frac{d}{2}$$
+
+            Despejando el diámetro:
+
+            $$d = \sqrt[3]{\frac{8FDk}{\pi\tau_{adm}}}$$
+
+            En la práctica, como $D$ y $d$ están relacionados a través del factor $k$, el proceso suele ser iterativo: asumes un valor de $D/d$, calculas $d$, verificas si el $D/d$ resultante coincide con el asumido, y ajustas si es necesario.
+            \item \textbf{Criterio de elasticidad: cálculo del número de espiras.}
+            \\
+            Una vez conocido el diámetro del alambre, necesitas determinar cuántas espiras hacen falta para conseguir la rigidez deseada. Cada sección del alambre gira un ángulo $d\theta$ bajo el momento torsor, y este giro se traduce en un desplazamiento axial del resorte.
+
+            Integrando a lo largo de toda la longitud del alambre, la flecha total resulta:
+
+            $$f = \frac{Fn_{F}\pi D^3}{4GI_0}$$
+
+            De donde el número de espiras elásticas $n_F$ será:
+
+            $$n_F = \frac{fGdk}{D^2\pi \tau_{adm}}$$
+
+            El número total de espiras será $n_T = n_F + 2$, para añadir espiras de montaje y asiento.
+            \item \textbf{Restricciones geométricas: longitud del resorte.}
+            \\
+            La longitud libre del resorte (sin carga) debe calcularse considerando varios factores:
+
+            $$L_0 = n_td + (0.1..0.3)dn_F + f + \text{altura de ganchos}$$
+
+            El primer término $n_Td$ es la longitud de bloque, es decir, la longitud mínima cuando todas las espiras están tocándose. El segundo término es la separación mínima entre espiras para evitar que rocen durante el funcionamiento. El tercer término $f$ es la carrera o flecha máxima. El último término añade la longitud de los ganchos si es un resorte de tracción.
+
+            \item \textbf{Selección del material y tensiones admisibles.}
+            \\
+            Para resortes conformados en frío (los más comunes en tamaños pequeños y medianos), la tensión admisible disminuye al aumentar el diámetro del alambre. Esto se debe a que los alambres finos han sido más trabajados en frío durante el trefilado y tienen mayor resistencia. Los tipos de alambre incluyen:
+
+            \begin{itemize}
+                \item Alambre de resorte estirado clase A 
+                \item Clase B 
+                \item Clase C 
+                \item Clase II 
+                \item Alambre de resortes bonificado 
+                \item Alambre de resortes de válvula bonificado 
+                \item Alambre de resortes de acero inoxidable 
+            \end{itemize}
+
+            Un detalle importante: para resortes de tracción, la tensión admisible es un 10\% menor que para resortes de compresión con el mismo material. Esto se debe a que los ganchos de los resortes de tracción son concentradores de tensiones y puntos débiles potenciales.
+
+            \item \textbf{Verificación a fatiga.}
+            \\
+            Cuando el resorte está sometido a cargas cíclicas, como el resorte de una válvula de motor que se comprime y expande miles de veces por minuto, el dimensionamiento debe incluir una verificación a fatiga.
+
+            \item \textbf{Comprobación por pandeo.}
+            \\
+            Los resortes helicoidales de compresión esbeltos pueden pandear lateralmente bajo carga, igual que una columna esbelta. Disponemos de gráficos que relaciona la carrera máxima sin pandeo con la relación entre la longitud libre y el diámetro medio del resorte.
+
+            Se distinguen dos casos: hélice guiada (cuando el resorte trabaja dentro de un cilindro o sobre un vástago que impide el desplazamiento lateral) y hélice no guiada (resorte libre). Como es lógico, la hélice guiada admite carreras mucho mayores sin riesgo de pandeo.
+
+            Si el diseño cae en la zona de pandeo, tienes varias opciones: guiar el resorte, dividirlo en varios resortes más cortos en serie, o rediseñar las proporciones para hacerlo más rechoncho.
+        \end{enumerate}
+
+        \subsection{Diseño resorte helicoidal de tracción-compresión}
+
+        Se pide dimensionar un resorte helicoidal de tracción-compresión con las siguientes caracteristicas:
+
+        \begin{itemize}
+            \item Acero de resortes clase C
+            \item D máximo: $60[mm]$
+            \item Fuerza para válvula cerrada: 1300N
+            \item Levantamiento: $14[mm]$
+            \item $\tau_H(danamica) = 240[MPa] \quad \tau_0(maximo)\approx600[MPa]$ 
+        \end{itemize}
+
+        \vspace{0.5cm}
+        \hrule
+        \vspace{0.5cm}
+
+
         \section{Mecanismos Neumáticos}
 
         En los mecanimos neumáticos el mvoimiento y la transmisión de ferzas se consiguen a través de un elemento fluido gaseoso, como el aire. 
@@ -1482,7 +1909,7 @@
 
         \paragraph{Control de un cilindro de doble efecto con retorno automático}
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.75\textwidth]{imagenes/2.1.png}
             \caption{Circuito Neumático: Control de un cilindro de doble efecto con retorno automático}
@@ -1492,7 +1919,7 @@
 
         El primer elemento en el que ponemos el foco, es el elemento generador. 
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.5\textwidth]{imagenes/EG.png}
             \caption{Símbolo Elemento generador}
@@ -1508,7 +1935,7 @@
 
         A continuación analizamos el comportamiento de los elementos distribuidores.
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.5\textwidth]{imagenes/Pulsador.png}
             \caption{Válvula 3/2 monoestable (pulsador)}
@@ -1516,7 +1943,7 @@
 
         El pulsador conecta, mientras se mantenga pulsado, el elemento generador con la vávula 4/2 biestable doblemente pilotada. Al ser monoestable, indicado con el muelle en el simbolo, una vez se deja de pulsar se desconecta el elemento generador de la válvula 4/2 biestable, al ser esta biestable mantiene la posición a la espera de otra interacción.
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.5\textwidth]{imagenes/V32FC.png}
             \caption{Válvula 3/2 monoestable con fin de carrera}
@@ -1524,7 +1951,7 @@
 
         La vávula 3/2 monoestable con fin de carrera actua de forma analoga al pulsador. Sin embargo, el elemento que lo activa es el fin de carrera pulsado una vez se cruza cierto limite, marcado en la figura con la linea 1.3, por el vastago del cilindro de émbolo de doble efecto. Al activarse el fin de carrera, se conecta el elemento generador con la válvula 4/2 biestable alterando su estado.
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.5\textwidth]{imagenes/V4_2B.png}
             \caption{Válvula 4/2 biestable doblemente pilotada}
@@ -1538,19 +1965,19 @@
 
         A continuación representamos las conexiones en los hipoteticos estados del sistema: sin pulsar, pulsado y émbolo limite.
         
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.75\textwidth]{imagenes/NP.png}
             \caption{Conexiones: sin pulsar}
         \end{figure}
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.75\textwidth]{imagenes/P.png}
             \caption{Conexiones: pulsado}
         \end{figure}
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=.75\textwidth]{imagenes/EL.png}
             \caption{Conexiones: émbolo limite}
@@ -1615,9 +2042,4 @@
         \end{figure}
 
         El funcionamiento consiste en que una vez entra potencia a la valvula de retención se va llenando el deposito hasta que alcanza la potencia necesaria para desplazar el biestable al nuevo estado. En cosencuencia debemos interpretar el temporizador como un retardo.
-
-    \chapter{Transmisiones Flexibles}
-        \section{Correas}
-        \section{Cadenas}
-        \section{Cables}
 \end{document}
