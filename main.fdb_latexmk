@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1767892275 "c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex" "main.pdf" "main" 1767892290 0
-  "c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex" 1767892260 104983 3097bbf1b419cc4b2f2fdfec6519c9e8 ""
+["pdflatex"] 1767892968 "c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex" "main.pdf" "main" 1767892986 2
+  "c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex" 1767892943 214067 51de7dd01f607260a43bd62b1ffdb809 ""
   "c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1675932549 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1675933936 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1675933322 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -110,9 +110,9 @@
   "imagenes/Temporizador.png" 1767713628 107744 6f8bf7d1bda86b9b09be37a9beddebc1 ""
   "imagenes/V32FC.png" 1767713628 47251 9cf22bc08b454fb70b5c5d6674dfb076 ""
   "imagenes/V4_2B.png" 1767713628 56807 ced509aabc7dd0ebf4aa3f0ecd7a7d1a ""
-  "main.aux" 1767892289 15734 2d4669209d3ad061d96f8cf8cc7edff0 "pdflatex"
-  "main.tex" 1767892260 104983 3097bbf1b419cc4b2f2fdfec6519c9e8 ""
-  "main.toc" 1767892289 8124 67086defdb6e97b1958dc363fe58bc5f "pdflatex"
+  "main.aux" 1767892985 30809 9a106e9f74d88b85e68d4f7738d58da4 "pdflatex"
+  "main.tex" 1767892943 214067 51de7dd01f607260a43bd62b1ffdb809 ""
+  "main.toc" 1767892985 15979 8d164012845265a9e5639886f86df0c5 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

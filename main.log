@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.9)  8 JAN 2026 18:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.9)  8 JAN 2026 18:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,7 +6,31 @@ entering extended mode
 **c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex
 (c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-02-07> (c:/texlive/2022/texmf-dist/tex/latex/base/report.cls
+L3 programming layer <2023-02-07>
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:1: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 <
+     <<<<<< HEAD
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no < in font nullfont!
+Missing character: There is no H in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no D in font nullfont!
+(c:/texlive/2022/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
 (c:/texlive/2022/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
@@ -18,12 +42,17 @@ File: size11.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 \c@subsubsection=\count189
 \c@paragraph=\count190
 \c@subparagraph=\count191
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--293
+[]
+ []
+
 \c@figure=\count192
 \c@table=\count193
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-) (c:/texlive/2022/texmf-dist/tex/generic/babel/babel.sty
+[1{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (c:/texlive/2022/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2022/01/23 3.85 The Babel package
 \babel@savecnt=\count194
 \U@D=\dimen141
@@ -304,29 +333,26 @@ Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count299
 \l__pdf_internal_box=\box107
-) (./main.aux
-LaTeX Info: Redefining \. on input line 8.
-LaTeX Info: Redefining \% on input line 8.
 )
+No file main.aux.
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -380,11 +406,11 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (c:/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
  (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
  (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -393,211 +419,516 @@ LaTeX Warning: No \author given.
 
 [1
 
-{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [2
-
-])
+]
+No file main.toc.
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [3]
-Cap\'{\i }tulo 1.
-[4
+[2
 
-] [5] [6] [7] [8] [9] [10]
+]
+Cap\'{\i }tulo 1.
+[3
+
+] [4] [5] [6] [7] [8] [9]
 <imagenes/1.1.png, id=51, 622.325pt x 474.77374pt>
 File: imagenes/1.1.png Graphic file (type png)
 <use imagenes/1.1.png>
-Package pdftex.def Info: imagenes/1.1.png  used on input line 559.
+Package pdftex.def Info: imagenes/1.1.png  used on input line 560.
 (pdftex.def)             Requested size: 227.62206pt x 173.64957pt.
- [11 <./imagenes/1.1.png>] [12] [13] [14]
+ [10 <./imagenes/1.1.png>] [11] [12] [13]
 <imagenes/1.2.png, id=67, 540.0175pt x 508.90125pt>
 File: imagenes/1.2.png Graphic file (type png)
 <use imagenes/1.2.png>
-Package pdftex.def Info: imagenes/1.2.png  used on input line 907.
+Package pdftex.def Info: imagenes/1.2.png  used on input line 908.
 (pdftex.def)             Requested size: 227.62206pt x 214.50581pt.
- [15] [16 <./imagenes/1.2.png>] [17]
-Overfull \hbox (6.70035pt too wide) in paragraph at lines 1001--1012
+ [14] [15 <./imagenes/1.2.png>] [16]
+Overfull \hbox (6.70035pt too wide) in paragraph at lines 1002--1013
  [][] 
  []
 
 <imagenes/1.3.png, id=79, 966.61125pt x 532.99126pt>
 File: imagenes/1.3.png Graphic file (type png)
 <use imagenes/1.3.png>
-Package pdftex.def Info: imagenes/1.3.png  used on input line 1019.
+Package pdftex.def Info: imagenes/1.3.png  used on input line 1020.
 (pdftex.def)             Requested size: 341.43307pt x 188.26575pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18] [19 <./imagenes/1.3.png>]
+[17] [18 <./imagenes/1.3.png>]
 <imagenes/1.5.png, id=88, 468.75125pt x 292.09125pt>
 File: imagenes/1.5.png Graphic file (type png)
 <use imagenes/1.5.png>
-Package pdftex.def Info: imagenes/1.5.png  used on input line 1092.
+Package pdftex.def Info: imagenes/1.5.png  used on input line 1093.
 (pdftex.def)             Requested size: 341.43307pt x 212.75238pt.
- [20 <./imagenes/1.5.png>]
+ [19 <./imagenes/1.5.png>]
 <imagenes/1.6.png, id=93, 670.505pt x 727.71875pt>
 File: imagenes/1.6.png Graphic file (type png)
 <use imagenes/1.6.png>
-Package pdftex.def Info: imagenes/1.6.png  used on input line 1166.
+Package pdftex.def Info: imagenes/1.6.png  used on input line 1167.
 (pdftex.def)             Requested size: 341.43307pt x 370.56534pt.
- [21] [22 <./imagenes/1.6.png>] [23]
+ [20] [21 <./imagenes/1.6.png>] [22]
 <imagenes/1.7.png, id=104, 940.51375pt x 607.26875pt>
 File: imagenes/1.7.png Graphic file (type png)
 <use imagenes/1.7.png>
-Package pdftex.def Info: imagenes/1.7.png  used on input line 1266.
+Package pdftex.def Info: imagenes/1.7.png  used on input line 1267.
 (pdftex.def)             Requested size: 341.43307pt x 220.45128pt.
- [24 <./imagenes/1.7.png>] [25]
+ [23 <./imagenes/1.7.png>] [24]
 <imagenes/1.8.png, id=113, 1046.91125pt x 447.6725pt>
 File: imagenes/1.8.png Graphic file (type png)
 <use imagenes/1.8.png>
-Package pdftex.def Info: imagenes/1.8.png  used on input line 1343.
+Package pdftex.def Info: imagenes/1.8.png  used on input line 1344.
 (pdftex.def)             Requested size: 341.43307pt x 145.99731pt.
- [26 <./imagenes/1.8.png>]
+ [25 <./imagenes/1.8.png>]
 <imagenes/1.4.png, id=118, 1141.26375pt x 593.21625pt>
 File: imagenes/1.4.png Graphic file (type png)
 <use imagenes/1.4.png>
-Package pdftex.def Info: imagenes/1.4.png  used on input line 1404.
+Package pdftex.def Info: imagenes/1.4.png  used on input line 1405.
 (pdftex.def)             Requested size: 341.43307pt x 177.4684pt.
- [27 <./imagenes/1.4.png>] [28]
+ [26 <./imagenes/1.4.png>] [27]
 Cap\'{\i }tulo 2.
-[29
+[28
 
 ]
 <imagenes/MatrizDeClasificación.png, id=129, 865.2325pt x 523.9575pt>
 File: imagenes/MatrizDeClasificación.png Graphic file (type png)
 <use imagenes/MatrizDeClasificación.png>
-Package pdftex.def Info: imagenes/MatrizDeClasificación.png  used on input line 1498.
+Package pdftex.def Info: imagenes/MatrizDeClasificación.png  used on input line 1499.
 (pdftex.def)             Requested size: 227.62206pt x 137.84071pt.
- [30 <./imagenes/MatrizDeClasificación.png>] [31] [32] [33] [34] [35] [36] [37]
-Overfull \hbox (11.53178pt too wide) in paragraph at lines 1767--1768
+ [29 <./imagenes/MatrizDeClasificación.png>] [30] [31] [32] [33] [34] [35] [36]
+Overfull \hbox (11.53178pt too wide) in paragraph at lines 1768--1769
 []\OT1/cmr/m/n/10.95 En los re-sor-tes he-li-coi-da-les de trac-ci^^Son-compresi^^Son, aun-que su nom-bre in-di-ca ``trac-ci^^Son-compresi^^Son''
  []
 
-[38] [39] [40] [41] [42] [43] [44] [45]
+[37] [38] [39] [40] [41] [42] [43] [44]
 <imagenes/2.1.png, id=182, 829.0975pt x 638.385pt>
 File: imagenes/2.1.png Graphic file (type png)
 <use imagenes/2.1.png>
-Package pdftex.def Info: imagenes/2.1.png  used on input line 2174.
+Package pdftex.def Info: imagenes/2.1.png  used on input line 2175.
 (pdftex.def)             Requested size: 341.43307pt x 262.88896pt.
 
 Underfull \vbox (badness 6332) has occurred while \output is active []
 
- [46]
+ [45]
 <imagenes/EG.png, id=186, 246.9225pt x 123.46124pt>
 File: imagenes/EG.png Graphic file (type png)
 <use imagenes/EG.png>
-Package pdftex.def Info: imagenes/EG.png  used on input line 2184.
+Package pdftex.def Info: imagenes/EG.png  used on input line 2185.
 (pdftex.def)             Requested size: 227.62206pt x 113.80988pt.
 <imagenes/Pulsador.png, id=187, 517.935pt x 204.765pt>
 File: imagenes/Pulsador.png Graphic file (type png)
 <use imagenes/Pulsador.png>
-Package pdftex.def Info: imagenes/Pulsador.png  used on input line 2200.
+Package pdftex.def Info: imagenes/Pulsador.png  used on input line 2201.
 (pdftex.def)             Requested size: 227.62206pt x 89.99063pt.
- [47 <./imagenes/2.1.png> <./imagenes/EG.png>]
+ [46 <./imagenes/2.1.png> <./imagenes/EG.png>]
 <imagenes/V32FC.png, id=193, 466.74374pt x 179.67125pt>
 File: imagenes/V32FC.png Graphic file (type png)
 <use imagenes/V32FC.png>
-Package pdftex.def Info: imagenes/V32FC.png  used on input line 2208.
+Package pdftex.def Info: imagenes/V32FC.png  used on input line 2209.
 (pdftex.def)             Requested size: 227.62206pt x 87.62296pt.
 <imagenes/V4_2B.png, id=194, 448.67625pt x 189.70876pt>
 File: imagenes/V4_2B.png Graphic file (type png)
 <use imagenes/V4_2B.png>
-Package pdftex.def Info: imagenes/V4_2B.png  used on input line 2216.
+Package pdftex.def Info: imagenes/V4_2B.png  used on input line 2217.
 (pdftex.def)             Requested size: 227.62206pt x 96.2407pt.
 <imagenes/NP.png, id=195, 1178.4025pt x 853.1875pt>
 File: imagenes/NP.png Graphic file (type png)
 <use imagenes/NP.png>
-Package pdftex.def Info: imagenes/NP.png  used on input line 2230.
+Package pdftex.def Info: imagenes/NP.png  used on input line 2231.
 (pdftex.def)             Requested size: 341.43307pt x 247.19672pt.
 
 Underfull \vbox (badness 8038) has occurred while \output is active []
 
- [48 <./imagenes/Pulsador.png> <./imagenes/V32FC.png> <./imagenes/V4_2B.png>]
+ [47 <./imagenes/Pulsador.png> <./imagenes/V32FC.png> <./imagenes/V4_2B.png>]
 <imagenes/P.png, id=202, 1237.62375pt x 857.2025pt>
 File: imagenes/P.png Graphic file (type png)
 <use imagenes/P.png>
-Package pdftex.def Info: imagenes/P.png  used on input line 2236.
+Package pdftex.def Info: imagenes/P.png  used on input line 2237.
 (pdftex.def)             Requested size: 341.43307pt x 236.4835pt.
 <imagenes/EL.png, id=203, 1247.66125pt x 888.31876pt>
 File: imagenes/EL.png Graphic file (type png)
 <use imagenes/EL.png>
-Package pdftex.def Info: imagenes/EL.png  used on input line 2242.
+Package pdftex.def Info: imagenes/EL.png  used on input line 2243.
 (pdftex.def)             Requested size: 341.43307pt x 243.08882pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49 <./imagenes/NP.png> <./imagenes/P.png>]
+ [48 <./imagenes/NP.png> <./imagenes/P.png>]
 <imagenes/2.2.png, id=210, 596.2275pt x 644.4075pt>
 File: imagenes/2.2.png Graphic file (type png)
 <use imagenes/2.2.png>
-Package pdftex.def Info: imagenes/2.2.png  used on input line 2252.
+Package pdftex.def Info: imagenes/2.2.png  used on input line 2253.
 (pdftex.def)             Requested size: 227.62206pt x 246.018pt.
 <imagenes/MV_Reposo.png, id=211, 596.2275pt x 644.4075pt>
 File: imagenes/MV_Reposo.png Graphic file (type png)
 <use imagenes/MV_Reposo.png>
-Package pdftex.def Info: imagenes/MV_Reposo.png  used on input line 2260.
+Package pdftex.def Info: imagenes/MV_Reposo.png  used on input line 2261.
 (pdftex.def)             Requested size: 227.62206pt x 246.018pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50 <./imagenes/EL.png> <./imagenes/2.2.png>]
+ [49 <./imagenes/EL.png> <./imagenes/2.2.png>]
 <imagenes/MV_Inicio.png, id=218, 596.2275pt x 644.4075pt>
 File: imagenes/MV_Inicio.png Graphic file (type png)
 <use imagenes/MV_Inicio.png>
-Package pdftex.def Info: imagenes/MV_Inicio.png  used on input line 2266.
+Package pdftex.def Info: imagenes/MV_Inicio.png  used on input line 2267.
 (pdftex.def)             Requested size: 227.62206pt x 246.018pt.
 <imagenes/MV_Avance.png, id=219, 596.2275pt x 644.4075pt>
 File: imagenes/MV_Avance.png Graphic file (type png)
 <use imagenes/MV_Avance.png>
-Package pdftex.def Info: imagenes/MV_Avance.png  used on input line 2272.
+Package pdftex.def Info: imagenes/MV_Avance.png  used on input line 2273.
 (pdftex.def)             Requested size: 227.62206pt x 246.018pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [51 <./imagenes/MV_Reposo.png> <./imagenes/MV_Inicio.png>]
+ [50 <./imagenes/MV_Reposo.png> <./imagenes/MV_Inicio.png>]
 <imagenes/MV_Retroceso.png, id=225, 596.2275pt x 644.4075pt>
 File: imagenes/MV_Retroceso.png Graphic file (type png)
 <use imagenes/MV_Retroceso.png>
-Package pdftex.def Info: imagenes/MV_Retroceso.png  used on input line 2278.
+Package pdftex.def Info: imagenes/MV_Retroceso.png  used on input line 2279.
 (pdftex.def)             Requested size: 227.62206pt x 246.018pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [52 <./imagenes/MV_Avance.png> <./imagenes/MV_Retroceso.png>]
+ [51 <./imagenes/MV_Avance.png> <./imagenes/MV_Retroceso.png>]
 <imagenes/2.3.png, id=231, 596.2275pt x 619.31375pt>
 File: imagenes/2.3.png Graphic file (type png)
 <use imagenes/2.3.png>
-Package pdftex.def Info: imagenes/2.3.png  used on input line 2292.
+Package pdftex.def Info: imagenes/2.3.png  used on input line 2293.
 (pdftex.def)             Requested size: 227.62206pt x 236.43787pt.
 <imagenes/Temporizador.png, id=232, 334.24875pt x 138.5175pt>
 File: imagenes/Temporizador.png Graphic file (type png)
 <use imagenes/Temporizador.png>
-Package pdftex.def Info: imagenes/Temporizador.png  used on input line 2300.
+Package pdftex.def Info: imagenes/Temporizador.png  used on input line 2301.
 (pdftex.def)             Requested size: 227.62206pt x 94.33224pt.
- [53 <./imagenes/2.3.png> <./imagenes/Temporizador.png>]
+ [52 <./imagenes/2.3.png> <./imagenes/Temporizador.png>]
 Cap\'{\i }tulo 3.
-[54
 
-] (./main.aux
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:2316: LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2316 \documentclass
+                     {report}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:2318: LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2318 \usepackage
+                  [spanish]{babel}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:2319: LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2319 \usepackage
+                  {graphicx}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:2320: LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2320 \usepackage
+                  {amsmath}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:2321: LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2321 \usepackage
+                  {amsfonts}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:2322: LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2322 \usepackage
+                  {float}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:2328: LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2328 \begin{document}
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[53
+
+] (./main.toc)
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+ [54
+
+]
+Cap\'{\i }tulo 4.
+[55
+
+] [56] [57] [58] [59] [60] [61] [62]
+File: imagenes/1.1.png Graphic file (type png)
+<use imagenes/1.1.png>
+Package pdftex.def Info: imagenes/1.1.png  used on input line 2684.
+(pdftex.def)             Requested size: 227.62206pt x 173.64957pt.
+ [63] [64] [65] [66] [67]
+File: imagenes/1.2.png Graphic file (type png)
+<use imagenes/1.2.png>
+Package pdftex.def Info: imagenes/1.2.png  used on input line 2963.
+(pdftex.def)             Requested size: 227.62206pt x 214.50581pt.
+ [68] [69] [70]
+Overfull \hbox (6.70035pt too wide) in paragraph at lines 3057--3068
+ [][] 
+ []
+
+File: imagenes/1.3.png Graphic file (type png)
+<use imagenes/1.3.png>
+Package pdftex.def Info: imagenes/1.3.png  used on input line 3075.
+(pdftex.def)             Requested size: 341.43307pt x 188.26575pt.
+[71] [72]
+File: imagenes/1.5.png Graphic file (type png)
+<use imagenes/1.5.png>
+Package pdftex.def Info: imagenes/1.5.png  used on input line 3148.
+(pdftex.def)             Requested size: 341.43307pt x 212.75238pt.
+ [73]
+File: imagenes/1.6.png Graphic file (type png)
+<use imagenes/1.6.png>
+Package pdftex.def Info: imagenes/1.6.png  used on input line 3222.
+(pdftex.def)             Requested size: 341.43307pt x 370.56534pt.
+
+Underfull \vbox (badness 1509) has occurred while \output is active []
+
+ [74] [75] [76]
+File: imagenes/1.7.png Graphic file (type png)
+<use imagenes/1.7.png>
+Package pdftex.def Info: imagenes/1.7.png  used on input line 3322.
+(pdftex.def)             Requested size: 341.43307pt x 220.45128pt.
+ [77] [78]
+File: imagenes/1.8.png Graphic file (type png)
+<use imagenes/1.8.png>
+Package pdftex.def Info: imagenes/1.8.png  used on input line 3399.
+(pdftex.def)             Requested size: 341.43307pt x 145.99731pt.
+ [79]
+File: imagenes/1.4.png Graphic file (type png)
+<use imagenes/1.4.png>
+Package pdftex.def Info: imagenes/1.4.png  used on input line 3460.
+(pdftex.def)             Requested size: 341.43307pt x 177.4684pt.
+ [80] [81]
+Cap\'{\i }tulo 5.
+[82
+
+]
+File: imagenes/MatrizDeClasificación.png Graphic file (type png)
+<use imagenes/MatrizDeClasificación.png>
+Package pdftex.def Info: imagenes/MatrizDeClasificación.png  used on input line 3553.
+(pdftex.def)             Requested size: 227.62206pt x 137.84071pt.
+ [83] [84] [85] [86] [87] [88] [89] [90]
+Overfull \hbox (11.53178pt too wide) in paragraph at lines 3822--3823
+[]\OT1/cmr/m/n/10.95 En los re-sor-tes he-li-coi-da-les de trac-ci^^Son-compresi^^Son, aun-que su nom-bre in-di-ca ``trac-ci^^Son-compresi^^Son''
+ []
+
+[91] [92] [93] [94] [95] [96] [97] [98]
+File: imagenes/2.1.png Graphic file (type png)
+<use imagenes/2.1.png>
+Package pdftex.def Info: imagenes/2.1.png  used on input line 4229.
+(pdftex.def)             Requested size: 341.43307pt x 262.88896pt.
+
+Underfull \vbox (badness 6332) has occurred while \output is active []
+
+ [99]
+File: imagenes/EG.png Graphic file (type png)
+<use imagenes/EG.png>
+Package pdftex.def Info: imagenes/EG.png  used on input line 4239.
+(pdftex.def)             Requested size: 227.62206pt x 113.80988pt.
+File: imagenes/Pulsador.png Graphic file (type png)
+<use imagenes/Pulsador.png>
+Package pdftex.def Info: imagenes/Pulsador.png  used on input line 4255.
+(pdftex.def)             Requested size: 227.62206pt x 89.99063pt.
+ [100]
+File: imagenes/V32FC.png Graphic file (type png)
+<use imagenes/V32FC.png>
+Package pdftex.def Info: imagenes/V32FC.png  used on input line 4263.
+(pdftex.def)             Requested size: 227.62206pt x 87.62296pt.
+File: imagenes/V4_2B.png Graphic file (type png)
+<use imagenes/V4_2B.png>
+Package pdftex.def Info: imagenes/V4_2B.png  used on input line 4271.
+(pdftex.def)             Requested size: 227.62206pt x 96.2407pt.
+File: imagenes/NP.png Graphic file (type png)
+<use imagenes/NP.png>
+Package pdftex.def Info: imagenes/NP.png  used on input line 4285.
+(pdftex.def)             Requested size: 341.43307pt x 247.19672pt.
+
+Underfull \vbox (badness 8038) has occurred while \output is active []
+
+ [101]
+File: imagenes/P.png Graphic file (type png)
+<use imagenes/P.png>
+Package pdftex.def Info: imagenes/P.png  used on input line 4291.
+(pdftex.def)             Requested size: 341.43307pt x 236.4835pt.
+File: imagenes/EL.png Graphic file (type png)
+<use imagenes/EL.png>
+Package pdftex.def Info: imagenes/EL.png  used on input line 4297.
+(pdftex.def)             Requested size: 341.43307pt x 243.08882pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [102]
+File: imagenes/2.2.png Graphic file (type png)
+<use imagenes/2.2.png>
+Package pdftex.def Info: imagenes/2.2.png  used on input line 4307.
+(pdftex.def)             Requested size: 227.62206pt x 246.018pt.
+File: imagenes/MV_Reposo.png Graphic file (type png)
+<use imagenes/MV_Reposo.png>
+Package pdftex.def Info: imagenes/MV_Reposo.png  used on input line 4315.
+(pdftex.def)             Requested size: 227.62206pt x 246.018pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [103]
+File: imagenes/MV_Inicio.png Graphic file (type png)
+<use imagenes/MV_Inicio.png>
+Package pdftex.def Info: imagenes/MV_Inicio.png  used on input line 4321.
+(pdftex.def)             Requested size: 227.62206pt x 246.018pt.
+File: imagenes/MV_Avance.png Graphic file (type png)
+<use imagenes/MV_Avance.png>
+Package pdftex.def Info: imagenes/MV_Avance.png  used on input line 4327.
+(pdftex.def)             Requested size: 227.62206pt x 246.018pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [104]
+File: imagenes/MV_Retroceso.png Graphic file (type png)
+<use imagenes/MV_Retroceso.png>
+Package pdftex.def Info: imagenes/MV_Retroceso.png  used on input line 4333.
+(pdftex.def)             Requested size: 227.62206pt x 246.018pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [105]
+File: imagenes/2.3.png Graphic file (type png)
+<use imagenes/2.3.png>
+Package pdftex.def Info: imagenes/2.3.png  used on input line 4347.
+(pdftex.def)             Requested size: 227.62206pt x 236.43787pt.
+File: imagenes/Temporizador.png Graphic file (type png)
+<use imagenes/Temporizador.png>
+Package pdftex.def Info: imagenes/Temporizador.png  used on input line 4355.
+(pdftex.def)             Requested size: 227.62206pt x 94.33224pt.
+
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:4360: LaTeX Error: \begin{document} on input line 2328 ended by \end{quoting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4360 >>
+         >>>>> 4da7a000c5754a4f9b280f60c978b3bff9b37b69
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:4360: LaTeX Error: \begin{document} ended by \end{quoting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4360 >>>>
+           >>> 4da7a000c5754a4f9b280f60c978b3bff9b37b69
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:4360: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.4360 >>>>
+           >>> 4da7a000c5754a4f9b280f60c978b3bff9b37b69
+Things are pretty mixed up, but I think the worst is over.
+
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:4360: LaTeX Error: \begin{document} ended by \end{quoting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4360 >>>>>>
+             > 4da7a000c5754a4f9b280f60c978b3bff9b37b69
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/crfha/GitHub/Notas-Calculo-de-Maquinas/main.tex:4360: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.4360 >>>>>>
+             > 4da7a000c5754a4f9b280f60c978b3bff9b37b69
+Things are pretty mixed up, but I think the worst is over.
+
+
+Overfull \hbox (81.95258pt too wide) in paragraph at lines 4359--4361
+\OT1/cmr/m/n/10.95 co-sen-cuen-cia de-be-mos in-ter-pre-tar el tem-po-ri-za-dor co-mo un re-tar-do. >4da7a000c5754a4f9b280f60c978b3bff9b37b69 
+ []
+
+[106] (./main.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 ) ) 
 Here is how much of TeX's memory you used:
  5359 strings out of 476029
- 84126 string characters out of 5794165
+ 84138 string characters out of 5794165
  1865340 words of memory out of 5000000
- 25710 multiletter control sequences out of 15000+600000
+ 25712 multiletter control sequences out of 15000+600000
  521898 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,12n,62p,722b,420s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,12n,62p,730b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main.pdf (54 pages, 5920272 bytes).
+Output written on main.pdf (107 pages, 6026053 bytes).
 PDF statistics:
- 319 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
+ 489 PDF objects out of 1000 (max. 8388607)
+ 293 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
