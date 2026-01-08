@@ -1,0 +1,119 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Ruedas Dentadas y Trenes de Engranajes}{4}{}%
+\contentsline {section}{\numberline {1.1}Ruedas dentadas}{4}{}%
+\contentsline {subsection}{\numberline {1.1.1}El Perfil Dentado -- Definiciones}{4}{}%
+\contentsline {paragraph}{\textbf {Parámetros básicos}}{4}{}%
+\contentsline {paragraph}{\textbf {Circunferencias características}}{5}{}%
+\contentsline {paragraph}{Fórmulas}{5}{}%
+\contentsline {subsection}{\numberline {1.1.2}Cálculo de Engranajes Montados a Cero}{6}{}%
+\contentsline {subsection}{\numberline {1.1.3}Palancas rodantes y Perfiles Conjugados}{6}{}%
+\contentsline {subsection}{\numberline {1.1.4}Esfuerzos en el contacto diente-diente}{7}{}%
+\contentsline {subsection}{\numberline {1.1.5}Velocidad de deslizamiento en la línea de engrane ($v_d$)}{8}{}%
+\contentsline {subsection}{\numberline {1.1.6}Coeficiente de engrane o grado de recubrimiento}{8}{}%
+\contentsline {subsection}{\numberline {1.1.7}Fabricación de ruedas dentadas}{9}{}%
+\contentsline {subsection}{\numberline {1.1.8}Ejc. Dimensiones de ruedas dentadas}{10}{}%
+\contentsline {subsection}{\numberline {1.1.9}Ejc. Engranajes cilíndrico-rectos}{11}{}%
+\contentsline {paragraph}{\textbf {a)}}{11}{}%
+\contentsline {paragraph}{\textbf {b)}}{11}{}%
+\contentsline {paragraph}{\textbf {c)}}{11}{}%
+\contentsline {paragraph}{\textbf {d)}}{12}{}%
+\contentsline {paragraph}{\textbf {e)}}{12}{}%
+\contentsline {paragraph}{\textbf {f)}}{12}{}%
+\contentsline {subsection}{\numberline {1.1.10}Ejc. Reductora de velocidad}{12}{}%
+\contentsline {paragraph}{a)}{12}{}%
+\contentsline {paragraph}{b)}{12}{}%
+\contentsline {paragraph}{c)}{13}{}%
+\contentsline {paragraph}{d)}{13}{}%
+\contentsline {subsection}{\numberline {1.1.11}Ejc. Engranajes internos}{13}{}%
+\contentsline {paragraph}{a)}{13}{}%
+\contentsline {paragraph}{b)}{13}{}%
+\contentsline {paragraph}{c)}{13}{}%
+\contentsline {subsection}{\numberline {1.1.12}Ejc. Engranajes a distancia de ejes impuesta}{14}{}%
+\contentsline {subsection}{\numberline {1.1.13}Ejc. Montaje de ruedas en V para ajustar la distancia entre ejes.}{14}{}%
+\contentsline {section}{\numberline {1.2}Trenes de Engranajes}{15}{}%
+\contentsline {subsection}{\numberline {1.2.1}Trenes de engranajes ordinarios}{15}{}%
+\contentsline {subsection}{\numberline {1.2.2}Trenes de engranajes planetarios o epicicloidales}{15}{}%
+\contentsline {subsubsection}{Limitaciones en la elección del número de dientes}{17}{}%
+\contentsline {paragraph}{Condición de coaxialidad}{17}{}%
+\contentsline {paragraph}{Condición de montaje}{17}{}%
+\contentsline {subsubsection}{Cáculo aproximado del rendimiento}{17}{}%
+\contentsline {subsection}{\numberline {1.2.3}Engranaje Planetario con Corona}{18}{}%
+\contentsline {paragraph}{\textbf {a)}}{19}{}%
+\contentsline {paragraph}{\textbf {b)}}{19}{}%
+\contentsline {paragraph}{\textbf {c)}}{19}{}%
+\contentsline {paragraph}{\textbf {d)}}{19}{}%
+\contentsline {subsection}{\numberline {1.2.4}Análsis tren planetario con rueda compuesta}{20}{}%
+\contentsline {paragraph}{\textbf {a)}}{21}{}%
+\contentsline {paragraph}{\textbf {b)}}{21}{}%
+\contentsline {paragraph}{\textbf {c)}}{21}{}%
+\contentsline {paragraph}{\textbf {d)}}{21}{}%
+\contentsline {subsection}{\numberline {1.2.5}Análisis de tren de engranajes planetario simple}{22}{}%
+\contentsline {paragraph}{\textbf {a)}}{23}{}%
+\contentsline {paragraph}{\textbf {b)}}{23}{}%
+\contentsline {paragraph}{\textbf {c)}}{23}{}%
+\contentsline {paragraph}{\textbf {d)}}{23}{}%
+\contentsline {paragraph}{\textbf {e)}}{23}{}%
+\contentsline {paragraph}{\textbf {f)}}{24}{}%
+\contentsline {subsection}{\numberline {1.2.6}Tren de engranajes simple con multiples etapas}{24}{}%
+\contentsline {paragraph}{\textbf {a)}}{25}{}%
+\contentsline {paragraph}{b)}{25}{}%
+\contentsline {paragraph}{\textbf {c)}}{25}{}%
+\contentsline {paragraph}{\textbf {d}}{26}{}%
+\contentsline {subsection}{\numberline {1.2.7}Análisis Tren de engranajes compuesto}{26}{}%
+\contentsline {paragraph}{\textbf {a)}}{26}{}%
+\contentsline {subparagraph}{Tren de engranjes planetario simple}{26}{}%
+\contentsline {subparagraph}{Tren de engranajes planetario diferencial}{27}{}%
+\contentsline {subsection}{\numberline {1.2.8}Polipasto accionado por correas}{27}{}%
+\contentsline {paragraph}{\textbf {a)}}{28}{}%
+\contentsline {paragraph}{\textbf {b)}}{28}{}%
+\contentsline {paragraph}{\textbf {c)}}{28}{}%
+\contentsline {paragraph}{\textbf {d)}}{28}{}%
+\contentsline {chapter}{\numberline {2}Resortes y Mecanismos Neumáticos}{29}{}%
+\contentsline {section}{\numberline {2.1}Resortes}{29}{}%
+\contentsline {subsection}{\numberline {2.1.1}Análisis topológico}{29}{}%
+\contentsline {subsubsection}{La aparente paradoja del resorte helicoidal}{29}{}%
+\contentsline {subsubsection}{Aplicaciones funcionales}{30}{}%
+\contentsline {subsection}{\numberline {2.1.2}Caracerísticas fundamentales de los resortes}{31}{}%
+\contentsline {subsubsection}{La curva esfuerzo-deflexión y el concepto de rigidez}{31}{}%
+\contentsline {subsubsection}{La energía almacenada}{31}{}%
+\contentsline {subsubsection}{La secuencia básica de diseño}{32}{}%
+\contentsline {subsubsection}{La utilización del material}{32}{}%
+\contentsline {subsubsection}{Los factores de aprovechamiento comparativos}{33}{}%
+\contentsline {subsubsection}{Tensión admisible}{33}{}%
+\contentsline {subsection}{\numberline {2.1.3}Resortes basados en la flexión}{33}{}%
+\contentsline {subsubsection}{Principios básicos de la flexión}{34}{}%
+\contentsline {subsubsection}{Resortes de torsión helicoidales (caso particular: sección circular)}{35}{}%
+\contentsline {subsubsection}{Resortes de flexión rectos (Ballesta)}{35}{}%
+\contentsline {paragraph}{Alternativa 1: Sección constante}{36}{}%
+\contentsline {paragraph}{Alternativa 2: Anchura variable (h constante)}{36}{}%
+\contentsline {paragraph}{Alternativa 3: Espesor variable (b constante)}{36}{}%
+\contentsline {paragraph}{Las ballestas de hojas superpuestas}{36}{}%
+\contentsline {subsubsection}{Resortes espirales de torsión}{37}{}%
+\contentsline {paragraph}{Cálculo aproximado del diámetro de la carcasa}{37}{}%
+\contentsline {subsection}{\numberline {2.1.4}Resortes basados en la torsión}{38}{}%
+\contentsline {paragraph}{Principios básicos de la torsión}{38}{}%
+\contentsline {subsubsection}{El resorte helicoidal de tracción-compresión}{38}{}%
+\contentsline {paragraph}{¿Por qué trabaja a torisión si la carga es axial?}{38}{}%
+\contentsline {paragraph}{Distribución de tensiones en la sección del alambre}{39}{}%
+\contentsline {paragraph}{Corrección por el fleje curvo: el factor k}{39}{}%
+\contentsline {paragraph}{Dimensionamiento del resorte helicoidal}{39}{}%
+\contentsline {subsection}{\numberline {2.1.5}Diseño resorte helicoidal de tracción-compresión}{41}{}%
+\contentsline {section}{\numberline {2.2}Mecanismos Neumáticos}{41}{}%
+\contentsline {subsection}{\numberline {2.2.1}Análisis topológico}{42}{}%
+\contentsline {subsubsection}{Elementos Generadores}{42}{}%
+\contentsline {subsubsection}{Elementos Receptores}{42}{}%
+\contentsline {subsubsection}{Elementos De Regulación}{43}{}%
+\contentsline {subsubsection}{Elementos De Distribución}{43}{}%
+\contentsline {subsubsection}{Elementos de captación}{45}{}%
+\contentsline {subsection}{\numberline {2.2.2}Análisis cinemático y dinámico}{45}{}%
+\contentsline {subsection}{\numberline {2.2.3}Análisis constructivo y de funcionamiento}{45}{}%
+\contentsline {subsubsection}{Análisis de circuitos neumáticos}{46}{}%
+\contentsline {paragraph}{Control de un cilindro de doble efecto con retorno automático}{47}{}%
+\contentsline {subparagraph}{Análisis del comportamiento}{48}{}%
+\contentsline {paragraph}{Movimiento de vaivén}{50}{}%
+\contentsline {subparagraph}{Análisis del comportamiento}{50}{}%
+\contentsline {paragraph}{Movimiento de vaivén temporizado}{53}{}%
+\contentsline {chapter}{\numberline {3}Transmisiones Flexibles}{54}{}%
+\contentsline {section}{\numberline {3.1}Correas}{54}{}%
+\contentsline {section}{\numberline {3.2}Cadenas}{54}{}%
+\contentsline {section}{\numberline {3.3}Cables}{54}{}%

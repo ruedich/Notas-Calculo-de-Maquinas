@@ -1,0 +1,24 @@
+INFO:  latexindent.exe version 3.20.2, 2023-02-04, a script to indent .tex files
+       latexindent.exe lives here: C:/texlive/2022/bin/win32/
+       Tue Jan  6 16:38:40 2026
+       Filename: c:\Users\crfha\GitHub\Notas-Calculo-de-Maquinas\main.tex
+INFO:  Processing switches:
+INFO:  Directory for backup files and indent.log:
+       c:\Users\crfha\GitHub\Notas-Calculo-de-Maquinas
+INFO:  YAML settings read: defaultSettings.yaml
+       Reading defaultSettings.yaml from C:/texlive/2022/bin/win32/defaultSettings.yaml
+       Reading defaultSettings.yaml (2nd attempt) from C:/texlive/2022/bin/win32/../../texmf-dist/scripts/latexindent/defaultSettings.yaml
+       and then, if necessary, C:/texlive/2022/bin/win32/LatexIndent/defaultSettings.yaml
+INFO:  YAML reading settings
+       Home directory is C:\Users\crfha
+       latexindent.pl didn't find indentconfig.yaml or .indentconfig.yaml
+       see all possible locations: https://latexindentpl.readthedocs.io/en/latest/sec-appendices.html#indentconfig-options)
+INFO:  Phase 1: searching for objects
+INFO:  Phase 2: finding surrounding indentation
+INFO:  Phase 3: indenting objects
+INFO:  Phase 4: final indentation check
+INFO:  Output routine:
+       Not outputting to file; see -w and -o switches for more options.
+       --------------
+INFO:  Please direct all communication/issues to:
+        https://github.com/cmhughes/latexindent.pl

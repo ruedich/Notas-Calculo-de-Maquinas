@@ -1,1623 +1,2314 @@
-\documentclass{report}
+% \documentclass{report}
+% \documentclass[a4paper, 11pt, spanish, twoside]{article}
+\documentclass[a4paper, 11pt, spanish, twoside]{report}
 
 \usepackage[spanish]{babel}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{float}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{multicol}
+\setlength{\parindent}{0pt} % Se elimina la sangría en comienzo de párrafo (0pt).
+\setlength{\parskip}{0.5em} % Se define el espacio entre dos párrafos (1em).
 
-\title{Apuntes - Cálculo de Máquinas}
-\date{\today}
-\author{-----}
+\title{\Huge Apuntes -- Cálculo de Máquinas}
+% \date{\today}
+% \author{-----}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-    \maketitle
-    \tableofcontents
+\maketitle
+\tableofcontents
 
-    \chapter{Ruedas Dentadas y Trenes de Engranajes}
 
-    Un sistema transmisor es el conjunto de elementos mecánicos que conecta un sistema motor con un sistema receptor.
-    El sistema transmisor tiene como objetivo la transmisión de potencia adaptándola a los requerimientos de movimiento, fuerza o par del sistema receptor.
 
-    Las transmisiones se clasifican en dos grandes grupos:
+\chapter{Ruedas Dentadas y Trenes de Engranajes}
+
+Un sistema transmisor es el conjunto de elementos mecánicos que conecta un sistema motor con un sistema receptor.
+El sistema transmisor tiene como objetivo la transmisión de potencia adaptándola a los requerimientos de movimiento,
+fuerza o par del sistema receptor.
+
+Las transmisiones se clasifican en dos grandes grupos:
+\begin{itemize}
+	\item \textbf{Transmisiones Rígidas}: engranajes, ruedas de fricción, trenes de engranajes, husillo-tuerca, levas,
+    eslabonamientos articulados, etc.
+	\item \textbf{Transmisiones Flexibles (Deformables)}: correas, cadenas y cables.
+\end{itemize}
+
+Por otra parte, dependiendo de las transmisiones entre ejes relativos podemos diferenciar entre transmisiones entre ejes:
+paralelos; que se cruzan; o que se cortan.
+% \begin{itemize}
+% 	\item Paralelos.
+% 	\item Que se cruzan.
+% 	\item Que se cortan.
+% \end{itemize}
+
+
+
+\section{Ruedas dentadas}
+
+Las ruedas dentadas (o engranajes) son transmisiones rígidas. Son consideradas la solución óptima para la transmisión de
+potencia de manera precisa,
+sin deslizamiento, uniforme y eficiente.
+Esta transmisión de potencia se basa en el engrane de, al menos, un par de ruedas dentadas.
+
+% Una rueda dentada es un sistema de transmisión de potencia que basa su funcionamiento en él engrane de dos ruedas dentadas.
+
+En esta introducción al cálculo de engranajes \textcolor{red}{nos vamos a centrar en el cálculo de \textbf{engranajes
+cilíndricos rectos}}, aunque existe una variedad de soluciones muy amplia para su empleo como transmisores de potencia.
+Algunos ejemplos son los engranajes cilíndricos rectos, cilíndricos oblicuos, cónicos rectos y sinfin-corona.
+
+
+
+\subsection{El Perfil Dentado -- Definiciones}
+
+Los parámetros fundamentales de una rueda dentada son:
+
+\paragraph{\textbf{Parámetros básicos}}
+\begin{itemize}
+	\item \textbf{Z [-]}: Número de dientes.
+	\item \textbf{m [mm]}: Módulo. Es el parámetro de escala del engranaje.
+	\item \textbf{$\alpha [^\circ]$}: Ángulo de presión. Por normativa europea, $20^\circ$.
+\end{itemize}
+
+\paragraph{\textbf{Circunferencias características}}
+\begin{itemize}
+	\item \textbf{Circunf. primitiva} ($R$): Es la circunferencia de referencia. Las primitivas de dos ruedas engranadas son tangentes en el punto P.
+	\item \textbf{Circunf. de cabeza} ($R_c$): Pasa por la punta de los dientes.
+	\item \textbf{Circunf. de pie} ($R_p$): Pasa por el fondo de dientes.
+	\item \textbf{Circunf. base} ($R_b$): Circunferencia a partir de la cual se forma el perfil de evolvente del diente.
+\end{itemize}
+
+\paragraph{Fórmulas}
+
+A partir de la terminología previa, introducimos nuevos elementos y la relación entre ellos.
+
+\begin{itemize}
+	\item \textbf{Altura de cabeza} ($a_c$)
+	\item \textbf{Altura de pie} ($a_p$)
+\end{itemize}
+
+\vspace{-10pt}
+\[ a_c = m \]
+\[ a_p = m + j \approx 1.1m \]
+\[ Rc = R + a_c \]
+\[ Rp = R + a_p \]
+\[ R = \frac{mZ}{2} \]
+\[ R_b = R \cos\alpha \]
+
+\begin{itemize}
+	\item \textbf{Paso angular} ($P_\alpha$): Es el ángulo que separa dos dientes consecutivos.
+	\item \textbf{Paso circunferencial} ($P_c$): Es la distancia medida sobre la circunferencia primitiva entre dos dientes consecutivos. Esta magnitud debe ser igual en ambas ruedas para que puedan engranar.
+\end{itemize}
+
+\vspace{-10pt}
+\[P_\alpha = \frac{360^\circ}{Z}\]
+\[P_c = m \cdot \pi\]
+
+El paso circunferencial es el mismo en dos engranajes que engranan. Sin embargo el paso angular no tiene por qué coincidir.
+
+\begin{itemize}
+	\item \textbf{Espesor (e)}: Parte del paso circunferencial.
+	\item \textbf{Hueco (h)}: Parte del paso circunferencial.
+\end{itemize}
+
+\vspace{-10pt}
+\[P_c = e + h\]
+
+En engranajes tallados a cero (sin desplazamiento), se cumple $e = h$. Si hay desplazamiento, siempre se conserva $P_c = e + h$.
+
+
+
+\subsection{Cálculo de Engranajes Montados a Cero}
+
+Como veremos a lo largo del tema, los errores de fabricación y montaje pueden hacer que la posición relativa entre las ruedas
+dentadas engranadas no sea la calculada en el diseño.
+
+En esta asignatura consideramos siempre que las ruedas dentadas están \textcolor{red}{idealmente fabricadas y \textbf{montadas a
+cero}}, de modo que se cumple:
+
+\vspace{-10pt}
+\[ d = d' = R'_1 + R'_2 = R_1 + R_2 \]
+
+\vspace{-3pt}
+Un engranaje ``montado a cero'' es el caso estándar de montaje, donde las circunferencias primitivas de ambas ruedas son tangentes
+en el punto P (punto de contacto primitivo). Por tanto, en este caso podemos calcular la distancia entre ejes:
+
+\vspace{-10pt}
+\[d = \frac{m}{2}(Z_1 + Z_2) \]
+
+\vspace{-5pt}
+Por otra parte, introducimos los conceptos de relación de transmisión e índice de reducción.
+\vspace{-3pt}
+
+\begin{itemize}
+    \item \textbf{Relación de transmisión} ($\mu$): Es la relación entre las velocidades angulares de las ruedas dentadas.
+    Salida entre entrada.
+    \vspace{-7pt}
+    \[\mu \equiv \mu_{21} = \frac{w_2}{w_1} = \frac{Z_1}{Z_2} = \frac{R_1}{R_2}\]
+    \vspace{-20pt}
     \begin{itemize}
-        \item \textbf{Transmisiones Rígidas}: engranajes, ruedas de fricción, trenes de engranajes, husillo-tuerca, levas, eslabonamientos articulados, etc.
-        \item \textbf{Transmisiones Flexibles (Deformables)}: correas, cadenas y cables.
+        \item $\mu > 1$: multiplicación.
+        \item $\mu < 1$: reducción.
     \end{itemize}
 
-    Por otra parte, dependiendo de las transmisiones entre ejes relativos podemos diferenciar entre transmisiones entre ejes:
+    \item \textbf{Índice de reducción} ($i$): Es el inverso de la relación de transmisión. Entrada entre salida.
+    \vspace{-7pt}
+    \[i \equiv i_{12} = \frac{w_1}{w_2} = \frac{Z_2}{Z_1} = \frac{R_2}{R_1}\]
+    \vspace{-20pt}
     \begin{itemize}
-        \item Paralelos.
-        \item Que se cruzan.
-        \item Que se cortan.
+        \item $i > 1$: reducción.
+        \item $i < 1$: multiplicación.
+    \end{itemize}
+\end{itemize}
+
+
+% Por tanto, cuando la relación de transmisión es menor que uno nos encontramos ante una reducción y cuando es mayor que uno
+% es una multiplicación.
+
+% El índice de reducción es el inverso de la relación de transmisión.
+
+% De forma analoga, cuando el índice de reducción es menor que uno se trata de una multiplicación. Se trata de una reducción
+% en el caso contrario.
+
+Normalmente los engranajes trabajan en un rango de \fbox{$\frac{1}{7} \leq \mu \leq 7$}.
+
+% A la relación de transmisión y al índice de reducción hay que añadirle signo. El signo es positivo si se mantiene la dirección
+% angular de giro en rueda conductora y conducida y negativa en caso contrario.
+
+% Por tanto, si dos ruedas engranan externamente, giran en sentidos opuestos, por lo que llevara signo negativo.
+% Si el engrane es interno, giran en el mismo sentido y tendran signo positivo.
+
+
+Estas relaciones llevan signo, que será \textbf{positivo} si se mantiene la dirección
+del giro de rueda conductora a conducida, y \textbf{negativo} en caso contrario.
+\begin{itemize}
+    \item Si las ruedas engranan externamente, giran en sentidos opuestos. El signo será negativo.
+    \item Si el engrane es interno, giran en el mismo sentido. El signo será positivo.
+\end{itemize}
+
+\textit{Las fuerzas en el diente en el engranaje se modelan como las de una viga empotrada. Por lo tanto, los fallos asociados
+son debidos a fatiga en el talón del diente, fatiga superficial o desgaste.}
+
+
+
+\subsection{Palancas rodantes y Perfiles Conjugados}
+
+Una Palanca Rodante es la relación geométrica que se establece entre dos superficies (espacio) o curvas (plano) ($S_1$ y $S_2$)
+para que iteractúen entre sí de un determinado modo.Los puntos de las curvas $S_1$ y $S_2$ coinciden en el espacio formando una
+línea de engrane I ($I_I-I_{IV}$).
+
+En una Palanca Rodante se define relación de transmisión como la relación que existe entre los centros de giro y el punto de
+corte entre la línea de centros y la perpendicular al contacto en cada punto.
+
+El problema principal principal de la Palanca Rodante es que la relación de transmisión no es constante, por lo que la velocidad
+de giro varía.
+
+Un \textbf{Perfil Conjugado} es la particularización de una Palanca Rodante que cumple que la recta perpendicular al contacto en todo
+momento pasa por el punto P. Esto supone por tanto que la relación de transmisión es siempre constante.
+
+\vspace{-3pt}
+\[\mu = \frac{\overline{O_1P}}{\overline{O_2P}}\]
+
+En ruedas dentadas se optimizan los perfiles conjugados para conseguir una transmisión suave y eficiente. Para ello se busca
+que la línea de engrane (I) sea una recta que mantenga el ángulo de presión entre ambas superficies de contacto constante.
+Esto se consigue mendiante el Perfil de Evolvente.
+
+El \textbf{Perfil de Evolvente} es el perfil que se forma al desenroscar una cuerda que rodea a una circunferencia base.
+Sus propiedades son:
+\begin{itemize}
+	\item El conjugado de un perfil de evolvente es otro perfil de evolvente.
+	\item La línea de engrane que generan dos perfiles de evolvente es una recta lo que asegura la transmisión uniforme sin ruido
+    y vibraciones.
+	\item Los perfiles de evolventes siguen siendo conjugados incluso si se modifica la distancia entre centros (funcionan aún con
+    juego de montaje) manteniendo la relación de transmisión.
+	\item Los perfiles de evolvente son fáciles de fabricar.
+\end{itemize}
+
+De la construcción de un engranaje entre dos ejes a distancia conocida ($d$) y relación de transmisión $\mu$, solo nos interesa
+conocer las caracteristicas básicas de la recta de engrane.
+
+En el caso de no haber desplazamiento, nos podemos apoyar en la siguiente solución analítica:
+
+\vspace{-5pt}
+\[\overline{E_1E_2} = \overline{E_1P} + \overline{PE_2}\]
+
+\vspace{-3pt}
+donde:
+
+\vspace{-5pt}
+\[\overline{E_1P} = \sqrt{R^2_{c1} - R^2_{b1}} - R_1 \sin{\alpha}\]
+\[\overline{PE_2} = \sqrt{R^2_{c2} - R^2_{b2}} - R_2 \sin{\alpha}\]
+
+% Con ello podemos calcular (\textit{más adelante}) la velocidad de deslizamiento y el coeficiente de engrane.
+
+
+
+\subsection{Esfuerzos en el contacto diente-diente}
+
+A lo largo de la recta de engrane se mantiene siempre el contacto entre los dientes de la pareja de engranajes y la fuerza
+transmitida total está siempre contenida en la recta de engrane ($\overline{E_1E_2}$). Su valor es constante por ser dicha
+recta tangente siempre a ambas circunferencias de base y por tanto $M_1$ y $M_2$ son constantes también a lo largo del engrane.
+
+Consecuentemente tenemos:
+
+\vspace{-5pt}
+\[\frac{M_1}{M_2}=\frac{R_1}{R_2}=\frac{w_2}{w_1}=\frac{Z_1}{Z_2}\]
+
+Por otra parte, la fuerza F actúa a lo largo de la recta de engrane ($\overline{E_1E_2}$) y se relaciona con el momento o par
+mediante:
+
+\[M_i = R_{bi} \cdot F = R \cdot \cos{\alpha} \cdot F\]
+
+Por tanto, despejando la fuerza tenemos:
+
+\vspace{-5pt}
+\[F_i = \frac{M_i}{R_{bi}}\]
+
+La fuerza máxima a la que está sometido un diente se da dentro de la recta de engrane en las zonas donde solo uno de los dientes
+se encuentra en contacto. Por tanto, esto se relaciona con el parametro coeficiente de engrane ($\varepsilon$).
+% , que se explica más adelante.
+
+La eficiencia de una transmisión por engranajes cilíndrico-rectos es muy alta, se podría asumir:
+
+\vspace{-5pt}
+\[W_1 = M_1 \cdot w_1 \approx M_2 \cdot w_2 = W_2\]
+
+De no asumir esta igualdad, se define elrendimiento mecánico de la transmisión como:
+
+\vspace{-5pt}
+\[\eta_m = \frac{W_2}{W_1}\]
+
+La pérdida de potencia se debe a la energía térmica disipada por las resistencias pasivas en el funcionamiento de la transmisión.
+
+
+
+\subsection{Velocidad de deslizamiento en la línea de engrane ($v_d$)}
+
+Para conseguir que la relación de transmisión $\mu$ sea constante es necesario que exista una velocidad de deslizamiento
+entre dientes a lo largo de la recta de engrane (así se tiene \textbf{rodadura + deslizamiento}).
+
+En el punto de contacto, la velocidad de deslizamiento vale:
+
+\vspace{-5pt}
+\[v_d(\lambda) = (w_2 - w_1) \cdot \lambda\]
+
+donde $\lambda$ es la distancia del punto de contacto a el punto P. Por otra parte, la velocidad de deslizamiento siempre es
+perpendicular a la recta de engrane.
+
+\vspace{-5pt}
+\[\vec{v}_d(\lambda) = \vec{w}_{21} \times \vec{\lambda}\]
+
+Como las direcciónes de las velocidades angulares actuan en sentido opuesto, pero en la misma dirección, y la distancia $\lambda$
+es perpendicular a dicha dirección, podemos trabajar siempre con escalares.
+
+
+
+\subsection{Coeficiente de engrane o grado de recubrimiento}
+
+Se define \textbf{Coeficiente de Engrane} ($\varepsilon$), como el coeficiente que indica el número medio de dientes que están
+en contacto a lo largo de la longitud de engrane. $\varepsilon > 1$ asegura la continuidad del engrane.
+
+\vspace{-5pt}
+\[\varepsilon = \frac{\overline{E_1E_2}}{P_c \cos{\alpha}} = \frac{\overline{E_1E_2}}{m \pi \cos{\alpha}}\]
+
+El máximo de la velocidad de deslizamiento se encuentra en $E_1$ o $E_2$, el que más alejado esté de P. Más allá de estos puntos
+no hay contacto.
+
+Interpretación del coeficiente:
+\begin{itemize}
+	\item Si $\varepsilon = 1.5 \rightarrow$ $50\%$ del tiempo dos pares en contacto, $50\%$ hay solo un par en contacto.
+	\item Si $\varepsilon = 1.8 \rightarrow$ $80\%$ del tiempo dos pares en contacto, $20\%$ hay solo un par en contacto.
+\end{itemize}
+
+Por tanto, cuanto mayor sea $\varepsilon$, más suave y silencioso será el funcionamiento, y las cargas se repartirán mejor
+entre varios dientes.
+
+
+% \subsection{Fabricación de ruedas dentadas y Desplazamiento}
+\subsection{Fabricación de ruedas dentadas}
+
+% Para la fabricación de engranajes nos centramos en dos métodos: fundición y mecanizado.
+
+La \textbf{fundición} se aplica en el caso de ruedas muy grandes, obteniendo malos acabados.
+
+El \textbf{mecanizado} es el método más común de fabricación. En el \textbf{mecanizado por conformación} se utiliza el troquelado
+para fabricar ruedas muy pequeñas y el fresado para obtener perfiles idénticos al hueco
+entre dientes.
+
+En el \textbf{mecanizado por generación} destacan: el \textbf{sistema MAAG}, con herramienta de talla (cremallera); el
+\textbf{sistema FELLOUS}, con el piñon generador; y el \textbf{sistema BROWN-SHARP}, con talla con Tornillo-Fresa.
+\textcolor{red}{Nuestro caso de estudio es el \textbf{sistema MAAG}.}
+
+\vspace{-5pt}
+\subsubsection*{Sistema MAAG}
+
+Este sistema de fabricación de engranajes se basa en el desbaste en dirección axil de los flancos del diente empleando
+como herramienta una cremallera. Precisa de la sincronización de giro de la rueda y avance de la cremallera.
+
+La cremallera que talla el engranaje tiene implícita la geometría del diente del engranaje. En el caso general, tallado a cero,
+la línea de referencia de la cremallera coincide con la circunferencia primitiva de engranaje tallado.
+
+Sin embargo, por motivos de diseño o de resistencia del diente, pueden tallarse los mismos con un desplazamiento de la herramienta.
+
+Se conoce como \textbf{engranaje tallado con desplazamiento} a aquel cuya línea media de la herramienta no ha sido alineada con su
+circunferencia primitiva. El desplazamiento puede ser positivo, si se separa la herramienta del eje de giro del engranaje,
+o negativo, si se acerca al mismo.
+
+
+\vspace{-5pt}
+\subsubsection*{Desplazamiento}
+
+El factor de desplazamiento ($\pm x$), se expresa como un porcentaje del módulo de la rueda. La distancia desplazada de la
+herramienta es igual a $m \cdot x \: [\text{mm}]$.
+
+Al introducir el desplazamiento se modifican las circunferencias características de la siguiente forma:
+
+\vspace{-5pt}
+\[R_c = R + m(1+x) \quad R_p = R - m(1 -x) - 0.1m\]
+
+El desplazamiento positivo hace la rueda más grande, los dientes se ensachan por la parte inferior mejorando las propiedades a
+fatiga en el talón del diente y afilando su extremo superior que puede fallar si se lleva al límite.
+
+El desplazamiento negativo estrecha el talón del diente debilitándolo. Llevado al extremo hace que se desarrolle en el diente un
+fenómeno conocido como penetración en el talón del diente. Este fenómeno se forma cuando el desplazamiento negativo excesivo hace
+que el propio tallado del diente rompa la continuidad del perfil de evolvente haciendo que deje de ser continuo.
+
+Usaremos el desplazamiento para evitar el socavado en piñones con pocos dientes y ajustar la distancia entre ejes a un valor
+concreto.
+
+A la hora de dimensionar ruedas dentadas, debemos evitar el fenómeno de penetración en el talón del diente. Para que no se
+produzca penentración en ruedas talladas a cero, se debe cumplir:
+
+\vspace{-5pt}
+\[Z > \frac{2,2}{1 - \cos^2(\alpha)} = 18.8 \text{ dientes} \approx 19 \text{ dientes} \]
+
+El límite del desplazamiento negativo, que hace que no aparezca penetración, es que hace la herramienta no interfiera con
+el punto de tangencia entre la circunferencia base $R_b$ y la recta de engrane ($I$).
+
+En el caso de existir desplazamiento, no se producirá penetración mientras:
+
+\[Z \geq \frac{-2x + 2,2}{1 - \cos^2(\alpha)} = \frac{-2x + 2,2}{\sen^2(\alpha)} \]
+
+Por tanto, en una pareja de ruedas dentadas que tienda a fallar por fatiga en el talón del diente puede corregirse
+aplicando un desplazamiento positivo en la rueda más débil y uno negativo, que no supere el límite de penetración en aquella
+más fuerte. Su distancia entre centros se mantendrá constante mientras ambos desplazamientos sean iguales de signo contrario.
+
+En una pareja de ruedas dentadas en la que se requiera ajustar la distancia entre ejes sin variar la relación de transmisión,
+pueden realizarse desplazamientos de diferente magnitud en ambas ruedas que ajusten dicha distancia. Es la ventaja más importante
+que aporta el desplazamiento en el diseño mecánico de transmisión por engranajes.
+
+% Todas estas modificaciones geométricas deben evitar en cualquier caso la penetración en los desplazamientos negativos ya que
+% fragiliza el diente e impide su correcto funcionamiento uniforme.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{@{}l |c@{}}
+		\toprule
+		\textbf{Situación} & \textbf{Condición} \\
+		\midrule
+		Tallado a cero, $\alpha = 20^\circ$ & $Z \geq 19$ dientes \\
+		Con desplazamiento positivo         & Permite $Z$ más pequeños \\
+		Con desplazamiento negativo         & Exige $Z$ más grandes    \\
+		\bottomrule
+	\end{tabular}
+	\caption{Condiciones de no penetración}
+\end{table}
+\vspace{-10pt}
+
+
+\subsection{Ejc. Dimensiones de ruedas dentadas}
+\textit{Un engranaje consta de dos ruedas cuyo número de dientes es: $Z_1 = 19$ y $Z_2 = 59$. Calcular las dimensiones de la rueda
+si se construye con módulo normal $m = 8[mm]$.}
+
+\textit{Se debe especificar alturas de cabeza y pie, altura total del diente, radios primitivos, de cabeza y pie de ambas ruedas
+dentadas, pasos angulares y paso circunferencial, hueco y espesor del diente y la relación de transmisión.}
+
+% \vspace{0.5cm}
+% \hrule
+% \vspace{0.5cm}
+
+% Este es un ejercicio de aplicación de formulas. Asi que aplicamos las definiciones de la teoria.
+
+% \begin{table}[h!]
+% 	\centering
+% 	\begin{tabular}{@{}l |c@{}}
+% 		$a_c = m$                             & 8~mm       \\
+% 		$a_p = 1.1m$                          & 8.8~mm     \\
+% 		$R_1 = \frac{mZ_1}{2}$                & 76~mm      \\
+% 		$R_2 = \frac{mZ_2}{2}$                & 236~mm     \\
+% 		$R_{c1} = R_1 + a_c$                  & 84~mm      \\
+% 		$R_{c2} = R_2 + a_c$                  & 244~mm     \\
+% 		$R_{p1} = R_1 - a_p$                  & 67.2~mm    \\
+% 		$R_{p2} = R_2 - a_p$                  & 227.2~mm   \\
+% 		$P_c = m \pi $                        & 25.13~mm   \\
+% 		$P_{\alpha1} = \frac{360^\circ}{Z_1}$ & $18.95^\circ$ \\
+% 		$P_{\alpha2} = \frac{360^\circ}{Z_2}$ & $6.10^\circ$
+% 	\end{tabular}
+% \end{table}
+
+\begin{color}{gray}
+	Aplicando las fórmulas vistas en la teoría, obtenemos los siguientes parámetros:
+
+    \vspace{-5pt}
+	\begin{multicols}{2}    
+		$a_c = m = $ 8 mm \\
+		$a_p = 1.1m = $  8.8 mm \\
+		$R_1 = \frac{mZ_1}{2} = $ 76 mm \\
+		$R_2 = \frac{mZ_2}{2} = $ 236 mm \\
+		$R_{c1} = R_1 + a_c = $ 84 mm \\
+		$R_{c2} = R_2 + a_c = $ 244 mm
+
+		\columnbreak
+		
+        $R_{p1} = R_1 - a_p = $ 67.2 mm \\
+		$R_{p2} = R_2 - a_p = $ 227.2 mm \\
+		$P_c = m \pi = $ 25.13 mm \\
+		$P_{\alpha1} = \frac{360^\circ}{Z_1} = $ 18.95° \\
+		$P_{\alpha2} = \frac{360^\circ}{Z_2} = $ 6.10°
+	\end{multicols}
+
+    \vspace{-10pt}
+	Al ser un engranaje montado a cero sin desplazamiento, tenemos:
+
+	$P_c = e + h \rightarrow e = h = \frac{P_c}{2} = $ 12.565 mm
+
+    % \vspace{-5pt}
+	Por último tenemos la relación de transmisión:
+
+	$\mu = \frac{Z_1}{Z_2} = 0.322$
+
+\end{color}
+
+
+
+\subsection{Ejc. Engranajes cilíndrico-rectos}
+
+\textit{Dado un engranaje formado por un engranaje formado por una pareja de ruedas dentadas
+de $Z_1 = 24$ y $Z_2 = 35$ dientes respectivamente, construidas con un módulo normal $m = 8[mm]$,
+ángulo de presión $\alpha = 20^\circ$ y sabiendo que $w_1 = 700$ rpm se pide:}
+
+\vspace{-20pt}
+\textit{
+\begin{itemize}
+	\item[a)] Calcular los radios primitivos, de pie y cabeza de ambas ruedas dentadas.
+	\item[b)] Calcular la velocidad angular del eje 2: $w_2$.
+	\item[c)] Calcular la longitud del segmento de engrane $\overline{E_1E_2}$.
+	\item[d)] Calcular el coeficiente de engrane y validar el correcto funcionamiento del mecanismo.
+	\item[e)] Calcular el máximo de la velocidad de deslizamiento.
+	\item[f)] Calcular el tiempo que está cada diente en contacto.
+\end{itemize}
+}
+
+% \vspace{0.5cm}
+% \hrule
+% \vspace{0.5cm}
+
+\begin{color}{gray}
+
+    \paragraph{\textbf{a)}}
+    Obtenemos los siguientes parámetros:
+
+    % \begin{table}[h!]
+    %     \centering
+    %     \begin{tabular}{l|c}
+    %         $a_c = m$              & $8[mm]$     \\
+    %         $a_p = 1.1m$           & $8.8[mm]$   \\
+    %         $R_1 = \frac{mZ_1}{2}$ & $96[mm]$    \\
+    %         $R_2 = \frac{mZ_2}{2}$ & $140[mm]$   \\
+    %         $R_{c1} = R_1 + a_c$   & $104[mm]$   \\
+    %         $R_c2 = R_2 + a_c$     & $148[mm]$   \\
+    %         $R_p1 = R_1 - a_p$     & $87.2[mm]$  \\
+    %         $R_p2 = R_2 - a_p$     & $131.2[mm]$ \\
+    %     \end{tabular}
+    % \end{table}
+
+    \vspace{-5pt}
+	\begin{multicols}{2}    
+        $a_c = m = $ 8 mm \\
+        $a_p = 1.1m = $ 8.8 mm \\
+        $R_1 = \frac{mZ_1}{2} = $ 96 mm \\
+        $R_2 = \frac{mZ_2}{2} = $ 140 mm
+
+		\columnbreak
+		
+        $R_{c1} = R_1 + a_c = $ 104 mm \\
+        $R_{c2} = R_2 + a_c = $ 148 mm \\
+        $R_{p1} = R_1 - a_p = $ 87.2 mm \\
+        $R_{p2} = R_2 - a_p = $ 131.2 mm
+	\end{multicols}
+
+
+    \paragraph{\textbf{b)}}
+
+    \[ \omega_2 = \mu \omega_1 = \frac{Z_1}{Z_2}\omega_1 = 480 \text{ rpm}\]
+
+
+    \paragraph{\textbf{c)}}
+
+    Podemos optar por dos métodos de resolución: gráfico o analítico. Se obtiene el mismo resultado.
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=.5\textwidth]{imagenes/1.1.png}
+    \end{figure}
+
+    % Si nos apoyamos en la solución analítica obtenemos el mismo resultado.
+
+    \[\overline{E_1E_2} = 38.8 \text{ mm} \]
+
+    donde:
+
+    \[\overline{E1P} = 18.91 \text{ mm,} \quad \overline{PE_2} = 19.91 \text{ mm} \]
+
+
+    \paragraph{\textbf{d)}}
+
+    Aplicamos la definición de coeficiente de engrane:
+
+    \[\varepsilon = \frac{38.82}{8 \pi \cdot \cos{20^\circ}} = 1.64\]
+
+    Como el coeficiente de engrane es mayor que uno, se valida el correcto funcionamiento del mecanismo.
+
+
+    \paragraph{\textbf{e)}}
+
+    Sea la definición de velocidad de deslizamiento:
+
+    \[\vec{v}_d(\lambda) = \vec{\omega}_{12} \cdot \lambda = |\omega_1-\omega_2| \cdot \max(\overline{E_1P}, \overline{PE_2}) \]
+
+    La velocidad máxima de deslizamiento se da en el $E_2$.
+
+    \[{v}_d^{max} = (700-480) \frac{2\pi}{60} \cdot 19.91 \cdot 10^{-3} = 0.4586 \text{ m/s} \]
+
+
+    \paragraph{\textbf{f)}}
+
+    Sea \[t_{contacto} = \frac{P_{\alpha i}}{w_i} \cdot \varepsilon \quad \rightarrow \quad
+    t_{contacto} = 5.85 \text{ ms} \]
+
+\end{color}
+
+
+
+\subsection{Ejc. Reductora de velocidad}
+
+\textit{Se dispone de un motor de potencia $W_1 = 1[kW]$ conectado a una transmisión compuesta por dos ruedas dentadas
+cilíndrico-rectas montadas a cero (es decir, los radios de funcionamiento coinciden con la referencia). El motor gira con
+una velocidad angular $w_1 = 1500[rpm]$. Los datos de la transmisión son: distancia entre centros $d = 160[mm]$, módulo
+normal $m = 4[mm]$, ángulo de presión $\alpha = 20^\circ$ y relación de transmisión -1:3.}
+
+\vspace{-15pt}
+\textit{
+\begin{itemize}
+	\item[a)] Calcular el número de dientes de cada rueda.
+	\item[b)] Calcular los radios de pie y de cabeza de cada rueda.
+	\item[c)] ¿Cuánto par puede transmitirse a la máquina accionada por la transmisión si el rendimiento mecánico de la misma es de $\eta_m = 0.98$?
+	\item[d)] Fuerza máxima que se aplica sobre 1 diente a lo largo del contacto.
+\end{itemize}
+}
+
+% \vspace{0.5cm}
+% \hrule
+% \vspace{0.5cm}
+
+
+\begin{color}{gray}
+
+
+    \paragraph{a)}
+
+    Planteamos el sistema de ecuaciones:
+
+    \begin{equation*}
+        \left\{
+        \begin{array}{rcc} % rcc para alinear a la derecha, centrado, centrado
+            d/2 = Z_1 + Z_2       \\
+            \mu = \frac{Z_1}{Z_2} \\
+        \end{array}
+        \right.
+    \end{equation*}
+
+    Resolvemos y obtenemos: $Z_1 = 20, Z_2 = 60$ dientes.
+
+
+    \paragraph{b)}
+
+    Aplicamos las definiciones y obtenemos:
+    % \begin{table}[h!]
+    %     \centering
+    %     \begin{tabular}{l|c}
+    %         $a_c = m$              & $4[mm]$     \\
+    %         $a_p = 1.1m$           & $4.4[mm]$   \\
+    %         $R_1 = \frac{mZ_1}{2}$ & $40[mm]$    \\
+    %         $R_2 = \frac{mZ_2}{2}$ & $120[mm]$   \\
+    %         $R_{c1} = R_1 + a_c$   & $44[mm]$    \\
+    %         $R_{c2} = R_2 + a_c$   & $124[mm]$   \\
+    %         $R_{p1} = R_1 - a_p$   & $35.6[mm]$  \\
+    %         $R_{p2} = R_2 - a_p$   & $115.6[mm]$ \\
+    %     \end{tabular}
+    % \end{table}
+
+    \vspace{-5pt}
+	\begin{multicols}{2}    
+        $a_c = m = $ 4 mm \\
+        $a_p = 1.1m = $ 4.4 mm \\
+        $R_1 = \frac{mZ_1}{2} = $ 40 mm \\
+        $R_2 = \frac{mZ_2}{2} = $ 120 mm
+
+		\columnbreak
+		
+        $R_{c1} = R_1 + a_c = $ 44 mm \\
+        $R_{c2} = R_2 + a_c = $ 124 mm \\
+        $R_{p1} = R_1 - a_p = $ 35.6 mm \\
+        $R_{p2} = R_2 - a_p = $ 115.6 mm
+	\end{multicols}
+
+
+    \paragraph{c)}
+
+    El par que se puede transmitir viene dado por:
+
+    \[W_2 = \eta_m \cdot W_1 = M_2 \cdot w_2 \quad \rightarrow \quad M_2 = 18.71 Nm\]
+
+
+    \paragraph{d)}
+
+    Aplicamos la definición dada por el modelo y obtenemos:
+
+    \[F_{max} = \max \left( \frac{M_1}{R_{b1}}, \frac{M_2}{R_{b2}} \right) =
+    \max \left( \frac{W_1}{\omega_1 R_1\cos \alpha}, \frac{M_2}{R_2 \cos \alpha} \right) = 
+    \max (169.4 , 165.9) = 169.4 \text{N} \]
+
+    % Lo correcto es calcular la fuerza máxima en las dos ruedas y seleccionar la situación más desfavorable.
+    La fuerza máxima se da en la rueda 1.
+
+\end{color}
+
+
+
+\subsection{Ejc. Engranajes internos}
+
+\textit{Se dispone de un motor de potencia $W_1 = 0.2[kW]$ conectado a una transmisión compuesta por dos ruedas dentadas
+cilíndrico-rectas montadas a cero (es decir, los radios de funcionamiento coinciden con los de referencia). El motor gira
+con una velocidad angular $w_1 = 1000[rpm]$. Los datos de la transmisión son: distancia entre centros $d = 30[mm]$, módulo
+normal $m = 2[mm]$, ángulo de presión $\alpha = 20^\circ$ y relación de transmisión +2:7.}
+
+\vspace{-20pt}
+\textit{
+\begin{itemize}
+	\item[a)] Calcular el número de dientes de cada rueda.
+	\item[b)] Calcular los radios de pie y de cabeza de cada rueda.
+	\item[c)] ¿Cuánto par puede transmitirse a la máquina accionada por la transmisión si el rendimiento mecánico de la misma es de $\eta_m = 0,95$?
+\end{itemize}
+}
+
+% \vspace{0.5cm}
+% \hrule
+% \vspace{0.5cm}
+
+\vspace{-7pt}
+\begin{color}{gray}
+
+    \paragraph{a)}
+
+    Resolvemos el siguiente sistema de ecuaciones:
+    \begin{equation*}
+        \left\{
+        \begin{array}{rcc} % rcc para alinear a la derecha, centrado, centrado
+            d = Z_2 - Z_1         \\
+            \mu = \frac{Z_1}{Z_2} \\
+        \end{array}
+        \right.
+    \end{equation*}
+
+    Obtenemos: $Z_1 = 12, Z_2 = 42$ dientes.
+
+
+    \paragraph{b)}
+
+    Aplicamos las definiciones y obtenemos:
+    % \begin{table}[h!]
+    %     \centering
+    %     \begin{tabular}{l|c}
+    %         $a_c = m$              & $2[mm]$    \\
+    %         $a_p = 1.1m$           & $2.2[mm]$  \\
+    %         $R_1 = \frac{mZ_1}{2}$ & $12[mm]$   \\
+    %         $R_2 = \frac{mZ_2}{2}$ & $42[mm]$   \\
+    %         $R_{c1} = R_1 + a_c$   & $14[mm]$   \\
+    %         $R_{c2} = R_2 - a_c$   & $40[mm]$   \\
+    %         $R_{p1} = R_1 - a_p$   & $9.8[mm]$  \\
+    %         $R_{p2} = R_2 + a_p$   & $44.2[mm]$ \\
+    %     \end{tabular}
+    % \end{table}
+
+    \vspace{-5pt}
+	\begin{multicols}{2}    
+        $a_c = m = $ 2 mm \\
+        $a_p = 1.1m = $ 2.2 mm \\
+        $R_1 = \frac{mZ_1}{2} = $ 12 mm \\
+        $R_2 = \frac{mZ_2}{2} = $ 42 mm
+
+		\columnbreak
+		
+        $R_{c1} = R_1 + a_c = $ 14 mm \\
+        $R_{c2} = R_2 + a_c = $ 44 mm \\
+        $R_{p1} = R_1 - a_p = $ 9.8 mm \\
+        $R_{p2} = R_2 - a_p = $ 44.2 mm
+	\end{multicols}
+
+
+    \paragraph{c)}
+
+    % Nos apoyamos en la siguiente expresión:
+
+    \[M_2 = \frac{W_2}{\omega_2} = \frac{\eta_m W_1}{\frac{2}{7} \omega_1} \quad \rightarrow \quad
+    M_2 = 6.35 \text{ Nm} \]
+
+\end{color}
+
+
+
+\subsection{Ejc. Engranajes a distancia de ejes impuesta}
+
+\textit{Diseñar una pareja de engranajes cilíndrico rectos montados a cero de forma que la distancia entre ejes $d = 200[mm]$
+y la relación de transmisión sea $\mu = - 1/3$. Se requiere un módulo $m = 10[mm]$ para que los dientes aguanten los requisitos
+de potencia transmitida.}
+
+% \vspace{0.5cm}
+% \hrule
+% \vspace{0.5cm}
+
+\begin{color}{gray}
+
+    Planteamos y resolvemos el sistema de ecuaciones.
+    \begin{equation}
+        \left\{
+        \begin{array}{rcc} % rcc para alinear a la derecha, centrado, centrado
+            d/5 = Z_2 + Z_1       \\
+            \mu = \frac{Z_1}{Z_2} \\
+        \end{array}
+        \right.
+        \quad \rightarrow \quad Z_1 = 10 \quad Z_2 = 30
+    \end{equation}
+
+    % Por tanto; obtenemos:
+
+    % \[Z_1 = 10\quad Z_2 = 30\]
+
+    Como $Z_1 = 10 < 18.8$, se produce penetración en la rueda dentada 1. Es necesario aplicar un desplazamiento positivo.
+    La condición a verificar pasa a ser:
+
+    \[Z_1 \geq \frac{-2x_1 + 2.2}{\sen^2{\alpha}} \qquad \rightarrow \qquad x_1 = 0.5151 \text{ m}\]
+
+    Para mantener la distancia entre ejes, aplicamos un desplazamiento negativo en la rueda 2 de igual magnitud: $x_2 = -0.5151$ m.
+    Por último verificamos que no se produce penetración en la rueda 2.
+
+    \[Z_2 = 30 \geq \frac{-2(-0.51511) +2.2}{\sin^2{\alpha}} = 27.61\]
+
+\end{color}
+
+
+
+\subsection{Ejc. Montaje de ruedas en V para ajustar la distancia entre ejes.}
+
+\textit{Diseñar una pareja de engranajes cilíndrico rectos montados en V de forma que la distancia entre ejes $d$ sea un número
+entero si la relación de transmisión $\mu = -2/5$ y la rueda conductora tiene $Z_1 = 23$. Se requiere un módulo $m=2.5[mm]$
+para que los dientes aguanten los requisitos de potencia transmitida.}
+
+% \vspace{0.5cm}
+% \hrule
+% \vspace{0.5cm}
+
+\begin{color}{gray}
+
+    Resolvemos el sistema de ecuaciones:
+    \begin{equation*}
+        \left\{
+        \begin{array}{rcc} % rcc para alinear a la derecha, centrado, centrado
+            d = \frac{m}{2}(Z_2 + Z_1) \\
+            \mu = \frac{Z_1}{Z_2}      \\
+        \end{array}
+        \right.
+        \quad \rightarrow \quad Z_1 = 23 \quad Z_2 = 115
+    \end{equation*}
+
+    % Por tanto; tenemos:
+
+    % \[Z_1 = 23 \quad Z_2 = 115\]
+
+    Tenemos:
+    \[d = \frac{m}{2}(Z_1 + Z_2) + x_1 + x_2 = \frac{2.5}{2}(23 + 115) + x_1 + x_2 = 172.5 + x_1 + x_2 = 173 \text{ mm}\]
+
+    Tomando $x_1 = x_2 = x$ se tiene: $x = 0.25$. Con $mx_1 = mx_2 = 0.625$ mm desplazamientos positivos.
+
+    A continuación se verifica que no se produce penetración:
+
+    \[Z \geq \frac{-2x + 2.2}{\sen^2{\alpha}} \quad \rightarrow \quad 
+    Z_1 = 23 \geq \frac{-2 \cdot 0.25 + 2.2}{\sin^2{\alpha}} = 14.53 \]
+\end{color}
+
+
+
+
+
+\newpage
+
+\section{Trenes de Engranajes}
+
+% El temario de los trenes de engranajes se estructura en tres bloques: trenes de engranajes ordinarios, trenes de engranajes planarios o epicicloidales y trenes planetarios o epicicloidales simples.
+
+% Cada uno de los bloques se asenta en lo prosentado por los anteriores.
+
+\subsection{Trenes de engranajes ordinarios}
+
+Los trenes de engranajes ordinarios son mecanismos en los que todos los ejes de las ruedas dentadas permanecen fijos respecto a la bancada o carcasa. Es decir, los engranajes giran sobre sí mismos pero sus centros no se desplazan. Esta es la configuración más básica y común de transmisión por engranajes, y constituye el punto de partida necesario antes de estudiar los trenes planetarios, donde los ejes sí pueden moverse.
+
+Para el estudio de los trenes de engranajes utilizaremos el concepto ya introducir de índice de reducción.
+
+Como ya se presento:
+
+\[i_{es} = \pm\frac{w_e}{w_s} = \pm\frac{Z_s}{Z_e}\]
+
+El signo determina si el sentido se giro se mantiene (engrane interno) o es contraio (engrane externo).
+
+La expresión general del índice de reducción en un tren de engranjes viene dado por:
+
+\[i_{1k} = \frac{w_1}{w_k}= \pm\frac{\prod Z_{conducidas}}{\prod Z_{conductoras}}\]
+
+De esta formula destacamos que al aumentar el número de etapas se reduce el rendimiento.
+
+La solución de trenes de engranajes, a pesar de la reducción de rendimiento, mejora el aprovechamiento del espacio y vence las limitaciones del limite mínimo de 14 dientes tallados en ruedas rectas normalizadas (sin penetración) y el máximo de 100 dientes, debido a la precisión y tamaño de la talladora. Sin embargo, debemos hacer enfases que los dientres de la conductora y conducida deben ser primos entre si para evitar problemas de fatiga.
+
+En trenes de engranajes nos podemos encontrar con dos tipos de ruedas: ruedas locas o ruedas compuestas.
+
+Una rueda loca es un engranaje interpuesto entre dos ruedas que no afecta a la relación de transmisión, solo cambia el sentido de giro.
+
+Esta tipo de rueda actúa simultaneamente como rueda conducida (respecto a la anterior) y como conductora (respecto a la siguente). Por tanto; su número de dientes aparece tanto en el numerador como en el denominador.
+
+Su utilidad radica en la capacidad de cambiar el sentido de giro sin modificar la relación de transmisión, salvar distancias entre ejes cuando las ruedas no pueden engranarse directamente o distribuir mejorlas cargas del sistema.
+
+Por otra parte, una rueda compuesta consiste en dos o más ruedas dentadas solidarias al mismo eje, es decir, giran juntas como un bloque rígido con la misma velocidad angular. Esta solución permite conseguir relaciones de transmisión elevadas en un espacio compacto.
+
+
+
+\subsection{Trenes de engranajes planetarios o epicicloidales}
+
+Una vez estudiados los trenes ordinarios, los cuales se caracterizan por tener todos los ejes fijos, nos proponemos estudiar los trenes de engranajes planarios. En un tren planario, al menos uno de los ejes se mueve (orbita alrededor de otro). Esto introduce un grado de libertad adicional que complica el analisis.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.5\textwidth]{imagenes/1.2.png}
+\end{figure}
+
+Los elementos caracterisiticos de un planetario son:
+
+\begin{itemize}
+	\item Rueda solar (o planetario central) [1]: Engranaje central, normalmente coaxial con la salida.
+	\item Satélites (o planetas) [2-3]: Engranajes que orbitan alrededor del sol.
+	\item Brazo portasatélites [4]: Elemento que soporta los ejes de los satélites y gira con ellos.
+	\item Corona (o anillo): Engranaje de dentado interno que envuelve al conjunto.
+\end{itemize}
+
+Por tanto, como el simil deja intuir, hay dos movimientos centrales. Siguiendo el simil del sistema solar, los satélites presentan un movimiento de rotación sobre si mismos y un movimiento de translación alrededor del sol. Estos dos movimientos son fundamentales para entender el flujo de potencia por el tren de engranajes.
+
+Como podemos intuir, el analisis dinámico del sistema se complita al haber movimientos relativos. Sin embargo, el truco para analizar planetarios es "bloquear" mentalmente el brazo portasatélites. Si imaginamos que nos subimos al brazo y giramos con él, desde nuestra perspectiva el sistema se conviente en un tren ordinario. En consecuencia podemos aplicar la formula del índice de reducción introducida con los trenes de engranajes ordinarios.
+
+Por otra parte, con la fórmula de Willis, podemos relacionar el resto de magnitudes:
+
+\[i'_{13} = \frac{w_1 - w_4}{w_3 - w_4} = -\frac{Z_2Z_3}{Z_1Z'_2}\]
+
+\begin{itemize}
+	\item $w_1$ = velocidad angular de la rueda 1.
+	\item $w_3$ = velocidad angular de la rueda 3.
+	\item $w_4$ = velocidad angular del portasatélites.
+	\item $i'_{13}$ es la relación de transmisión del mecanismo invertido (el tren ordinario equivalente).
+\end{itemize}
+
+Como podemos observar en la formula, un planetario tiene dos grados de libertada. En consecuencia, para determinar completamente el movimiento, necesitaremos fijar una condición adicional.
+
+Si fijamos la relación entre dos velocidades obtenemos un tren diferencial. Si por el contrario, una velocidad es nula obtenemos un tren epicicloidal simple.
+
+\subsubsection{Limitaciones en la elección del número de dientes}
+
+En un tren de engranajes planetario no podemos elegir los números de dientes libremente. Existen restricciones geométricas que deben cumplirse para que el mecanismo pueda montarse y funcionar correctamente.
+
+\paragraph{Condición de coaxialidad}
+
+La condición de coaxilidad impone que los ejes de entrada y salida estén alineados (sean coaxiales).
+
+La formula general, viene dada por:
+
+\[m_{1,2}(Z_1 + Z_2) = m_{2',3}(Z'_2 + Z_3)\]
+
+\paragraph{Condición de montaje}
+
+La condición de montaje exige que todos los satélites puedan montarse simultáneamente, engranando correctamente con el sol y la corona.
+
+El primer satélite siempre puede montarse sin problema. Pero para colocar el segundo (o los sucesivos), sus dientes deben coincidir exactamente con los huecos del solar y la corona al mismo tiempo.
+
+En el caso de no trabajar con ruedas compuestas, la condición es simple:
+
+\[\frac{Z_1 + Z_3}{S} = \mathbb{N}\]
+
+donde $S$ es el número de satélites.
+
+En el caso de trabajar con ruedas compuestas, la condición se complica.
+
+\[\frac{Z'_2Z_1-Z_2Z_3}{S} = k_1Z'_2 - k_2Z_2\]
+
+donde $k_1,k_2 \in \mathbb{N}$.
+
+\subsubsection{Cáculo aproximado del rendimiento}
+
+Nuestro calculo del rendimiento se basa en analizar el mecanismo invertido (el tren ordinario equivalente que obtenemos al bloquear el brazo).
+
+En primer lugar nos apoyamos en el equilibrio de momentos para obtener una relación de momento ($Mi/Mj$).
+
+\[M_1 + M_3 + M_4 = 0\]
+
+La suma de los momentos en el sol, corona y brazo debe ser cero.
+
+Posteriormente, calculamos el rendimiento del mecanismo invertido (el tren ordinario equivalente que obtenemos al bloquear el brazo) como el producto de rendimientos en cada engrane.
+
+\[\eta' = \prod \eta_e\]
+
+Si mantenemos la definición de rendimiento como:
+
+\[\eta = \frac{P_s}{P_e}\]
+
+debemos distinguir dos casos:
+\begin{itemize}
+	\item Potencia saliendo por el brazo portasatélites
+
+	      \[\eta_{14} = -\frac{M_4 w_4}{M_1w_1}\]
+
+	\item Potencia introducida por el brazo portasatélites
+
+	      \[\eta_{41} = -\frac{M_1 w_1}{M_4 w_4}\]
+\end{itemize}
+
+Una vez conocemos los principales parametros, analizamos los distintos casos:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Rango de $i_{14}$} & \textbf{Potencia SALE por brazo ($\eta_{14}$)}                & \textbf{Potencia ENTRA por brazo ($\eta_{41}$)}     \\
+		\hline
+		$i_{14}/i_{41} < 0$        & $\displaystyle \frac{1 + \eta'(i_{14} - 1)}{i_{14}}$          & $\displaystyle \frac{\eta'}{1 - i_{41}(1 - \eta')}$ \\
+		\hline
+		$0 < i_{14}/i_{41} < 1$    & $\displaystyle \frac{\eta' - 1 + i_{14}}{\eta' \cdot i_{14}}$ & $\displaystyle \frac{\eta'}{1 - i_{41}(1 - \eta')}$ \\
+		\hline
+		$i_{14}/i_{41} > 1$        & $\displaystyle \frac{1 + \eta'(i_{14} - 1)}{i_{14}}$          & $\displaystyle \frac{1}{\eta' + i_{41}(1 - \eta')}$ \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsection{Engranaje Planetario con Corona}
+Sea un engranaje planetario simple con corona, donde la potencia sale por el brazo portasatélites con un rendimiento de $0.98$ en etapas de engrane ordinario. La velocidad en el eje de entrada es de $900rpm$.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/1.3.png}
+\end{figure}
+
+Se pide:
+\begin{itemize}
+	\item[a)] Verificar condición de coaxialidad.
+	\item[b)] Verificar si se pueden montar 2 satélites.
+	\item[c)] Calcular la velocidad del eje de salida.
+	\item[d)] Calcular la relación entre pares y rendimiento.
+\end{itemize}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\paragraph{\textbf{a)}}
+
+Al tener las dos ruedas dentadas el mismo módulo, la condición de coaxilidad viene dada por:
+
+\[R_1 + 2R_2 = R_3\]
+
+Por tanto; tenemos:
+
+\[Z_1 + 2Z_2 = 104 = Z_3\]
+
+En consecuencia se verifica la condición de coaxialidad.
+
+\paragraph{\textbf{b)}}
+
+Como estamos con un tren de engranajes planetarios sin ruedas compuestas, la condición se reduce a verificar la siguiente condición:
+
+\[\frac{Z_1 + Z_3}{2} = 73 \in \mathbb{N}\]
+
+Por tanto, se podrian montar dos satelites.
+
+\paragraph{\textbf{c)}}
+
+Nos apoyamos en el mecanismo invertido y obtenemos:
+
+\[i'_{13} = -\frac{Z_2Z_3}{Z_1Z_2} = -\frac{Z_3}{Z_1} = \frac{w_1 - w_4}{w_3 - w_4}\]
+
+Por tanto; resolvemos y obtenemos: $w_4 = 258.9rpm$.
+
+\paragraph{\textbf{d)}}
+
+Nos encontramos ante el caso de que la potencia sale por el brazo portasatélites, con:
+
+\[i_{14} = \frac{w_1}{w_4} = 3.48 > 1\]
+
+Por otra parte, el rendimiento del mecanismo invertido es:
+
+\[\eta' = 0.98 \times 0.98 = 0.96\]
+
+De la misma forma obtenemos el rendimiento:
+
+\[\eta_{14} = \frac{1 + \eta'(i_{14} - 1)}{i_{14}} = 0.972\]
+
+Una vez conocemos el rendimiento podemos determinar la relación entre pares:
+
+\[\eta_{14} = -\frac{M_4w_4}{M_1w_1}\]
+
+En consecuencia, tenemos:
+
+\[\frac{M_4}{M_1} = -3.378\]
+
+Nos podriamos apoyar en el equilibrio de pares para obtener más relaciones.
+
+\subsection{Análsis tren planetario con rueda compuesta}
+
+Se un engranaje planetario, donde la potencia entra por el brazo portasatélites con un rendimiento de 0.98 en etapas de engrane ordinario. La velocidad en el eje de entrada es de 1000rpm.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/1.5.png}
+\end{figure}
+
+donde $Z_1 = 80$, $Z_2 = 27$, $Z'_2 = 25$ y $Z_3 = 82$.
+
+Se pide:
+
+\begin{itemize}
+	\item[a)] Verificar condición de coaxialidad.
+	\item[b)] Determinar si se pueden montar dos satélites.
+	\item[c)] Calcular la velocidad del eje de salida.
+	\item[d)] Calcular la relación entre pares y rendimiento.
+\end{itemize}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\paragraph{\textbf{a)}}
+
+En este tren de engranajes planetario la corona engrana externamente con la rueda compuesta (y esta fija), por tanto la condición de coaxialidad viene dada por:
+
+\[Z_1 + Z_2 = Z'_2 + Z_3 = 107\]
+
+donde asumimos que todas las ruedas dentadas tienen el mismo módulo.
+
+En consecuencia, se cumple la condición de coaxialidad.
+
+\paragraph{\textbf{b)}}
+
+Planteamos la condición de montaje:
+
+\[\frac{Z'_2Z_1 - Z_2Z_3}{2} = -107 = k_1Z'_2 - k_2Z_2\]
+
+donde: $k_1 = 40 \in \mathbb{N}$ y $k_2=41 \in \mathbb{N}$.
+
+Por tanto, se podrian montar dos satélites.
+
+\paragraph{\textbf{c)}}
+
+Para calcular la velocidad del eje de salida, planteamos el mecanismo invertido y obtenemos:
+
+\[i'_{13} = -\frac{Z_2}{Z_1} \times -\frac{Z_3}{Z'_2} = 1.107\]
+
+Apoyandonos en la formula de Willis obtenemos:
+
+\[i'_{13} = \frac{w_1 - w_4}{w_3 - w_4}\]
+
+donde: $w_3 = 0$. Por tanto, obtenemos:
+
+\[w_1 = -107rpm\]
+
+\paragraph{\textbf{d)}}
+
+Sea el indice de reducción del mecanismo:
+
+\[i_{41} = \frac{w_4}{w_1} = - \frac{1000}{107} < 0\]
+
+Por otra parte el rendimiento del mecanismo invertido es:
+
+\[\eta' = 0.98 \times 0.98\]
+
+Por tanto, aplicamos la fórmula del rendimiento para el caso de que la potencia entra por el brazo portasatélites y el índice de reducción es menor que 0.
+
+\[\eta = \frac{\eta'}{1 - i_{41}(1 - \eta')}\]
+
+Por tanto; tenemos:
+
+\[\eta = 0.70 = -\frac{M_1w_1}{M_4w_4}\]
+
+\subsection{Análisis de tren de engranajes planetario simple}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/1.6.png}
+\end{figure}
+
+En el Tren Planetario de la figura, el brazo portasatélites, que es el elemento motor, gira a 250rpm en el sentido indicado. Obtener:
+
+\begin{itemize}
+	\item[a)] Coeficiente de reducción del mecanismo invertido $i_{41}$.
+	\item[b)] Velocidad y sentido de la rueda de salida $Z_1$
+	\item[c)] ¿Que número de satelites se pueden poner?
+	\item[d)] ¿Pueden estar montadas a cero las ruedas?
+	\item[e)] Estimación del rendimiento.
+	\item[d)] Relación entre pares.
+\end{itemize}
+
+Datos: $Z_1 = 18$, $Z_2 = 72$, $Z'_2 = 21$ y $Z_3 =111$.
+
+Considerar un rendimiendo de 0.99 en los engranajes interiores y 0.98 en los exteriores.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\paragraph{\textbf{a)}}
+
+Nos apoyamos en el mecanismo invertido y obtenemos:
+
+\[i'_{13} = -\frac{Z_2}{Z_1} \times \frac{Z_3}{Z'_2} = - 21.14\]
+
+Aplicamos la formula de Willis y obtenemos:
+
+\[i'_{13} = -21.14 = \frac{w_1 - w_4}{w_3 - w_4}\]
+
+En consecuencia, obtenemos:
+
+\[w_1 = 5535.71rpm\]
+
+Aplicamos la definición de indice de reducción y obtenemos:
+
+\[i_{41} = \frac{w_4}{w_1} = 0.045\]
+
+\paragraph{\textbf{b)}}
+
+Obtenemos del apartado anterior:
+
+\[w_1 = 5535.71rpm\]
+
+En el sentido de giro del portasatélites.
+
+\paragraph{\textbf{c)}}
+
+Aplicamos la condición de montaje:
+
+\[\frac{Z'2Z_1 - Z_2Z_3}{S} = k_1 Z'_2 - k_2Z_2\]
+
+donde $k1,k_2 \in \mathbb{N}$.
+
+Por tanto; obtenemos: $S = 3$.
+
+\paragraph{\textbf{d)}}
+
+Pueden ser montados a cero siempre y cuando se cumpla la condición de coaxialidad.
+
+\[Z_1 + Z_2 = Z_3 - Z'_2 = 90\]
+
+donde hemos asumido que todas las ruedas dentadas comparten mismo modulo.
+
+En consecuencia, podrian estar montados a cero.
+
+\paragraph{\textbf{e)}}
+
+Nos encontramos ante un caso de potencia entrando por el portasatélites con $i_{41} \in [0,1]$. Por tanto, operamos.
+
+Se el rendimiento del mecanismo invertido:
+
+\[\eta' = 0.98 \times 0.99\]
+
+Por tanto, obtenemos:
+
+\[\eta_{41} = \frac{\eta'}{1 - i_{41}(1-\eta')} = 0.9715\]
+
+\paragraph{\textbf{f)}}
+
+Aplicamos la definición de rendimiendo y equilibrio de pares.
+
+\[M_1 + M_3 + M_4 = 0\]
+
+Por tanto; tenemos:
+
+\[\eta = 0.97 = -\frac{M_1w_1}{M_4w_4}\]
+
+Por tanto; tenemos:
+
+\[\frac{M_1}{M_4} = 0.044\]
+
+\subsection{Tren de engranajes simple con multiples etapas}
+
+La figura muestra el esquema de un tren planetario de engranajes en el que la potencia entra por el eje 2, que gira a 100rpm y sale por el eje 1, estando la rueda A fija.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/1.7.png}
+\end{figure}
+
+Se pide:
+\begin{itemize}
+	\item[a)] Velocidad de salida.
+	\item[b)] Relación entre los pares de entrada, $M_2$, y de sujeción de la rueda A, $M_A$.
+	\item[c)] Relación entre el par de entrada, $M_2$, y el par de salida, $M_b$.
+	\item[d)] Rendimiendo del tren planetario.
+\end{itemize}
+
+Supóngase un rendimiento de 0.96 para una etapa de engranaje exterior.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\paragraph{\textbf{a)}}
+
+Se trata de un tren de engranajes con rueda compuesta y corona que engrana externamente y es fija. Por tanto, nos apoyamos en el mecanismo invertido (bloqueamos el brazo portasatélites) y obtenemos:
+
+\[i'_{2A} = -\frac{Z_C}{Z_D} \times -\frac{Z_A}{Z_B} = \frac{80}{7}\]
+
+Nos apoyamos en la fórmula de Willis y obtenemos:
+
+\[i'_{2A} = \frac{80}{7} = \frac{w_2 - w_{brazo}}{w_A - w_{brazo}}\]
+
+donde $w_A = 0$. En consecuencia, obtenemos:
+
+\[w_{brazo} = -9.59rpm\]
+
+\paragraph{b)}
+
+Calculamos el rendimiendo del mecanismo invertido:
+
+\[\eta' = 0.96 \times 0.96 = 0.92\]
+
+Por otra parte, calculamos el índice de reducción:
+
+\[i_{2Brazo} = \frac{w_2}{w_{brazo}} = -10.43 < 10\]
+
+Calculamos el rendimiento:
+
+\[\eta_{2Brazo} = \frac{1 + \eta'(i_{2Brazo} - 1)}{i_{2Brazo}} = 0.914\]
+
+Aplicamos la definición de rendimiento.
+
+\[\eta_{2Brazo} = -\frac{M_{Brazo}w_{Brazo}}{M_2w_2}\]
+
+En consecuencia, obtenemos:
+
+\[\frac{M_{Brazo}}{M_2} = 9.53\]
+
+Nos apoyamos en el equilibrio de pares y obtenemos:
+
+\[M_2 + M_A + M_{Brazo} = 0\]
+
+Por tanto, tenemos:
+
+\[\frac{M_2}{M_A} = -0.095\]
+
+\paragraph{\textbf{c)}}
+
+La relación la obtenemos en el apartado anterior:
+
+\[\frac{M_{Brazo}}{M_2} = 9.53\]
+
+\paragraph{\textbf{d}}
+
+El rendimiendo lo obtenemos en los apartados anteriores:
+
+\[\eta_{2Brazo} = 0.914\]
+
+\subsection{Análisis Tren de engranajes compuesto}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/1.8.png}
+\end{figure}
+
+En el mecanismo planetario de la figura, un motor, no representado en ella, acciona el eje 1 que gira a 750rpm. La rueda A está inmovilizada por un freno no representado en la figura.
+
+Suponiendo un rendimiento de 0.98 para cada etapa simple de engranaje exterior, se pide:
+
+\begin{itemize}
+	\item[a)] Velocidad del eje de salida 2 cuando el eje 1 gira a 750rpm.
+\end{itemize}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\paragraph{\textbf{a)}}
+
+En primer lugar debemos identificar los elementos de los cuales esta compuesto nuestro sistema. Nos encontramos ante dos trenes de engranajes planterarios, uno simple y otro diferencial.
+
+Por tanto, analizamos por separado los dos trenes de engranajes.
+
+\subparagraph{Tren de engranjes planetario simple}
+
+El tren de engranajes simple esta compuesto por una corona fija, rueda dentada A, un solar, rueda dentada D, y como satelite una rueda compuesta, B y C.
+
+La potencia entra por el brazo portasatélites, con una velocidad angular, $w_4$, de 750rpm.
+
+Sea el índice de reducción del mecanismo invertido.
+
+\[i'_{DA} = (-\frac{Z_C}{Z_D}) \times (-\frac{Z_A}{Z_B}) = 5.74\]
+
+Aplicamos la fórmula de Willis para obtener la velocidad de giro del planetario.
+
+\[i'_{DA} = \frac{w_D - w_{brazo}}{w_A - w_{brazo}} = 5.74\]
+
+donde al estar la corona fija, $w_A = 0$. En consecuencia, obtenemos:
+
+\[w_D = -3555[rpm]\]
+
+Una vez conocemos la velocidad de giro del solar podemos analizar el tren de engranajes planetario diferencial.
+
+\subparagraph{Tren de engranajes planetario diferencial}
+
+El tren de engranajes planetario diferencial esta compuesto por una corona, rueda dentada G, un solar, rueda dentada D, y como satelite una rueda compuesta, E y F. Además debemos tener en cuenta que el brazo portasatélites es el mismo que el de tren de engranajes simple.
+
+Sea el índice de reducción del mecanismo invertido es:
+
+\[i'_{DG} = (-\frac{Z_E}{Z_D}) \times (-\frac{Z_G}{Z_F}) = 8.72\]
+
+Aplicamos la formula de Willis y obtenemos la velocidad de giro angulo de la corono, salida del sistema.
+
+\[i'_{DG} = \frac{w_D - w_{brazo}}{w_G - w_{brazo}} = 8.72\]
+
+Por tanto, concluimos con:
+
+\[w_G = 256.31[rpm]\]
+
+\subsection{Polipasto accionado por correas}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/1.4.png}
+\end{figure}
+
+En el mecanismo planetario de la figura, un motor, no representado en ella, acciona el eje que gira a 12rpm. La rueda A está inmovilizada.
+
+Suponiendo un rendimiento de 0.98 para cada etapa simple de engranaje exterior, se pide:
+
+\begin{itemize}
+	\item[a)] Verificar la condición de coaxialidad.
+	\item[b)] Verificar que se pueden montar dos satelites.
+	\item[c)] Calcular la velocidad angular de salida, $w_D$.
+	\item[d)] Calcular rendimiento del sistema.
+\end{itemize}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\paragraph{\textbf{a)}}
+
+La condición de coaxialidad viene dada por:
+
+\[Z_A + Z_B = Z_C + Z_D = 91\]
+
+\paragraph{\textbf{b)}}
+
+Verificamos la condición de montaje de 2 satelites.
+
+\[\frac{Z_CZ_A - Z_BZ_D}{2} = k_1Z_C - k_2Z_B = 2730\]
+
+Por tanto; se verifica para $k_1,k_2\in \mathbb{N}$.
+
+\paragraph{\textbf{c)}}
+
+Se trata de un tren de engranajes simples en el que la potencia entra por el brazo portasatélites.
+
+Sea el índice de reducción del mecanismo invertido equivalente.
+
+\[i'_{AD} = (-\frac{Z_B}{Z_A}) \times (-\frac{Z_D}{Z_C}) = 0.042\]
+
+Aplicamos la fórmula de Willis para obtener la velocidad angular de salida.
+
+\[i'_{AD} = \frac{w_A - w_{brazo}}{w_D - w_{brazo}}\]
+
+Por tanto; obtenemos:
+
+\[w_D = -273.714[rpm]\]
+
+\paragraph{\textbf{d)}}
+
+Calculamos el índice de reducción del sistema:
+
+\[i_{bD} = \frac{w_b}{w_D} = -0.043\]
+
+Sea el rendimiento del mecanismo invertido es:
+
+\[\eta' = 0.98 \times 0.98\]
+
+Como estamos trabajando con un tren de engranajes planetario donde la potencia entra por el brazo portasatélites y tiene un indice de reducción menor que 0, aplicamos la formula del rendimiento.
+
+\[\eta_{bD} = \frac{\eta'}{1 - i_{bD}(1 - \eta')} = 0.959\]
+
+
+
+\chapter{Resortes y Mecanismos Neumáticos}
+\section{Resortes}
+
+Los resortes son elementos elásticos que almacenan energía mediante deformación. La clave del diseño de resortes se basa en dos criterios principales:
+
+\begin{itemize}
+    \item \textbf{Criterio de Resistencia}. Nos permite determinar la sección transversal(diámetro del alambre).
+    \item \textbf{Criterio de Elasticidad}. Determina la longitud (número de espiras).
+\end{itemize}
+
+Esta secuencia es universal: primero se dimensionamos para que no rompa, luego para que tenga la rigidez deseada.
+
+\subsection{Análisis topológico}
+
+El análisis topológico es el punto de partida para entender cualquier resorte. Se trata de una clasificiación sistemática que organiza todos los tipos de resortes existentes según dos criterios que se cruzan entre sí: la geometría del resorte y su modo de funcionamiento interno.
+
+Cuando hablamos de geometría, nos referimos a la forma física que adopta el material elástico. Existen tres configuraciones básicas. La primera es la geometría espiral, donde el material se enrolla en un plano formando una espiral como la de un caracol, es típica de los resortes de relojería. La segunda es la geometría helicoidal, donde el material se enrolla formando una hélice tridimensional, como los muelles clásicos que todos conocemos. La tercera es la geometría plana o recta, donde le material permanece esecialmente recto o con curvaturas suaves, como ocurre en las ballestas de los vehículos o en las barras a torsión.
+
+El modo de funcionamiento se refiere a qué tipo de solicitación mecánica predomina internamente en el material del resorte. La solicitación interna no siempre coincide con la carga externa aplicada. Los tres modos posibles son flexión, torsión y compresión.
+
+\subsubsection{La aparente paradoja del resorte helicoidal}
+
+El ejemplo más ilustrativo de por qué esta clasificación es importante es el resorte helicoidal de tracción-compresión, es el muelle típico que ves en las válvulas de los motores o en los bolígrafos. Cuando aplicas una fuerza axial F para comprimirlo o estirarlo, podrías pensar que el alambre está trabajando a compresión o tracción. Sin embargo, si analizas lo que ocurre internamente en cada sección del alambre, descubres que la solicitación predominante es de torsión.
+
+Esto ocurre porque cada espira del alambre actúa como un brazo de palanca. La fuerza F aplicada en el eje del resorte genera un momento torsor en el alambre igual a $T = F D/2$, donde $D$ es el diámetro medio de la hélice. Por eso, aunque externamente apliques una fuerza axial, internamente el alambre sufre principalmente tensiones tangenciales de torsión, y por eso este resorte aparece en la columna de "torsión" de la matriz topológica.
+
+Esta distinción es fundamental porque determina completamente qué ecuaciones debes usar para dimensionar el resorte.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imagenes/MatrizDeClasificación.png}
+    \caption{Matriz de clasificación}
+\end{figure}
+
+Al cruzar las tres geometrías con los tres modos de funcionamiento, obtenemos las diferentes familias de resortes. No todas las combinaciones existen en la práctica, pero las más importantes son las siguientes.
+
+En la familia de flexión encontramos los resortes espirales de torsión, que a pesar de su nombre confuso trabajan internamente a flexión. Estos son los típicos resortes planos enrollados de los relojes mecánicos o de las cintas métricas retráctiles. También encontramos los resortes de torsión helicoidales, que son esos muelles con patas que giran cuando les aplicas un par, como los que cierran las pinzas de la ropa. Y por supuesto las ballestas, que son conjuntos de láminas rectas o ligeramente curvadas que trabajan a flexión pura.
+
+En la familia de torsión el protagonista es el resorte helicoidal de tracción-compresión que ya mencionamos. También entran aquí las barras de torsión, que son simplemente barras rectas que se retuercen, muy usadas en suspensiones de vehículos.
+
+En la familia de compresión encontramos las arandelas Belleville o arandelas cónicas. Son discos metálicos con forma de cono truncado que, al comprimirlos axialmente, almacenan energía mediante la deformación del material a compresión. Se pueden apilar en serie o en paralelo para conseguir diferentes características de rigidez.
+
+\subsubsection{Aplicaciones funcionales}
+
+Además de clasificar los resortes por su geometría y modo de funcionamiento, el análisis topológico también considera las funciones que cumplen en las máquinas.
+
+Los resortes como acumuladores de energía almacenan trabajo mecánico en forma de energía potencial elástica para liberarla posteriormente. El ejemplo clásico es el resorte principal de un reloj mecánico, que almacena la energía del cuerda y la libera gradualmente para mover las agujas. También los mecanismos de disparo o los sistemas de arranque manual de motores pequeños usan esta función.
+
+Como aisladores de vibraciones, los resortes filtran las oscilaciones entre componentes, evitando que las vibraciones de una parte se transmitan a otra. Los silent-blocks de goma en los anclajes de motores cumplen esta función, igual que los sofisticados sistemas de aislamiento sísmico en edificios.
+
+Como limitadores de esfuerzos o fusibles mecánicos, los resortes protegen los componentes de una máquina limitando la fuerza máxima que puede transmitirse. Las válvulas de alivio de presión funcionan así: cuando la presión supera un umbral, el resorte cede y permite el escape del fluido. Los embragues de seguridad en herramientas también usan este principio para evitar daños si la herramienta se atasca.
+
+Finalmente, como elementos de retorno, los resortes devuelven un mecanismo a su posición inicial después de ser accionado. Los resortes de válvulas en motores de combustión cierran la válvula después de que el árbol de levas la haya abierto. Los pedales de freno, los gatillos, los pulsadores, todos vuelven a su posición gracias a un resorte de retorno.
+
+\subsection{Caracerísticas fundamentales de los resortes}
+
+Esta sección establece los conceptos teóricos que gobiernan el comportamiento de cualquier resorte, independientemente de su tipo.
+
+\subsubsection{La curva esfuerzo-deflexión y el concepto de rigidez}
+
+Todo resorte se caracteriza por la relación entre la fuerza (o par) que se le aplica y la deformación (desplazamiento lineal o angular) que experimenta. Esta relación se representa gráficamente mediante la curva esfuerzo-deflexión, donde típicamente el eje horizontal muestra la deflexión $f$ (que puede ser un desplazamiento en milímetros o un giro en radianes) y el eje vertical muestra la fuerza $F$ o el momento $M$ aplicado.
+
+La rigidez del resorte, denotada habitualmente como $k$, se define como la pendiente de esta curva en cada punto:
+
+$$k(f) = \frac{dF}{df}$$
+
+Para la mayoría de resortes metálicos trabajando en régimen elástico, esta curva es una línea recta que pasa por el origen, lo que significa que la rigidez es constante. En estos casos, la relación se simplifica a $F = k \times f$, que es la conocida ley de Hooke aplicada a resortes.
+
+Sin embargo, existen situaciones donde la rigidez no es constante. Esto puede ocurrir por dos razones fundamentales. La primera es la variabilidad de la longitud útil del resorte durante su funcionamiento. Imagina un resorte helicoidal de compresión con paso variable: a medida que lo comprimes, las espiras más juntas van tocándose entre sí y dejan de contribuir elásticamente, reduciendo progresivamente la longitud útil del resorte y aumentando su rigidez. La segunda razón es la variabilidad de la rigidez local a lo largo del resorte, aunque esta solo tiene efecto si además varía la longitud útil.
+
+\subsubsection{La energía almacenada}
+
+Una de las funciones principales de los resortes es almacenar energía mecánica en forma de energía potencial elástica. La cantidad de energía almacenada corresponde al área bajo la curva esfuerzo-deflexión:
+
+$$W = \int_{f_{min}}^{f_{max}} fdF$$
+
+Para un resorte lineal con rigidez constante $k$, esta integral se resuelve fácilmente y da como resultado la conocida expresión:
+
+$$W = \frac{1}{2}kf^2 = \frac{1}{2} Ff = \frac{F^2}{2k}$$
+
+Esta energía es la que el resorte puede devolver al sistema cuando se libera, y es fundamental en aplicaciones como acumuladores de energía o mecanismos de retorno.
+
+\subsubsection{La secuencia básica de diseño}
+
+A la hora de diseñar resortes, seguiremos la siguiente secuencia de pasos:
+
+\begin{enumerate}
+    \item Dimensionar la sección transversal aplicando el criterio de resistencia. Aquí se determina el tamaño de la sección del material (diámetro del alambre, espesor de la lámina, etc.) para que las tensiones máximas no superen los valores admisibles. Este paso garantiza que el resorte no romperá bajo la carga de diseño.
+    \item Dimensionar la longitud necesaria aplicando el criterio de elasticidad. Una vez conocida la sección, se calcula cuánto material se necesita (número de espiras, longitud de fleje, etc.) para conseguir la rigidez o la deflexión deseada. Este paso garantiza que el resorte tendrá el comportamiento elástico requerido.
+    \item iterar entre diferentes soluciones válidas considerando las restricciones del problema. Generalmente existen infinitas combinaciones de sección y longitud que satisfacen los requisitos de resistencia y elasticidad. La elección final depende de restricciones prácticas como el espacio disponible, el peso máximo permitido, el coste de fabricación o la disponibilidad de materiales normalizados.
+\end{enumerate}
+
+\subsubsection{La utilización del material}
+
+No todos los tipos de resortes aprovechan igual de bien el material. El concepto de coeficiente de aprovechamiento $\eta_A$ cuantifica qué fracción del material está trabajando a la tensión máxima admisible.
+
+$$W[J] = \eta_A \frac{\sigma^2[Pa]}{2E[Pa]}V[m^3] = \eta_A \frac{\tau^2[Pa]}{2G[Pa]}V[m^3]$$
+
+En un elemento sometido a tracción-compresión pura, toda la sección transversal está uniformemente tensionada al mismo nivel, por lo que el aprovechamiento es máximo: $\eta_A = 1$.
+
+En un elemento sometido a flexión pura con sección rectangular, la distribución de tensiones es triangular: máxima en las fibras extremas y nula en la fibra neutra. Por tanto, gran parte del material está infrautilizado y el coeficiente de aprovechamiento baja a $\eta_A = \frac{1}{3}$.
+
+En un elemento sometido a torsión pura con sección circular, la distribución de tensiones tangenciales también varía desde cero en el centro hasta el máximo en la periferia, resultando en un aprovechamiento intermedio de $\eta_A = \frac{1}{2}$.
+
+Estos valores tienen implicaciones prácticas importantes. Si necesitas almacenar la máxima energía posible con el mínimo peso de material, los resortes que trabajan a tracción son teóricamente óptimos. Sin embargo, trabajar a tracción tiene inconvenientes prácticos importantes: cualquier defecto superficial o concentrador de tensiones puede iniciar una grieta que se propaga rápidamente bajo cargas de tracción. Por eso, aunque sean menos eficientes en aprovechamiento del material, los resortes basados en flexión o torsión suelen ser más robustos y fiables en la práctica.
+
+\subsubsection{Los factores de aprovechamiento comparativos}
+
+Ademas del coeficiente de aprovechamiento, podemos recurrir al coeficiente de aprovechamiento del volumen o del peso. 
+
+El coeficiente de aprovechamiento del volumen, $\eta_V$, indica cuanta energía se puede almacenar por unidad de volumen ocupado.
+
+$$W = \eta_V V$$
+
+De forma analoga, el coeficiente de aprovechamiento del peso, $\eta_Q$, indica cuánta energía se puede almacenar por unidad de peso. 
+
+$$W = \eta_Q Q$$
+
+\subsubsection{Tensión admisible}
+
+El valor de la tensión admisible viene dado por dos criterios de fallo.
+
+El criterio de relajación considera que los materiales, especialmente a temperaturas elevadas, pueden sufrir fluencia lenta (creep) que hace que el resorte pierda progresivamente su precarga o su capacidad de recuperación. Este fenómeno de viscoelasticidad es pequeño en metales a temperatura ambiente pero muy significativo en polímeros o en metales a alta temperatura. Para prevenirlo, se limita la relación entre la tensión de trabajo y el límite elástico del material.
+
+El criterio de fatiga es crucial cuando el resorte está sometido a cargas cíclicas. Incluso tensiones muy por debajo del límite elástico pueden provocar el fallo después de millones de ciclos si existe una amplitud de tensión suficiente. El dimensionamiento a fatiga se realiza mediante los diagramas de Goodman o Wöhler, y puede mejorarse significativamente mediante tratamientos superficiales como el perdigonado (shot peening), que introduce tensiones residuales de compresión en la superficie y puede aumentar la tensión admisible a fatiga en aproximadamente un 30\%.
+
+Presentados los conceptos teóricos básicos procedemos a plantear el modelado de las diferentes familias de resortes.
+
+\subsection{Resortes basados en la flexión}
+
+Los resortes basados en flexión son aquellos en los que la solicitación mecánica predominante en el material es el momento flector. Esta familia incluye varios tipos con geometrías muy diferentes pero que comparten los mismos principios físicos fundamentales.
+
+\subsubsection{Principios básicos de la flexión}
+
+Antes de analizar cada tipo de resorte, es esencial comprender qué ocurre cuando un elemento está sometido a flexión, ya que esto determina todas las ecuaciones de dimensionamiento.
+
+Cuando aplicas un momento flector $M$ a una sección de un elemento, produces un cambio de curvatura en esa sección. Si el elemento tenía inicialmente una curvatura $C_0$ (que puede ser cero si era recto), después de aplicar el momento tendrá una curvatura $C$. La relación entre el cambio de curvatura y el momento aplicado viene dada por la ecuación fundamental de la flexión:
+
+$$\frac{1}{\rho(l)} - \frac{1}{\rho_0(l)} = \Delta C(l) = \frac{M(l)}{EI(l)}$$
+
+Donde $\rho$ es el radio de curvatura, $E$ es el módulo de elasticidad del material e $I$ es el momento de inercia de la sección.
+
+Este cambio de curvatura produce un giro en cada sección diferencial del elemento. El giro de cada sección elemental es $d\theta(l) = C(l) dl$, y el giro total se obtiene integrando a lo largo de toda la longitud:
+
+$$\Delta\phi = \int_{0}^{L}\frac{M}{E(l)I(l)}dl$$
+
+Para el caso más común donde el módulo de elasticidad y el momento de inercia son constantes, esta expresión se simplifica enormemente a:
+
+$$\Delta\phi = \frac{M}{EI}L$$
+
+De aquí se deduce directamente que la rigidez de un elemento a flexión es $EI/L$. Esta expresión te dice algo muy importante: para conseguir un resorte más flexible (menor rigidez) puedes aumentar la longitud, reducir el momento de inercia o usar un material con menor módulo elástico.
+
+La tensión producida por el momento flector sigue la distribución clásica de Navier, siendo máxima en las fibras más alejadas del eje neutro. Para una sección rectangular de anchura $b$ y altura $h$, la tensión máxima es:
+
+$$\sigma_{adm} = \frac{M}{I}y_{max} = \frac{M}{\frac{1}{12}bh^3}\frac{h}{2}$$
+
+Para una sección circular de diámetro $d$:
+
+$$\sigma_{adm} = \frac{M}{\frac{\pi d^4}{64}}\frac{d}{2}$$
+
+Una observación importante es que para secciones rectangulares existe un grado de libertad adicional: puedes elegir infinitas combinaciones de $b$ y $h$ que satisfagan la condición de resistencia. Seleccionas uno de los dos parámetros según las restricciones geométricas del problema y calculas el otro. En cambio, para secciones circulares, una vez fijada la tensión admisible, el diámetro queda unívocamente determinado.
+
+\subsubsection{Resortes de torsión helicoidales (caso particular: sección circular)}
+
+El nombre de estos resortes puede resultar confuso porque incluye la palabra ``torsión'', pero recuerda: el nombre se refiere a la carga externa aplicada (un par torsor), no a la solicitación interna del material, que es flexión pura.
+
+Estos resortes son los típicos muelles con ``patas'' que ves en las pinzas de la ropa, en las tapas de cajas o en mecanismos de retorno angular. Tienen forma helicoidal como los resortes de compresión, pero en lugar de cargarse axialmente, se les aplica un par torsor en los extremos que hace girar las patas.
+
+El funcionamiento es el siguiente: cuando aplicas un par $M = F R$(donde $F$ es la fuerza en la pata y $R$ es el brazo de palanca), este par se transmite a lo largo de todo el alambre como momento flector constante. Cada sección del alambre experimenta flexión pura, lo que produce un cambio de curvatura que se acumula a lo largo de toda la longitud del alambre, resultando en un giro total de las patas.
+
+El dimensionamiento sigue la secuencia estándar. Primero calculas el diámetro del alambre por resistencia:
+
+$$d = \sqrt[3]{\frac{32M}{\pi\sigma_{adm}}}$$
+
+Sin embargo, como el alambre no es recto sino que está curvado formando la hélice, existe una concentración de tensiones en la fibra interior que debe corregirse mediante un factor $q_3$ que depende de la relación $D/d$:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{r c c c c c l}
+        $D/d$ & 2 & 3 & 4 & 6 & 8 & 15\\
+        \hline
+        $q_3$ & 1.59 & 1.36 & 1.25 & 1.16 & 1.12 & 1.06
+    \end{tabular}
+\end{table}
+
+La tensión real será $\sigma = q_3 \sigma_{calculada}$ por lo que debemos tenerlo en cuenta al dimensionar.
+
+Una vez conocido el diámetro, calculas la longitud del alambre (número de espiras) por elasticidad. Como el momento flector es constante y la sección es uniforme, el giro total es simplemente:
+
+$$\Delta \phi = \frac{M}{EI}L$$
+
+Despejando la longitud necesaria para conseguir un giro determinado bajo un par dado, y sabiendo que $L = \pi D$ donde $n$ es el número de espiras, puedes calcular cuántas espiras necesitas.
+
+La rigidez de este resorte es $EI/L$, lo que significa que a más espiras, más flexible será el resorte.
+
+El material típico para estos resortes es el acero 1.1200 según DIN 17223, con una tensión admisible estática de aproximadamente 1650 MPa. Para cargas dinámicas (fatiga), la tensión admisible se reduce según la expresión $\sigma_{H,adm} = 690 \text{ MPa} - 0{,}25 \sigma_{U}$.
+
+\subsubsection{Resortes de flexión rectos (Ballesta)}
+
+Las ballestas son el ejemplo clásico de resorte plano trabajando a flexión. Las ves en suspensiones de camiones, remolques y vehículos pesados. Consisten en una o varias láminas de acero, generalmente de sección rectangular, que se flexionan bajo carga.
+
+El caso más sencillo de analizar es la viga en voladizo con carga puntual en el extremo, o equivalentemente, la viga biapoyada con carga central (que puede tratarse como dos voladizos de longitud mitad con carga mitad).
+
+Cuando analizas una viga en voladizo de longitud $L$ con una fuerza $F$ en el extremo, el momento flector varía linealmente desde $M = F L$
+en el empotramiento hasta $M = 0$ en el extremo libre. Esta distribución no uniforme del momento tiene implicaciones importantes para el diseño óptimo.
+
+\paragraph{Alternativa 1: Sección constante}
+
+La opción más sencilla es usar una lámina de sección rectangular constante con anchura $b$ y altura $h$ uniformes a lo largo de toda la longitud. En este caso, dimensionas la sección para soportar el momento máximo en el empotramiento:
+
+$$\sigma_{max} = \sigma_{adm} = \frac{FL}{\frac{1}{12}bh^3}\frac{h}{2}$$
+
+El problema de esta alternativa es que el material está infrautilizado en todas las secciones excepto en el empotramiento. A medida que te alejas hacia el extremo libre, el momento flector disminuye pero la sección sigue siendo la misma, por lo que la tensión real es menor que la admisible y el material está ``sobrando''. El peso no está optimizado.
+
+La flecha y el ángulo en el extremo para esta configuración son:
+
+$$f = \frac{4FL^3}{Ebh^3} \quad \tan{\alpha} = \frac{6FL^2}{Ebh^3}$$
+
+\paragraph{Alternativa 2: Anchura variable (h constante)}
+
+Si mantienes el espesor $h$ constante pero reduces la anchura $b$ linealmente hacia el extremo (forma trapezoidal en planta), puedes conseguir que la tensión sea constante e igual a $\sigma_{adm}$ en toda la longitud. Como el momento decrece linealmente y la anchura también decrece linealmente, la relación $M/b$ permanece constante y por tanto la tensión también.
+
+Esta alternativa optimiza el peso porque todo el material trabaja a la tensión máxima admisible.
+
+\paragraph{Alternativa 3: Espesor variable (b constante)}
+
+Alternativamente, puedes mantener la anchura $b$ constante y variar el espesor $h$. Como la tensión depende de $h^2$ y el momento varía linealmente, el espesor debe variar con la raíz cuadrada de la distancia al extremo para mantener la tensión constante. Esto produce una forma parabólica en el canto de la lámina.
+
+Esta alternativa también optimiza el peso, aunque es más difícil de fabricar que la alternativa 2.
+
+\paragraph{Las ballestas de hojas superpuestas}
+
+En la práctica, las ballestas de los vehículos no se fabrican como una única lámina de sección variable, sino como un conjunto de hojas de longitud decreciente superpuestas. Esta configuración consigue un efecto similar a la alternativa 2: en las secciones cercanas a los apoyos hay más hojas trabajando (mayor anchura efectiva $b$), mientras que hacia el centro hay menos hojas. El resultado es una distribución más uniforme de tensiones y un uso más eficiente del material.
+
+Se dispone de tablas de coeficientes $q_1$ y $q_2$ que permiten calcular la flecha y el ángulo para diferentes geometrías de ballesta:
+
+$$f = q_1\frac{4FL^3}{Ebh^3} \quad \tan{\alpha} = q_2\frac{6FL^2}{Ebh^3}$$
+
+La rigidez de la ballesta es entonces:
+
+$$k=\frac{Ebh^3}{4q_1L^3}$$
+
+\subsubsection{Resortes espirales de torsión}
+
+Estos resortes son los típicos de los relojes mecánicos y las cintas métricas retráctiles. Consisten en un fleje de sección rectangular enrollado en espiral plana dentro de una carcasa cilíndrica.
+
+Nuevamente, el nombre incluye ``torsión'' pero se refiere a la carga externa: se les aplica un par torsor en el eje central. Internamente, el fleje está sometido a flexión pura con momento flector constante a lo largo de toda su longitud.
+
+El funcionamiento es idéntico conceptualmente al resorte de torsión helicoidal: el par aplicado $M$ produce un momento flector constante en cada sección del fleje, lo que genera cambios de curvatura que se acumulan produciendo un giro total.
+
+Para el dimensionamiento de la sección, como el fleje es rectangular, tienes infinitas combinaciones de anchura $b$ y espesor $h$:
+
+$$\sigma_{adm} = \frac{M}{\frac{1}{12}bh^3}\frac{h}{2}$$
+
+Eliges una combinación según las restricciones de espacio disponible.
+
+Para el cálculo de la longitud, como el momento es constante y la sección uniforme:
+
+$$\Delta\phi = \frac{M}{EI}L$$
+
+De donde puedes despejar la longitud de fleje necesaria para conseguir un giro determinado.
+
+Un aspecto adicional importante en estos resortes es el cálculo del diámetro de la carcasa. El fleje se enrolla siguiendo aproximadamente una espiral de Arquímedes, y debes asegurar que al enrollarse completamente bajo par máximo, el fleje quepa dentro de la carcasa sin que las espiras se toquen.
+
+\paragraph{Cálculo aproximado del diámetro de la carcasa}
+
+A par máximo, y siendo $\gamma$ la distancia entre espiras a dicho par, suponiendo que el fleje se enrolla como una espiral de Arquímedes. El radio necesario para la carcasa será:
+
+$$r_c=r_{max,0} + \frac{h}{2}$$
+
+Donde:
+
+$$r_{max,0} = \frac{1}{\frac{1}{r_{max,M}}-\frac{M}{EI}}$$
+
+El material típico para estos resortes es el acero 1.1200 según DIN 17223, con una tensión admisible estática de aproximadamente 1650 MPa. Para cargas dinámicas (fatiga), la tensión admisible se reduce según la expresión $\sigma_{H,adm} = 690 \text{ MPa} - 0{,}25 \sigma_{U}$.
+
+
+\subsection{Resortes basados en la torsión}
+
+Los resortes basados en la torsión son aquellos en los que la solicitación mecánica predominante en el material es el momento torsor. El representante más importante y frecuente de esta familia es el resorte helicoidal de tracción-compresión, ese muelle clásico que encuentras en válvulas, suspensiones, bolígrafos y un sinfín de aplicaciones.
+
+\paragraph{Principios básicos de la torsión}
+
+Antes de entrar en el resorte helicoidal, conviene recordar qué ocurre cuando aplicas un momento torsor a una sección circular.
+
+Cuando sometes una barra de sección circular a un momento torsor $T$, cada sección experimenta un giro relativo respecto a la sección adyacente. La relación entre el giro por unidad de longitud y el momento aplicado viene dada por:
+
+$$\frac{d\theta}{dl} = \frac{T}{GI_0}$$
+
+Donde G es el módulo de la elasticidad transversal (aproximandamente $80[GPa]$ para aceros) e $I_0$ es el momento de inercia polar de la sección, que para una sección circular maciza vale $I_0 = \frac{\pi d^4}{32}$.
+
+La tensión tangencial producida por el momento torsor varía linealmente desde cero en el centro hasta el máximo en la periferia:
+
+$$\tau_{max} = \frac{T}{I_0}\frac{d}{2} = \frac{T}{\frac{\pi d^4}{32}}\frac{d}{2}$$
+
+Esta distribución de tensiones explica por qué el coeficiente de aprovechamiento de la torsión pura con sección circular es $\eta_A = 0.5$: solo la mitad del material está trabajando eficientemente, ya que las fibras cercanas al centro están poco solicitadas.
+
+\subsubsection{El resorte helicoidal de tracción-compresión}
+
+En los resortes helicoidales de tracción-compresión, aunque su nombre indica ``tracción-compresión'' refiriéndose a la carga externa que se le aplica (una fuerza axial), internamente el alambre trabaja principalmente a torsión.
+
+\paragraph{¿Por qué trabaja a torisión si la carga es axial?}
+
+Imagina una espira del resorte vista desde arriba: es esencialmente un círculo de diámetro $D$. Cuando aplicas una fuerza axial $F$ en el eje del resorte, cada punto del alambre está a una distancia $D/2$ del eje de aplicación de la fuerza. Por tanto, en cada sección del alambre aparece un momento torsor:
+
+$$T = F \frac{D}{2}$$
+
+Es como si cada sección del alambre fuera un pequeño brazo de palanca de longitud $D/2$ sobre el que actúa la fuerza $F$. Este momento torsor es constante a lo largo de todo el alambre porque el brazo de palanca es siempre el mismo.
+
+Además del momento torsor, cada sección también soporta una pequeña fuerza cortante directa igual a $F$, pero su contribución a la tensión total es mucho menor y generalmente se desprecia en primera aproximación. También existe un pequeño momento flector debido al ángulo de la hélice, pero como este ángulo suele ser pequeño (hélices bastante ``planas''), este efecto también se considera secundario.
+
+\paragraph{Distribución de tensiones en la sección del alambre}
+
+La tensión tangencial en el alambre tiene dos contribuciones. La primera y dominante es la debida al momento torsor, que produce una distribución triangular desde cero en el centro hasta el máximo en la periferia. La segunda es la debida al cortante directo $F/S$, que produce una distribución aproximadamente uniforme en toda la sección.
+
+Sumando ambas contribuciones, la tensión máxima aparece en la fibra interior de la espira (la más cercana al eje del resorte) y vale aproximadamente:
+
+$$\tau = \frac{F\frac{D}{2}}{I_0}\frac{d}{2} + \frac{F}{S} = \frac{F\frac{D}{2}}{\frac{\pi d^4}{32}}\frac{d}{2} + \frac{F}{\frac{\pi d^2}{4}}$$
+
+Como el segundo término suele ser pequeño comparado con el primero, se aproxima frecuentemente a:
+
+$$\tau \approx \frac{F\frac{D}{2}}{I_0}\frac{d}{2}$$
+
+\paragraph{Corrección por el fleje curvo: el factor k}
+
+La fórmula anterior asume que el alambre es recto, pero en realidad está curvado formando la hélice. Esta curvatura produce una concentración de tensiones en la fibra interior que debe corregirse mediante un factor $k$ que depende de la relación entre el diámetro medio de la hélice y el diámetro del alambre:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c c c c c c c c c c}
+        $\frac{D}{d}$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 12 & 15\\
+        \hline
+        k & 2.05 & 1.55 & 1.38 & 1.29 & 1.23 & 1.20 & 1.17 & 1.15 & 1.13 & 1.11 & 1.09\\
+    \end{tabular}
+\end{table}
+
+La tensión real corregida es:
+
+$$\tau = k\left(\frac{F\frac{D}{2}}{I_0}y_{max} + \frac{F}{S}\right) \approx k \frac{F\frac{D}{2}}{I_0}y_{max}$$
+
+En nuestro caso particular de alambre de sección circular maciza, tenemos:
+
+$$\tau \approx k \frac{F \frac{D}{2}}{\frac{\pi d^4}{32}}\frac{d}{2}$$
+
+Observa que cuando la relación $D/d$ es pequeña (alambre grueso respecto al diámetro de la hélice), el factor $k$ es muy alto porque la curvatura es muy pronunciada. A medida que aumenta $D/d$ (alambre fino respecto al diámetro), el factor tiende a 1 porque el alambre se comporta casi como si fuera recto.
+
+\paragraph{Dimensionamiento del resorte helicoidal}
+
+El dimensionamiento sigue la secuencia estándar de resistencia primero, elasticidad después.
+
+\begin{enumerate}
+    \item \textbf{Criterio de resistencia: cálculo del diámetro del alambre.}
+    \\
+    Partiendo de la ecuación de la tensión tangencial e igualándola a la tensión admisible:
+
+    $$\tau_{adm} = k\frac{F\frac{D}{2}}{\frac{\pi d^4}{32}}\frac{d}{2}$$
+
+    Despejando el diámetro:
+
+    $$d = \sqrt[3]{\frac{8FDk}{\pi\tau_{adm}}}$$
+
+    En la práctica, como $D$ y $d$ están relacionados a través del factor $k$, el proceso suele ser iterativo: asumes un valor de $D/d$, calculas $d$, verificas si el $D/d$ resultante coincide con el asumido, y ajustas si es necesario.
+    \item \textbf{Criterio de elasticidad: cálculo del número de espiras.}
+    \\
+    Una vez conocido el diámetro del alambre, necesitas determinar cuántas espiras hacen falta para conseguir la rigidez deseada. Cada sección del alambre gira un ángulo $d\theta$ bajo el momento torsor, y este giro se traduce en un desplazamiento axial del resorte.
+
+    Integrando a lo largo de toda la longitud del alambre, la flecha total resulta:
+
+    $$f = \frac{Fn_{F}\pi D^3}{4GI_0}$$
+
+    De donde el número de espiras elásticas $n_F$ será:
+
+    $$n_F = \frac{fGdk}{D^2\pi \tau_{adm}}$$
+
+    El número total de espiras será $n_T = n_F + 2$, para añadir espiras de montaje y asiento.
+    \item \textbf{Restricciones geométricas: longitud del resorte.}
+    \\
+    La longitud libre del resorte (sin carga) debe calcularse considerando varios factores:
+
+    $$L_0 = n_td + (0.1..0.3)dn_F + f + \text{altura de ganchos}$$
+
+    El primer término $n_Td$ es la longitud de bloque, es decir, la longitud mínima cuando todas las espiras están tocándose. El segundo término es la separación mínima entre espiras para evitar que rocen durante el funcionamiento. El tercer término $f$ es la carrera o flecha máxima. El último término añade la longitud de los ganchos si es un resorte de tracción.
+
+    \item \textbf{Selección del material y tensiones admisibles.}
+    \\
+    Para resortes conformados en frío (los más comunes en tamaños pequeños y medianos), la tensión admisible disminuye al aumentar el diámetro del alambre. Esto se debe a que los alambres finos han sido más trabajados en frío durante el trefilado y tienen mayor resistencia. Los tipos de alambre incluyen:
+
+    \begin{itemize}
+        \item Alambre de resorte estirado clase A 
+        \item Clase B 
+        \item Clase C 
+        \item Clase II 
+        \item Alambre de resortes bonificado 
+        \item Alambre de resortes de válvula bonificado 
+        \item Alambre de resortes de acero inoxidable 
     \end{itemize}
 
-        \section{Ruedas dentadas}
+    Un detalle importante: para resortes de tracción, la tensión admisible es un 10\% menor que para resortes de compresión con el mismo material. Esto se debe a que los ganchos de los resortes de tracción son concentradores de tensiones y puntos débiles potenciales.
 
-        Las ruedas dentadas (engranajes) son transmisiones rígidas y son la solución óptima cuando necesitas una transmisión de potencia precisa, sin deslizamiento, uniforme y eficiente.
+    \item \textbf{Verificación a fatiga.}
+    \\
+    Cuando el resorte está sometido a cargas cíclicas, como el resorte de una válvula de motor que se comprime y expande miles de veces por minuto, el dimensionamiento debe incluir una verificación a fatiga.
 
-        Una rueda dentada es un sistema de transmisión de potencia que basa su funcionamiento en él engrane de dos ruedas dentadas.
+    \item \textbf{Comprobación por pandeo.}
+    \\
+    Los resortes helicoidales de compresión esbeltos pueden pandear lateralmente bajo carga, igual que una columna esbelta. Disponemos de gráficos que relaciona la carrera máxima sin pandeo con la relación entre la longitud libre y el diámetro medio del resorte.
 
-        En esta introducción al cálculo de engranajes nos vamos a centrar en el cálculo de engranajes cilíndricos rectos, aunque existe una variedad de soluciones muy amplia para su empleo como transmisores de potencia. Algunos ejemplos son los engranajes cilíndricos rectos, cilíndricos oblicuos, cónicos rectos y sinfin-corona.
+    Se distinguen dos casos: hélice guiada (cuando el resorte trabaja dentro de un cilindro o sobre un vástago que impide el desplazamiento lateral) y hélice no guiada (resorte libre). Como es lógico, la hélice guiada admite carreras mucho mayores sin riesgo de pandeo.
 
-            \subsection{El Perfil Dentado - Definiciones}
+    Si el diseño cae en la zona de pandeo, tienes varias opciones: guiar el resorte, dividirlo en varios resortes más cortos en serie, o rediseñar las proporciones para hacerlo más rechoncho.
+\end{enumerate}
 
-            Los parámetros fundamentales de una rueda dentada son:
+\subsection{Diseño resorte helicoidal de tracción-compresión}
 
-            \paragraph{\textbf{Parámetros básicos}}
-            \begin{itemize}
-                \item \textbf{Z [-]} Número de dientes.
-                \item \textbf{m [mm]} Módulo. Es el parámetro de escala del engranaje.
-                \item \textbf{$\alpha [^\circ]$} Ángulo de presión. Por normativa europea $20^\circ$.
-            \end{itemize}
+Se pide dimensionar un resorte helicoidal de tracción-compresión con las siguientes caracteristicas:
 
-            \paragraph{\textbf{Circunferencias características}}
-            \begin{itemize}
-                \item Circunferencia primitiva ($R'$): Es la circunferencia de referencia. Las primitivas de dos ruedas engranadas son tangentes en el punto P. 
-                \item Circunferencia de cabeza ($R_c$): Para por la punta de los dientes. 
-                \item Circunferencia de pie ($R_p$): Pasa por el fondo entre dientes.
-                \item Circunferencia base ($R_b$): Circunferencia a partir de la cual se forma el perfil de evolvente del diente.
-            \end{itemize}
+\begin{itemize}
+    \item Acero de resortes clase C
+    \item D máximo: $60[mm]$
+    \item Fuerza para válvula cerrada: 1300N
+    \item Levantamiento: $14[mm]$
+    \item $\tau_H(danamica) = 240[MPa] \quad \tau_0(maximo)\approx600[MPa]$ 
+\end{itemize}
 
-            \paragraph{Fórmulas}
-            A partir de la terminología previa, introducimos nuevos elementos y la relación entre ellos.
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
 
-            \begin{itemize}
-                \item Altura de cabeza ($a_c$)
-                \item Altura de pie ($a_p$)
-            \end{itemize}
 
-            $$a_c = m$$
-            $$a_p = m + j \approx 1.1m$$
-            $$Rc = R + a_c$$
-            $$Rp = R + a_p$$
-            $$R = \frac{mZ}{2}$$
-            $$R_b = R' \cos\alpha$$
+\section{Mecanismos Neumáticos}
 
-            \begin{itemize}
-                \item Paso angular ($P_\alpha$): Es el ángulo que separa dos dientes consecutivos.
-                \item Paso circunferencial ($P_c$): Es la distancia medida sobre la circunferencia primitiva entre dos dientes consecutivos. Esta magnitud debe ser igual en ambas ruedas para que puedan engranar.
-            \end{itemize}
+En los mecanimos neumáticos el mvoimiento y la transmisión de ferzas se consiguen a través de un elemento fluido gaseoso, como el aire. 
 
-            $$P_\alpha = \frac{360^\circ}{Z}$$
-            $$P_c = m \times \pi$$
+Estos tipos de mecanimos presentan las siguientes ventajas: fácil transporte de la energía, sin circuito de retorno (hidráulica), sin problemas derivados de las fugas e insensibilidad ante cambios ambientales. Sin embargo, presentan limitaciones por compresibilidad del aire, muy costosos para grandes volúmenes y ser muy ruidosos.
 
-            El paso circunferencial es el mismo en dos engranajes que engranan. Sin embargo en paso angular no tiene por qué coincidir.
+La comparación con los mecánismos hidraulicos ayuda a entender las principales ventajas.
 
-            \begin{itemize}
-                \item Espesor (e): Parte del paso circunferencial.
-                \item Hueco (h): Parte del paso circunferencial.
-            \end{itemize}
-    
-            $$P_c = e + h$$
+En los mecanimos neumáticos, el aire se expulsa a la atmosfera (no necesita retorno), las fugas no importan (es solo aire), pero la compresibilidad limita precisión y fuerza máxima. 
 
-            En engranajes tallados a cero (sin desplazamiento), se cumple $e = h$. Si hay desplazamiento, siempre se conserva $P_c = e + h$.
+Por otra parte, los mecanismos hidraulicos necesitan circuitos cerrados, las fugas son problemáticas, pero permiten mayores fuerzas y mejor control de posición.  
 
-            \subsection{Cálculo de Engranajes Montados a Cero}
+\subsection{Análisis topológico}
+Los mecanimos neumáticos presentan un esquema general compuestos por cinco tipos de elementos.
+\begin{itemize}
+    \item Elementos Generadores.
+    \item Elementos Reguladores.
+    \item Elementos Receptores.
+    \item Elementos Captadores.
+    \item Elementos Distribuidores.
+\end{itemize}
 
-            Como veremos a lo largo del tema, los errores de fabricación y montaje pueden hacer que la posición relativa entre las ruedas dentadas engranadas no sea la calculada en el diseño.
-            
-            En esta asignatura consideramos siempre que las ruedas dentadas están idealmente fabricadas y montadas de modo que se cumple que $d = d' = R'_1 + R'_2 = R_1 + R_2$. Por tanto, estudiaremos engranajes montados a cero. 
+\subsubsection{Elementos Generadores}
 
-            Un engranaje "montado a cero" es el caso estándar, donde las circunferencias primitivas de ambas ruedas son tangentes en el punto P (punto de contacto primitivo).
+Los elementos generadores producen la presión y el caudal requeridos. Los principales elementos generadores con los que trabajaremos son: 
 
-            Por tanto, en este caso podemos calcular la distancia entre ejes:
+\begin{itemize}
+    \item Compresores de émbolo.
+    \begin{itemize}
+        \item De pistón
+        \item De diafragma
+    \end{itemize}
+    \item Compresores rotativos.
+    \begin{itemize}
+        \item Multicelulares
+        \item De tornillo helicoidal
+        \item Compresores roots
+    \end{itemize}
+    \item Turbocompresores.
+    \begin{itemize}
+        \item Axiales
+        \item Radiales
+    \end{itemize}
+\end{itemize}
 
-            $$d = R'_1 + R'_2 = R_1 + R_2 = \frac{m}{2}(Z_1 + Z_2).$$
+\subsubsection{Elementos Receptores}
 
-            Por otra parte, introducimos los conceptos de relación de transmisión e índice de reducción.
+Los elementos receptores recogen el fluido a una presión determinada y realizan el trabajo mecánico deseado. Los principales elementos recpetores con los que trabajaremos son:
 
-            $$\mu = \frac{w_2}{w_1} = \frac{Z_1}{Z_2} = \frac{R'_1}{R'_2}$$
-
-            Por tanto, cuando la relación de transmisión es menor que uno nos encontramos ante una reducción y cuando es mayor que uno es una multiplicación.
-
-            El índice de reducción es el inverso de la relación de transmisión. 
-
-            $$i_{12} = \frac{w_1}{w_2} = \frac{Z_2}{Z_1} = \frac{R'_2}{R'_1}$$
-
-            De forma analoga, cuando el índice de reducción es menor que uno se trata de una multiplicación. Se trata de una reducción en el caso contrario.
-
-            Normalmente los engranajes trabajan en un rango de $\frac{1}{7} \leq \mu \leq 7$.
-
-            A la relación de transmisión y al índice de reducción hay que añadirle signo. El signo es positivo si se mantiene la dirección angular de giro en rueda conductora y conducida y negativa en caso contrario. 
-
-            Por tanto, si dos ruedas engranan externamente, giran en sentidos opuestos, por lo que llevara signo negativo. Si el engrane es interno, giran en el mismo sentido y tendran signo positivo.
-
-            Como nota adicional, las fuerzas en el diente del engranaje se modela la fuerza como una viga empotrada. Por lo tanto, los fallos asociados son debidos a fatiga en el talón del diente, fatiga superficial o desgaste.
-
-            \subsection{Palancas rodantes y Perfiles Conjugados}
-
-            Una Palanca Rodante es la relación geométrica que se establece entre dos superficies (espacio) o curvas (plano) ($S_1$ y $S_2$) para que iteractúen entre sí de un determinado modo. 
-            
-            Los puntos de las curvas $S_1$ y $S_2$ coinciden en el espacio formando una línea de engrane I ($I_I-I_{IV}$).
-
-            En una palanca rodante, se define relación de transmisión como la relación que existe entre los centros de giro y el punto de corte entre la línea de centros y la perpendicular al contacto en cada punto. 
-
-            Por tanto, en este caso generico se nos plantea el problema principal. Con una Palanca Rodante genérica tenemos una relación de transmisión no constante. Esto es un problema ya que la velocidad de giro varia. 
-
-            Un Perfil Conjugado es la particularización de una Palanca Rodante que cumple que la recta perpendicular al contacto en todo momento pasa por el punto P. Esto supone por tanto que la relación de transmisión es constante en todo momento. 
-            
-            $$\mu = \frac{\overline{O_1P}}{\overline{O_2P}}$$
-
-            En ruedas dentadas se optimizan los perfiles conjugados para conseguir una transmisión suave y eficiente entre ruedas dentadas. Para ello se busca que la línea de engrane (I) sea una recta que mantiene el ángulo de presión entre ambas superficies de contacto constante. Esto se consigue mendiante el Perfil de Evolvente. 
-
-            El Perfil de Evolvente es el perfil que se forma al desenroscar una cuerda que rodea a una circunferencia base. 
-
-            Las propiedas del perfil de evolvente son:
-            \begin{itemize}
-                \item El conjugado de un perfil de evolvente es otro perfil de evolvente.
-                \item La línea de engrane que generan dos perfiles de evolvente es una recta lo que asegura la transmisión uniforme sin ruido y vibraciones. 
-                \item Los perfiles de evolventes siguen siendo conjugados incluso si se modifica la distancia entre centros (funcionan aún con juego de montaje) manteniendo la relación de transmisión.
-                \item Los perfiles de evolvente son fáciles de fabricar. 
-            \end{itemize}
-
-            De la construcción de un engranaje entre dos ejes a distancia conocida ($d$) y relación de transmisión $\mu$, solo nos interesa conocer las caracteristicas básicas de la recta de engrane. 
-
-            En el caso de no haber desplazamiento, nos podemos apoyar en la siguiente solución analitica: 
-
-            $$\overline{E_1E_2} = \overline{E_1P} + \overline{PE_2}$$
-
-            donde: 
-
-            $$\overline{E_1P} = \sqrt{R^2_{c1} - R^2_{b1}} - R'_1 \times \sin{\alpha}$$
-
-            $$\overline{PE_2} = \sqrt{R^2_{c2} - R^2_{b2}} - R'_2 \times \sin{\alpha}$$
-
-            Con ello podemos calcular la velocidad de deslizamiento y el coeficiente de engrane.
-
-            \subsection{Esfuerzos en el contacto diente-diente}
-
-            A lo largo de la recta de engrane se mantiene siempre el contacto entre los dientes de la pareja de engranajes y la fuerza transmitida total está siempre contenida en la recta de engrane ($E_1E_2$). Su valor es constante por ser dicha recta tangente siempre a ambas circunferencias de base y por tanto $M_1$ y $M_2$ son constantes también a lo largo del engrane. 
-            
-            En consecuencia; tenemos: 
-
-            $$\frac{M_1}{M_2}=\frac{R'_1}{R'_2}=\frac{w_2}{w_1}=\frac{Z_1}{Z_2}$$
-
-            Por otra parte, la fuerza F actúa a lo largo de la recta de engrane ($\overline{E_1E_2}$) y se relaciona con el momento (par) mediante:
-
-            $$M_i = R_{bi} \times F = R' \times \cos{\alpha} \times F$$
-
-            Por tanto, despejando la fuerza tenemos:
-
-            $$F_i = \frac{M_i}{R_{bi}}$$
-
-            La fuerza máxima a la que está sometido un diente se da dentro de la recta de engrane en las zonas donde solo uno de los dientes se encuentra en contacto. Por tanto, esto se relaciona con el parametro coeficiente de engrane ($\varepsilon$), que se explica más adelante.
-
-            La eficiencia de una transmisión por engranajes cilíndrico-rectos es muy alta, se puede asumir: 
-
-            $$W_1 = M_1 \times w_1 \approx M_2 \times w_2 = W_2$$
-
-            De no asumir esta igualdad, se define rendimiento mecánico de la transmisión como:
-
-            $$\eta_m = \frac{W_2}{W_1}$$
-            
-            La pérdida de potencia se debe a la energía térmica disipada por las resistencias pasivas en el funcionamiento de la transmisión. 
-
-            \subsection{Velocidad de deslizamiento en la línea de engrane ($v_d$)}
-
-            Para conseguir que la relación de transmisión ($\mu$) sea constante es necesario que exista una velocidad de deslizamiento entre dientes a lo largo de la recta de engrane (rodadura + deslizamiento). 
-
-            En el punto de contacto, la velocidad de deslizamiento vale:
-
-            $$v_d(\lambda) = (w_2 - w_1) \times \lambda$$
-
-            donde $\lambda$ es la distancia del punto de contacto a el punto P. Por otra parte, la velocidad de deslizamiento siempre es perpendicular a la recta de engrane. 
-
-            $$\vec{v}_d(\lambda) = \vec{w}_{21} \times \vec{\lambda}$$
-
-            Como las direcciónes de las velocidades angulares actuan en sentido opuesto pero en la misma dirección y la distancia $\lambda$ es perpendicular a dicha dirección, podemos trabajar con escalares sin preocuparnos. 
-
-            \subsection{Coeficiente de engrane o grado de recubrimiento}
-
-            Se define Coeficiente de Engrane ($\varepsilon$), como el coeficiente que indica el número medio de dientes que están en contacto a lo largo de la longitud de engrane. $\varepsilon > 1$ asegura la continuidad del engrane. 
-
-            Se calcula de la siguiente forma:
-
-            $$\varepsilon = \frac{\overline{E_1E_2}}{P_c \times \cos{\alpha}}$$
-
-            El máximo de la velocidad de deslizamiento se encuentra en $E_1$ o $E_2$, el que más alejado esté de P. Más allá de estos puntos no hay contacto.
-
-            La interpretación práctica del coeficiente viene dada por: 
-
-            \begin{itemize}
-                \item Si $\varepsilon = 1.5 \rightarrow$ Durante el $50\%$ del tiempo hay dos pares de dientes en contacto, y el otro $50\%$ hay un par.
-                \item Si $\varepsilon = 1.8 \rightarrow$ Durante el $80\%$ hay dos pares, y el $20\%$ hay un par.
-            \end{itemize}
-
-            Por tanto, cuanto mayor sea $\varepsilon$, más suave y silencioso será el funcionamiento, y las cargas se reparten mejor entre varios dientes.
-
-            \subsection{Fabricación de ruedas dentadas y Desplazamiento}
-
-            Para la fabricación de engranajes nos centramos en dos métodos: fundición y mecanizado. 
-
-            La fundición se aplica en el caso de ruedas muy grandes, obteniendo malos acabados. 
-
-            El método más común consiste en aplicar mecanizado por conformación, troquelado para ruedas muy pequeñas o fresado cuando buscamos obtener perfiles identicos al hueco entre dientes, o genereación. 
-
-            En el mecanizado por genereación destacamos: el sistema MAAG, con herramienta de talla (cremallera), el sistema FELLOUS, con el piñon generador, y el sistema BROWN-SHARP, con talla con Tornillo-Fresa.
-
-            En nuestro caso de estudio, nos centramos en el sistema MAAG.
-
-            El sistema MAAG de fabricación de engranajes se basa en el desbaste en dirección axil de los flancos del diente empleando como herramienta una cremallera. Precisa de la sincronización de giro de la rueda y avance de la cremallera. 
-            
-            La cremallera que talla el engranaje tiene implícita la geometría del diente del engranaje. En el caso general, tallado a cero, la línea de referencia de la cremallera coincide con la circunferencia primitiva de engranaje tallado.
-
-            Sin embargo, por motivos de diseño o de resistencia del diente, pueden tallarse los mismos con un desplazamiento de la herramienta. Se conoce como engranaje tallado con desplazamiento a aquel cuya línea media de la herramienta no ha sido alineada con su circunferencia primitiva. El desplazamiento puede ser positivo, si se separa la herramienta del eje de giro del engranaje, o negativo, si se acerca al mismo.
-
-            El factor de desplazamiento ($\pm x$), se expresa como un porcentaje del módulo de la rueda. La distancia desplazada de la herramienta es igual a $m \times x \: [mm]$.
-
-            Al introducir el desplazamiento se modifican las circunferencias características de la siguiente forma:
-
-            $$R_c = R + m(1+x) \quad R_p = R - m(1 -x) - 0.1m $$
-
-            El desplazamiento positivo hace la rueda más grande, los dientes se ensachan por la parte inferior mejorando las propiedades a fatiga en el talón del diente y afilando su extremo superior que puede fallar si se lleva al límite. 
-
-            El desplazamiento negativo estrecha el talón del diente debilitándolo. Llevado al extremo hace que se desarrolle en el diente un fenómeno conocido como penetración en el talón del diente. Este fenómeno se forma cuando el desplazamiento negativo excesivo hace que el propio tallado del diente rompa la continuidad del perfil de evolvente haciendo que deje de ser continuo. 
-
-            Usaremos el desplazamiento para evitar el socavado en piñones con pocos dientes y ajustar la distancia entre ejes a un valor concreto. 
-
-            A la hora de dimensionar ruedas dentadas, debemos evitar el fenomeno de penetración en el talón del diente. Para que no se produzca penentración en ruedas talladas a cero, se debe cumplir:
-
-            $$Z > 18.8 dientes$$
-
-            El límite del desplazamiento negativo que hace que no aparezca penetración es que la herramienta no interfiera con el punto de tangencia entre la cricunferencia base $R_b$ y la recta de engrane ($I$).
-
-            En el caso de existir desplazamiento, no se produce penetración mientras:
-
-            $$Z \geq \frac{-2x + 2,2}{1 - \cos^2(\alpha)} = \frac{-2x + 2,2}{\sen^2(\alpha)}$$
-
-            Por tanto; en una pareja de ruedas dentadas que tienda a fallar por fatiga en el talón del diente puede corregirse aplicando un desplazamiento positivo  en la rueda más débil y uno negativo que no supere el límite de penetración en aquella más fuerte. Su distancia entre centros se mantendrá constante mientras ambos desplazamientos sean iguales de signo contrario. 
-
-            En una pareja de ruedas dentadas en la que se requiera ajustar la distancia entre ejes sin variar la relación de transmisión, pueden realizarse desplazamientos de diferente magnitud en ambas ruedas que ajusten dicha distancia. Es la ventaja más importante que aporta el desplazamiento en el diseño mecánico de transmisión por engranajes. 
-
-            Todas estas modificaciones geométricas deben evitar en cualquier caso la penetración en los desplazamientos negativos ya que fragiliza el diente e impide su correcto funcionamiento unifrome. 
-
-            \begin{table}[h]
-                \centering
-                \begin{tabular}{l|c}
-                    \hline
-                    \textbf{Situación} & \textbf{Condición} \\
-                    \hline
-                    Tallado a cero, $\alpha = 20^\circ$ & $Z \geq 19$ dientes \\
-                    \hline
-                    Con desplazamiento positivo & Permite $Z$ más pequeños \\
-                    \hline
-                    Con desplazamiento negativo & Exige $Z$ más grandes \\
-                    \hline
-                \end{tabular}
-                \caption{Condiciones de no penetración}
-            \end{table}
-
-            \subsection{Dimensiones de ruedas dentadas}
-            Un engranaje consta de dos ruedas cuyo número de dientes es: $Z_1 = 19$ y $Z_2 = 59$. Calcular las dimensiones de la rueda si se construye con módulo normal $m = 8[mm]$
-
-            Se debe especificar alturas de cabeza y pie, altura total del diente, radios primitivos, de cabeza y pie de ambas ruedas dentadas, pasos angulares y paso circunferencial, hueco y espesor del diente y la relación de transmisión.
-            \vspace{0.5cm}
-            \hrule
-            \vspace{0.5cm}
-
-            Este es un ejercicio de aplicación de formulas. Asi que aplicamos las definiciones de la teoria. 
-
-            \begin{table}[h!]
-                \centering
-                \begin{tabular}{l|c}
-                    $a_c = m$ & $8[mm]$\\
-                    $a_p = 1.1m$ & $8.8[mm]$\\
-                    $R_1 = \frac{mZ_1}{2}$ & $76[mm]$\\
-                    $R_2 = \frac{mZ_2}{2}$ & $236[mm]$\\ 
-                    $R_{c1} = R_1 + a_c$ & $84[mm]$\\
-                    $R_{c2} = R_2 + a_c$ & $244[mm]$\\
-                    $R_{p1} = R_1 - a_p$ & $67.2[mm]$\\
-                    $R_{p2} = R_2 - a_p$ & $227.2[mm]$\\
-                    $P_c = \pi \times m$ & $25.13[mm]$\\
-                    $P_{\alpha1} = \frac{360^\circ}{Z_1}$ & $18.95^\circ$\\
-                    $P_{\alpha2} = \frac{360^\circ}{Z_2}$ & $6.10^\circ$
-                \end{tabular}
-            \end{table}
-
-            Al ser un engranaje montado a cero sin desplazamiento, tenemos:
-
-            $P_c = e + h \rightarrow e = h = \frac{P_c}{2} = 12.565[mm]$
-
-            Por último tenemos la relación de transmisión: 
-
-            $\mu = \frac{Z_1}{Z_2} = 0.322$
-
-            \subsection{Engranajes cilíndrico-rectos}
-            Dado un engranaje formado por un engranaje formado por una pareja de ruedas dentadas de $Z_1 = 24$ y $Z_2 = 35$ dientes respectivamente, construidas con un módulo normal $m = 8[mm]$, ángulo de presión $\alpha = 20^\circ$ y sabiendo que $w_1 = 700 rpm$ se pide:
-
-            \begin{itemize}
-                \item[a)] Calcular los radios primitivos, de pie y cabeza de ambas ruedas dentadas.
-                \item[b)] Calcular la velocidad angular del eje 2: $w_2$.
-                \item[c)] Calcular la longitud del segmento de engrane $\overline{E_1E_2}$.
-                \item[d)] Calcular el coeficiente de engrane y validar el correcto funcionamiento del mecanismo. 
-                \item[e)] Calcular el máximo de la velocidad de deslizamiento. 
-                \item[f)] Calcular el tiempo que está cada diente en contacto.      
-            \end{itemize}
-
-            \vspace{0.5cm}
-            \hrule
-            \vspace{0.5cm}
-
-            \paragraph{\textbf{a)}}
-
-            Obtenemos los siguientes parametros: 
-            \begin{table}[h!]
-                \centering
-                \begin{tabular}{l|c}
-                    $a_c = m$ & $8[mm]$\\
-                    $a_p = 1.1m$ & $8.8[mm]$\\
-                    $R_1 = \frac{mZ_1}{2}$ & $96[mm]$\\
-                    $R_2 = \frac{mZ_2}{2}$ & $140[mm]$\\ 
-                    $R_{c1} = R_1 + a_c$ & $104[mm]$\\
-                    $R_c2 = R_2 + a_c$ & $148[mm]$\\
-                    $R_p1 = R_1 - a_p$ & $87.2[mm]$\\
-                    $R_p2 = R_2 - a_p$ & $131.2[mm]$\\
-                \end{tabular}
-            \end{table}
-
-            \paragraph{\textbf{b)}}
-             
-            $$w_2 = \mu w_1 = \frac{Z_1}{Z_2}w_1 = 480 rpm$$
-
-            \paragraph{\textbf{c)}}
-
-            Podemos optar por dos metodos de resolución: gráfico o analatico.
-
-            \begin{figure}[h!]
-                \centering
-                \includegraphics[width=.5\textwidth]{imagenes/1.1.png}
-            \end{figure}
-
-            Si nos apoyamos en la solución analitica obtenemos el mismo resultado.
-
-            $$\overline{E_1E_2} = 38.8[mm]$$
-
-            donde:
-
-            $$\overline{E1P} = 18.91 \quad \overline{PE_2} = 19.91$$
-
-            \paragraph{\textbf{d)}}
-
-            Aplicamos la definición de coeficiente de engrane:
-
-            $$\varepsilon = \frac{38.82}{\pi \times 8 \times \cos{20^\circ}} = 1.64$$
-
-            Como el coeficiente de engrane es mayor que uno, se valida el correcto funcionamiento del mecanismo.
-
-            \paragraph{\textbf{e)}}
-
-            Sea la definición de velocidad de deslizamiento: 
-
-            $$\vec{v}_d(\lambda) = \vec{w}_{12} \times \lambda$$
-
-            Por tanto, la velocidad máxima de deslizamiento se da en el $E_2$. 
-
-            $$\vec{v}_d^{max} = 0.4586 m/s$$
-
-            \paragraph{\textbf{f)}}
-
-            Sea: 
-
-            $$t_{sol} = \frac{P_{\alpha i}}{w_i} \times \varepsilon$$
-
-            Por tanto; tenemos: 
-
-            $$t_{sol} = 5.85ms$$
-
-            \subsection{Reductora de velocidad}
-            
-            Se dispone de un motor de potencia $W_1 = 1[kW]$ conectado a una transmisión compuesta por dos ruedas dentadas cilíndrico-rectas montadas a cero (es decir, los radios de funcionamiento coinciden con la referencia). El motor gira con una velocidad angular $w_1 = 1500[rpm]$. Los datos de la transmisión son: distancia entre centros $d = 160[mm]$, módulo normal $m = 4[mm]$, ángulo de presión $\alpha = 20^\circ$ y relación de transmisión -1:3.
-
-            \begin{itemize}
-                \item[a)] Calcular el número de dientes de cada rueda. 
-                \item[b)] Calcular los radios de pie y de cabeza de cada rueda.
-                \item[c)] ¿Cuánto par puede transmitirse a la máquina accionada por la transmisión si el rendimiento mecánico de la misma es de $\eta_m = 0.98$?
-                \item[d)] Fuerza máxima que se aplica sobre 1 diente a lo largo del contacto.    
-            \end{itemize}
-
-            \vspace{0.5cm}
-            \hrule
-            \vspace{0.5cm}
-
-            \paragraph{a)}
-
-            Planteamos el sistema de ecuaciones: 
-
-            \begin{equation}
-                \left\{
-                \begin{array}{rcc} % rcc para alinear a la derecha, centrado, centrado
-                d/2 = Z_1 + Z_2 \\
-                \mu = \frac{Z_1}{Z_2} \\
-                \end{array}
-                \right.
-            \end{equation}
-
-            Resolvemos y obtenemos: 
-
-            $$Z_1 = 20 \quad Z_2 = 60$$
-
-            \paragraph{b)}
-
-            Aplicamos las definiciones y obtenemos: 
-                \begin{table}[h!]
-                    \centering
-                    \begin{tabular}{l|c}
-                        $a_c = m$ & $4[mm]$\\
-                        $a_p = 1.1m$ & $4.4[mm]$\\
-                        $R_1 = \frac{mZ_1}{2}$ & $40[mm]$\\
-                        $R_2 = \frac{mZ_2}{2}$ & $120[mm]$\\ 
-                        $R_{c1} = R_1 + a_c$ & $44[mm]$\\
-                        $R_{c2} = R_2 + a_c$ & $124[mm]$\\
-                        $R_{p1} = R_1 - a_p$ & $35.6[mm]$\\
-                        $R_{p2} = R_2 - a_p$ & $115.6[mm]$\\
-                    \end{tabular}
-                \end{table}
-
-            \paragraph{c)}
-
-            El par que se puede transmitir viene dado por: 
-
-            $$P_2 = \eta_m \times P_1 = M_2 \times w_2$$
-
-            Por tanto; obtenemos:
-
-            $$M_2 = 18.71 Nm$$
-
-            \paragraph{d)}
-
-            Aplicamos la definición dada por el modelo y obtenemos: 
-
-            $$F^{max} = \frac{M_1}{R_b} = 165.9N$$
-
-            Lo correcto es calcular la fuerza máxima en las dos ruedas y seleccionar la situación más desfavorable.
-            
-            \subsection{Engranajes internos}
-
-            Se dispone de un motor de potencia $W_1 = 0.2[kW]$ conectado a una transmisión compuesta por dos ruedas dentadas cilíndrico-rectas montadas a cero (es decir, los radios de funcionamiento coinciden con los de referencia). El motor gira con una velocidad angular $w_1 = 1000[rpm]$. Los datos de la transmisión son: distancia entre centros $d = 30[mm]$, módulo normal $m = 2[mm]$, ángulo de presión $\alpha = 20^\circ$ y relación de transmisión +2:7.
-
-            \begin{itemize}
-                \item[a)] Calcular el número de dientes de cada rueda.
-                \item[b)] Calcular los radios de pie y de cabeza de cada rueda.
-                \item[c)] ¿Cuánto par puede transmitirse a la máquina accionada por la transmisión si el rendimiento mecánico de la misma es de $\eta_m = 0,95$?
-            \end{itemize}
-
-            \vspace{0.5cm}
-            \hrule
-            \vspace{0.5cm}
-
-            \paragraph{a)}
-
-            Resolvemos el siguiente sistema de ecuaciones: 
-            \begin{equation}
-                \left\{
-                \begin{array}{rcc} % rcc para alinear a la derecha, centrado, centrado
-                d = Z_2 - Z_1 \\
-                \mu = \frac{Z_1}{Z_2} \\
-                \end{array}
-                \right.
-            \end{equation}
-
-            Por tanto; resolvemos y obtenemos:
-
-            $$Z_1 = 12\quad Z_2 = 42$$
-
-            \paragraph{b)}
-
-            Aplicamos las definiciones y obtenemos: 
-                \begin{table}[h!]
-                    \centering
-                    \begin{tabular}{l|c}
-                        $a_c = m$ & $2[mm]$\\
-                        $a_p = 1.1m$ & $2.2[mm]$\\
-                        $R_1 = \frac{mZ_1}{2}$ & $12[mm]$\\
-                        $R_2 = \frac{mZ_2}{2}$ & $42[mm]$\\ 
-                        $R_{c1} = R_1 + a_c$ & $14[mm]$\\
-                        $R_{c2} = R_2 - a_c$ & $40[mm]$\\
-                        $R_{p1} = R_1 - a_p$ & $9.8[mm]$\\
-                        $R_{p2} = R_2 + a_p$ & $44.2[mm]$\\
-                    \end{tabular}
-                \end{table}
-
-            \paragraph{c)}
-
-            Nos apoyamos en la siguiente expresión:
-
-            $$M_2 = \frac{P_2}{w_2} = \frac{\eta_m P_1}{\frac{2}{7}w_1}$$
-
-            Por tanto; obtenemos:
-
-            $$M_2 = 6.35Nm$$
-
-            \subsection{Engranajes a distancia de ejes impuesta}
-
-            Diseña una pareja de engranajes cilíndrico rectos montados a cero de forma que la distancia entre ejes $d = 200[mm]$ y la relación de transmisión sea $\mu = - 1/3$. Se requiere un módulo $m = 10[mm]$ para que los dientes aguanten los requisitos de potencia transmitida. 
-
-            \vspace{0.5cm}
-            \hrule
-            \vspace{0.5cm}
-
-            Planteamos y resolvemos el sistema de ecuaciones. 
-            \begin{equation}
-                \left\{
-                \begin{array}{rcc} % rcc para alinear a la derecha, centrado, centrado
-                d/5 = Z_2 + Z_1 \\
-                \mu = \frac{Z_1}{Z_2} \\
-                \end{array}
-                \right.
-            \end{equation}
-            
-            Por tanto; obtenemos:
-
-            $$Z_1 = 10\quad Z_2 = 30$$
-
-            Por otra parte; verificamos que no se produce penetración. Como $Z_1 < 18.8$, se produce penetración en la rueda dentada 1. En consecuencia aplicamos un desplazamiento positivo. En consecuencia; la condición a verificar pasa a ser:
-
-            $$Z \geq \frac{-2x + 2.2}{\sen^2{\alpha}}$$
-
-            Por tanto; para la rueda dentada $Z_1$, obtenemos:
-
-            $$x = 0.51511m$$
-
-            Por último verificamos que el desplazamiento negativo impuesto a la rueda 2 para mantener la distancia entre ejes no produce penetración en la rueda 2. 
-
-            $$Z_2 = 30 \geq \frac{-2(-0.51511) +2.2}{\sin^2{\alpha}} = 27.61$$
-
-            Por tanto se verifica y hemos dimensionado las ruedas de engranajes.
-
-            \subsection{Montaje de ruedas en V para ajustar la distancia entre ejes.}
-
-            Diseñar una pareja de engranajes cilíndrico rectos montados en V de forma que la distancia entre ejes $d$ sea un número entero si la relación de transmisión $\mu = -2/5$ y la rueda conductora tiene $Z_1 = 23$. Se requiere un módulo $m=2.5[mm]$ para que los dientes aguanten los requisitos de potencia transmitida.
-
-            \vspace{0.5cm}
-            \hrule
-            \vspace{0.5cm}
-
-            Planteamos el sistema de ecuaciones:
-            \begin{equation}
-                \left\{
-                \begin{array}{rcc} % rcc para alinear a la derecha, centrado, centrado
-                d = \frac{m}{2}(Z_2 + Z_1) \\
-                \mu = \frac{Z_1}{Z_2} \\
-                \end{array}
-                \right.
-            \end{equation}
-
-            Por tanto; tenemos: 
-
-            $$Z_1 = 23 \quad Z_2 = 115$$
-
-            En consecuencia tenemos:
-
-            $$d = \frac{m}{2}(Z_1 + Z_2) + 2x= 173$$
-
-            Por tanto, tenemos:
-
-            $$x = 0.25$$
-
-            A continuación verificamos que no se produce penetración:
-
-            $$Z \geq \frac{-2x + 2.2}{\sen^2{\alpha}}$$
-
-            En consecuencia; se valida y hemos dimensionado la rueda dentada. 
-
-            $$Z \geq \frac{-2(0.25) + 2.2}{\sin^2{\alpha}} = 14.53$$
-
-        \section{Trenes de Engranajes}
-
-        El temario de los trenes de engranajes se estructura en tres bloques: trenes de engranajes ordinarios, trenes de engranajes planarios o epicicloidales y trenes planetarios o epicicloidales simples.
-
-        Cada uno de los bloques se asenta en lo prosentado por los anteriores.
-
-        \subsection{Trenes de engranajes ordinarios}
-
-        Los trenes de engranajes ordinarios son mecanismos en los que todos los ejes de las ruedas dentadas permanecen fijos respecto a la bancada o carcasa. Es decir, los engranajes giran sobre sí mismos pero sus centros no se desplazan. Esta es la configuración más básica y común de transmisión por engranajes, y constituye el punto de partida necesario antes de estudiar los trenes planetarios, donde los ejes sí pueden moverse.
-
-        Para el estudio de los trenes de engranajes utilizaremos el concepto ya introducir de índice de reducción. 
-
-        Como ya se presento: 
-
-        $$i_{es} = \pm\frac{w_e}{w_s} = \pm\frac{Z_s}{Z_e}$$
-
-        El signo determina si el sentido se giro se mantiene (engrane interno) o es contraio (engrane externo). 
-
-        La expresión general del índice de reducción en un tren de engranjes viene dado por: 
-
-        $$i_{1k} = \frac{w_1}{w_k}= \pm\frac{\prod Z_{conducidas}}{\prod Z_{conductoras}}$$
-
-        De esta formula destacamos que al aumentar el número de etapas se reduce el rendimiento.
-
-        La solución de trenes de engranajes, a pesar de la reducción de rendimiento, mejora el aprovechamiento del espacio y vence las limitaciones del limite mínimo de 14 dientes tallados en ruedas rectas normalizadas (sin penetración) y el máximo de 100 dientes, debido a la precisión y tamaño de la talladora. Sin embargo, debemos hacer enfases que los dientres de la conductora y conducida deben ser primos entre si para evitar problemas de fatiga.
-
-        En trenes de engranajes nos podemos encontrar con dos tipos de ruedas: ruedas locas o ruedas compuestas. 
-
-        Una rueda loca es un engranaje interpuesto entre dos ruedas que no afecta a la relación de transmisión, solo cambia el sentido de giro.
-
-        Esta tipo de rueda actúa simultaneamente como rueda conducida (respecto a la anterior) y como conductora (respecto a la siguente). Por tanto; su número de dientes aparece tanto en el numerador como en el denominador.
-
-        Su utilidad radica en la capacidad de cambiar el sentido de giro sin modificar la relación de transmisión, salvar distancias entre ejes cuando las ruedas no pueden engranarse directamente o distribuir mejorlas cargas del sistema.
-
-        Por otra parte, una rueda compuesta consiste en dos o más ruedas dentadas solidarias al mismo eje, es decir, giran juntas como un bloque rígido con la misma velocidad angular. Esta solución permite conseguir relaciones de transmisión elevadas en un espacio compacto.
-
-        \subsection{Trenes de engranajes planetarios o epicicloidales}
-
-        Una vez estudiados los trenes ordinarios, los cuales se caracterizan por tener todos los ejes fijos, nos proponemos estudiar los trenes de engranajes planarios. En un tren planario, al menos uno de los ejes se mueve (orbita alrededor de otro). Esto introduce un grado de libertad adicional que complica el analisis. 
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/1.2.png}
-        \end{figure}
-
-        Los elementos caracterisiticos de un planetario son:
-
+\begin{itemize}
+    \item Cilindros Neumáticos
+    \begin{itemize}
+        \item Cilindros de émbolo
         \begin{itemize}
-            \item Rueda solar (o planetario central) [1]: Engranaje central, normalmente coaxial con la salida.
-            \item Satélites (o planetas) [2-3]: Engranajes que orbitan alrededor del sol.
-            \item Brazo portasatélites [4]: Elemento que soporta los ejes de los satélites y gira con ellos.
-            \item Corona (o anillo): Engranaje de dentado interno que envuelve al conjunto.
+            \item De simple efecto
+            \item De dobre efecto
         \end{itemize}
-
-        Por tanto, como el simil deja intuir, hay dos movimientos centrales. Siguiendo el simil del sistema solar, los satélites presentan un movimiento de rotación sobre si mismos y un movimiento de translación alrededor del sol. Estos dos movimientos son fundamentales para entender el flujo de potencia por el tren de engranajes. 
-
-        Como podemos intuir, el analisis dinámico del sistema se complita al haber movimientos relativos. Sin embargo, el truco para analizar planetarios es "bloquear" mentalmente el brazo portasatélites. Si imaginamos que nos subimos al brazo y giramos con él, desde nuestra perspectiva el sistema se conviente en un tren ordinario. En consecuencia podemos aplicar la formula del índice de reducción introducida con los trenes de engranajes ordinarios. 
-
-        Por otra parte, con la fórmula de Willis, podemos relacionar el resto de magnitudes:
-
-        $$i'_{13} = \frac{w_1 - w_4}{w_3 - w_4} = -\frac{Z_2Z_3}{Z_1Z'_2}$$
-
+        \item Cilindros de membrana
         \begin{itemize}
-            \item $w_1$ = velocidad angular de la rueda 1.
-            \item $w_3$ = velocidad angular de la rueda 3.
-            \item $w_4$ = velocidad angular del portasatélites.
-            \item $i'_{13}$ es la relación de transmisión del mecanismo invertido (el tren ordinario equivalente).
+            \item Membrana elástica (sin vástago)
+            \item Membrana arrollable y vástago
         \end{itemize}
-
-        Como podemos observar en la formula, un planetario tiene dos grados de libertada. En consecuencia, para determinar completamente el movimiento, necesitaremos fijar una condición adicional.
-
-        Si fijamos la relación entre dos velocidades obtenemos un tren diferencial. Si por el contrario, una velocidad es nula obtenemos un tren epicicloidal simple. 
-
-        \subsubsection{Limitaciones en la elección del número de dientes}
-
-        En un tren de engranajes planetario no podemos elegir los números de dientes libremente. Existen restricciones geométricas que deben cumplirse para que el mecanismo pueda montarse y funcionar correctamente.
-
-        \paragraph{Condición de coaxialidad}
-
-        La condición de coaxilidad impone que los ejes de entrada y salida estén alineados (sean coaxiales).
-
-        La formula general, viene dada por:
-
-        $$m_{1,2}(Z_1 + Z_2) = m_{2',3}(Z'_2 + Z_3)$$
-
-        \paragraph{Condición de montaje}
-
-        La condición de montaje exige que todos los satélites puedan montarse simultáneamente, engranando correctamente con el sol y la corona.
-
-        El primer satélite siempre puede montarse sin problema. Pero para colocar el segundo (o los sucesivos), sus dientes deben coincidir exactamente con los huecos del solar y la corona al mismo tiempo.
-
-        En el caso de no trabajar con ruedas compuestas, la condición es simple:
-
-        $$\frac{Z_1 + Z_3}{S} = \mathbb{N}$$
-
-        donde $S$ es el número de satélites. 
-
-        En el caso de trabajar con ruedas compuestas, la condición se complica.
-
-        $$\frac{Z'_2Z_1-Z_2Z_3}{S} = k_1Z'_2 - k_2Z_2$$
-
-        donde $k_1,k_2 \in \mathbb{N}$.
-
-        \subsubsection{Cáculo aproximado del rendimiento}
-
-        Nuestro calculo del rendimiento se basa en analizar el mecanismo invertido (el tren ordinario equivalente que obtenemos al bloquear el brazo).
-
-        En primer lugar nos apoyamos en el equilibrio de momentos para obtener una relación de momento ($Mi/Mj$).
-
-        $$M_1 + M_3 + M_4 = 0$$
-
-        La suma de los momentos en el sol, corona y brazo debe ser cero.
-
-        Posteriormente, calculamos el rendimiento del mecanismo invertido (el tren ordinario equivalente que obtenemos al bloquear el brazo) como el producto de rendimientos en cada engrane.
-
-        $$\eta' = \prod \eta_e$$
-
-        Si mantenemos la definición de rendimiento como: 
-
-        $$\eta = \frac{P_s}{P_e}$$
-
-        debemos distinguir dos casos:
+        \item Otros tipos
         \begin{itemize}
-            \item Potencia saliendo por el brazo portasatélites
-            
-            $$\eta_{14} = -\frac{M_4 w_4}{M_1w_1}$$
-
-            \item Potencia introducida por el brazo portasatélites
-            
-            $$\eta_{41} = -\frac{M_1 w_1}{M_4 w_4}$$
+            \item Cilindros con amortiguación interna regulable y no regulable
+            \item Cilindros de doble vástago
+            \item Cilindro tándem
+            \item Cilidro multiposicional
+            \item Cilindro de impacto
+            \item Cilindro de cable
+            \item Cilindro para movimiento de giro
+            \item Cilindro de émbolo giratorio
         \end{itemize}
-
-        Una vez conocemos los principales parametros, analizamos los distintos casos:
-
-        \begin{table}[h]
-            \centering
-            \begin{tabular}{|c|c|c|}
-                \hline
-                \textbf{Rango de $i_{14}$} & \textbf{Potencia SALE por brazo ($\eta_{14}$)} & \textbf{Potencia ENTRA por brazo ($\eta_{41}$)} \\
-                \hline
-                $i_{14}/i_{41} < 0$ & $\displaystyle \frac{1 + \eta'(i_{14} - 1)}{i_{14}}$ & $\displaystyle \frac{\eta'}{1 - i_{41}(1 - \eta')}$ \\
-                \hline
-                $0 < i_{14}/i_{41} < 1$ & $\displaystyle \frac{\eta' - 1 + i_{14}}{\eta' \cdot i_{14}}$ & $\displaystyle \frac{\eta'}{1 - i_{41}(1 - \eta')}$ \\
-                \hline
-                $i_{14}/i_{41} > 1$ & $\displaystyle \frac{1 + \eta'(i_{14} - 1)}{i_{14}}$ & $\displaystyle \frac{1}{\eta' + i_{41}(1 - \eta')}$ \\
-                \hline
-            \end{tabular}
-        \end{table}
-
-        \subsection{Engranaje Planetario con Corona}
-        Sea un engranaje planetario simple con corona, donde la potencia sale por el brazo portasatélites con un rendimiento de $0.98$ en etapas de engrane ordinario. La velocidad en el eje de entrada es de $900rpm$.
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.75\textwidth]{imagenes/1.3.png}
-        \end{figure}
-
-        Se pide:
+    \end{itemize}
+    \item Motores Neumáticos
+    \begin{itemize}
+        \item De émbolo
         \begin{itemize}
-            \item[a)] Verificar condición de coaxialidad.
-            \item[b)] Verificar si se pueden montar 2 satélites.
-            \item[c)] Calcular la velocidad del eje de salida.
-            \item[d)] Calcular la relación entre pares y rendimiento.   
+            \item Radiales y axiales
         \end{itemize}
+        \item De paletas
+        \item Turbomotores
+    \end{itemize}
+\end{itemize}
 
-        \vspace{0.5cm}
-        \hrule
-        \vspace{0.5cm}
+\subsubsection{Elementos De Regulación}
 
-        \paragraph{\textbf{a)}}
+Los elementos de regulación mantienen ciertos parámetros entre límites preestablecidos. Los principales elementos reguladores con los que trabajaremos son:
 
-        Al tener las dos ruedas dentadas el mismo módulo, la condición de coaxilidad viene dada por: 
+\begin{itemize}
+    \item Válvulas reguladoras de presión
+    \begin{itemize}
+        \item Sin orificio de escape
+        \item Con orificio de escape
+        \item Limitadora de presión
+        \item Válvula de secuencia
+    \end{itemize}
+    \item Válvulas reguladoras de caudal
+    \begin{itemize}
+        \item De estrangulación constante
+        \item De estrangulación variable
+    \end{itemize}
+    \item Válvulas de cierre
+\end{itemize}
 
-        $$R_1 + 2R_2 = R_3$$
+Los elementos de regulación juegan principalmente con la relación presión-caudal.
 
-        Por tanto; tenemos: 
+\subsubsection{Elementos De Distribución}
 
-        $$Z_1 + 2Z_2 = 104 = Z_3$$
-        
-        En consecuencia se verifica la condición de coaxialidad.
+Los elementos de distribución dirigen el fluido hacia uno o otro punto del circuito, según órdenes recibidas y que modifican su posición.
 
-        \paragraph{\textbf{b)}}
+Trabajamos con vias, compuestas por:
+\begin{itemize}
+    \item Conexiones de entrada de fluido
+    \item Conexiones de salida hacia los elementos receptores
+    \item Orificios de purga
+\end{itemize}
 
-        Como estamos con un tren de engranajes planetarios sin ruedas compuestas, la condición se reduce a verificar la siguiente condición:
-
-        $$\frac{Z_1 + Z_3}{2} = 73 \in \mathbb{N} $$
-
-        Por tanto, se podrian montar dos satelites.
-
-        \paragraph{\textbf{c)}}
-        
-        Nos apoyamos en el mecanismo invertido y obtenemos: 
-
-        $$i'_{13} = -\frac{Z_2Z_3}{Z_1Z_2} = -\frac{Z_3}{Z_1} = \frac{w_1 - w_4}{w_3 - w_4}$$
-
-        Por tanto; resolvemos y obtenemos: $w_4 = 258.9rpm$.
-
-        \paragraph{\textbf{d)}}
-
-        Nos encontramos ante el caso de que la potencia sale por el brazo portasatélites, con:
-
-        $$i_{14} = \frac{w_1}{w_4} = 3.48 > 1$$
-
-        Por otra parte, el rendimiento del mecanismo invertido es:
-
-        $$\eta' = 0.98 \times 0.98 = 0.96$$
-
-        De la misma forma obtenemos el rendimiento:
-
-        $$\eta_{14} = \frac{1 + \eta'(i_{14} - 1)}{i_{14}} = 0.972$$
-
-        Una vez conocemos el rendimiento podemos determinar la relación entre pares: 
-
-        $$\eta_{14} = -\frac{M_4w_4}{M_1w_1}$$
-
-        En consecuencia, tenemos: 
-
-        $$\frac{M_4}{M_1} = -3.378$$
-
-        Nos podriamos apoyar en el equilibrio de pares para obtener más relaciones.
-
-        \subsection{Análsis tren planetario con rueda compuesta}
-
-        Se un engranaje planetario, donde la potencia entra por el brazo portasatélites con un rendimiento de 0.98 en etapas de engrane ordinario. La velocidad en el eje de entrada es de 1000rpm.
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.75\textwidth]{imagenes/1.5.png}
-        \end{figure}
-
-        donde $Z_1 = 80$, $Z_2 = 27$, $Z'_2 = 25$ y $Z_3 = 82$.
-
-        Se pide: 
-
+Sin embargo, podemos clasificar en más detalle los tipos de vias según los siguientes parametros.
+\begin{itemize}
+    \item Según función que realizan
+    \begin{itemize}
+        \item Vávulas distribuidoras o de vías
+        \item Válvulas antiretorno o de bloqueo 
+        \item Válvulas de simultaneidad
+        \item Selectores de circuito 
+    \end{itemize}
+    \item Según el tipo de construcción
+    \begin{itemize}
+        \item Vávulas de asiento
         \begin{itemize}
-            \item[a)] Verificar condición de coaxialidad.
-            \item[b)] Determinar si se pueden montar dos satélites.
-            \item[c)] Calcular la velocidad del eje de salida. 
-            \item[d)] Calcular la relación entre pares y rendimiento.   
+            \item Esférico (de bola)
+            \item De disco plano
         \end{itemize}
-
-        \vspace{0.5cm}
-        \hrule
-        \vspace{0.5cm}
-
-        \paragraph{\textbf{a)}}
-
-        En este tren de engranajes planetario la corona engrana externamente con la rueda compuesta (y esta fija), por tanto la condición de coaxialidad viene dada por: 
-
-        $$Z_1 + Z_2 = Z'_2 + Z_3 = 107$$
-
-        donde asumimos que todas las ruedas dentadas tienen el mismo módulo. 
-
-        En consecuencia, se cumple la condición de coaxialidad. 
-
-        \paragraph{\textbf{b)}}
-
-        Planteamos la condición de montaje:
-
-        $$\frac{Z'_2Z_1 - Z_2Z_3}{2} = -107 = k_1Z'_2 - k_2Z_2$$
-
-        donde: $k_1 = 40 \in \mathbb{N}$ y $k_2=41 \in \mathbb{N}$.
-
-        Por tanto, se podrian montar dos satélites.
-
-        \paragraph{\textbf{c)}}
-
-        Para calcular la velocidad del eje de salida, planteamos el mecanismo invertido y obtenemos: 
-
-        $$i'_{13} = -\frac{Z_2}{Z_1} \times -\frac{Z_3}{Z'_2} = 1.107$$
-
-        Apoyandonos en la formula de Willis obtenemos: 
-
-        $$i'_{13} = \frac{w_1 - w_4}{w_3 - w_4}$$
-
-        donde: $w_3 = 0$. Por tanto, obtenemos: 
-
-        $$w_1 = -107rpm$$
-
-        \paragraph{\textbf{d)}}
-
-        Sea el indice de reducción del mecanismo:
-
-        $$i_{41} = \frac{w_4}{w_1} = - \frac{1000}{107} < 0$$
-
-        Por otra parte el rendimiento del mecanismo invertido es: 
-
-        $$\eta' = 0.98 \times 0.98$$
-
-        Por tanto, aplicamos la fórmula del rendimiento para el caso de que la potencia entra por el brazo portasatélites y el índice de reducción es menor que 0.
-
-        $$\eta = \frac{\eta'}{1 - i_{41}(1 - \eta')}$$
-
-        Por tanto; tenemos:
-
-        $$\eta = 0.70 = -\frac{M_1w_1}{M_4w_4}$$
-
-        \subsection{Análisis de tren de engranajes planetario simple}
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.75\textwidth]{imagenes/1.6.png}
-        \end{figure}
-
-        En el Tren Planetario de la figura, el brazo portasatélites, que es el elemento motor, gira a 250rpm en el sentido indicado. Obtener:
-
+        \item Vávulas de corredera
         \begin{itemize}
-            \item[a)] Coeficiente de reducción del mecanismo invertido $i_{41}$.
-            \item[b)] Velocidad y sentido de la rueda de salida $Z_1$
-            \item[c)] ¿Que número de satelites se pueden poner?
-            \item[d)] ¿Pueden estar montadas a cero las ruedas?
-            \item[e)] Estimación del rendimiento.
-            \item[d)] Relación entre pares.      
-        \end{itemize}
-
-        Datos: $Z_1 = 18$, $Z_2 = 72$, $Z'_2 = 21$ y $Z_3 =111$.
-
-        Considerar un rendimiendo de 0.99 en los engranajes interiores y 0.98 en los exteriores.
-
-        \vspace{0.5cm}
-        \hrule
-        \vspace{0.5cm}
-
-        \paragraph{\textbf{a)}}
-
-        Nos apoyamos en el mecanismo invertido y obtenemos: 
-
-        $$i'_{13} = -\frac{Z_2}{Z_1} \times \frac{Z_3}{Z'_2} = - 21.14$$
-
-        Aplicamos la formula de Willis y obtenemos: 
-
-        $$i'_{13} = -21.14 = \frac{w_1 - w_4}{w_3 - w_4}$$
-
-        En consecuencia, obtenemos:
-
-        $$w_1 = 5535.71rpm$$
-
-        Aplicamos la definición de indice de reducción y obtenemos: 
-
-        $$i_{41} = \frac{w_4}{w_1} = 0.045$$
-
-        \paragraph{\textbf{b)}}
-
-        Obtenemos del apartado anterior:
-
-        $$w_1 = 5535.71rpm$$
-
-        En el sentido de giro del portasatélites.
-
-        \paragraph{\textbf{c)}}
-
-        Aplicamos la condición de montaje:
-
-        $$\frac{Z'2Z_1 - Z_2Z_3}{S} = k_1 Z'_2 - k_2Z_2$$
-
-        donde $k1,k_2 \in \mathbb{N}$.
-
-        Por tanto; obtenemos: $S = 3$.
-
-        \paragraph{\textbf{d)}}
-
-        Pueden ser montados a cero siempre y cuando se cumpla la condición de coaxialidad.
-
-        $$Z_1 + Z_2 = Z_3 - Z'_2 = 90$$
-
-        donde hemos asumido que todas las ruedas dentadas comparten mismo modulo.
-
-        En consecuencia, podrian estar montados a cero. 
-
-        \paragraph{\textbf{e)}}
-
-        Nos encontramos ante un caso de potencia entrando por el portasatélites con $i_{41} \in [0,1]$. Por tanto, operamos.
-
-        Se el rendimiento del mecanismo invertido: 
-
-        $$\eta' = 0.98 \times 0.99$$
-
-        Por tanto, obtenemos: 
-
-        $$\eta_{41} = \frac{\eta'}{1 - i_{41}(1-\eta')} = 0.9715$$
-
-        \paragraph{\textbf{f)}}
-
-        Aplicamos la definición de rendimiendo y equilibrio de pares.
-
-        $$M_1 + M_3 + M_4 = 0$$
-
-        Por tanto; tenemos:
-
-        $$\eta = 0.97 = -\frac{M_1w_1}{M_4w_4}$$
-
-        Por tanto; tenemos:
-
-        $$\frac{M_1}{M_4} = 0.044$$
-
-        \subsection{Tren de engranajes simple con multiples etapas}
-
-        La figura muestra el esquema de un tren planetario de engranajes en el que la potencia entra por el eje 2, que gira a 100rpm y sale por el eje 1, estando la rueda A fija.
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.75\textwidth]{imagenes/1.7.png}
-        \end{figure}
-
-        Se pide:
+            \item Distribuidora axial (corredora-embolo)
+            \item Cursor de plano axial (émbolo y cursor)
+            \item Discor giratorio
+        \end{itemize} 
+    \end{itemize}
+    \item Según el número de vías controladas
+    \begin{itemize}
+        \item Vávula de dos vías
+        \item Vávula de tres vías
+        \item Válvula de cuatro vías 
+        \item Vávula de múltiples vías
+    \end{itemize}
+    \item Según el número de posiciones de maniobra del distribuidor
+    \begin{itemize}
+        \item Válvula de dos posiciones
+        \item Vávula de tres posiciones
+    \end{itemize}
+    \item Según la forma de accionamiento del distribuidor
+    \begin{itemize}
+        \item Accionamiento directo
         \begin{itemize}
-            \item[a)] Velocidad de salida.
-            \item[b)] Relación entre los pares de entrada, $M_2$, y de sujeción de la rueda A, $M_A$.
-            \item[c)] Relación entre el par de entrada, $M_2$, y el par de salida, $M_b$.
-            \item[d)] Rendimiendo del tren planetario.   
+            \item Accionamiento manual
+            \item Accionamiento mecánico
         \end{itemize}
-
-        Supóngase un rendimiento de 0.96 para una etapa de engranaje exterior.
-
-        \vspace{0.5cm}
-        \hrule
-        \vspace{0.5cm}
-
-        \paragraph{\textbf{a)}}
-
-        Se trata de un tren de engranajes con rueda compuesta y corona que engrana externamente y es fija. Por tanto, nos apoyamos en el mecanismo invertido (bloqueamos el brazo portasatélites) y obtenemos:
-
-        $$i'_{2A} = -\frac{Z_C}{Z_D} \times -\frac{Z_A}{Z_B} = \frac{80}{7}$$
-
-        Nos apoyamos en la fórmula de Willis y obtenemos: 
-
-        $$i'_{2A} = \frac{80}{7} = \frac{w_2 - w_{brazo}}{w_A - w_{brazo}}$$
-
-        donde $w_A = 0$. En consecuencia, obtenemos:
-
-        $$w_{brazo} = -9.59rpm$$
-
-        \paragraph{b)} 
-
-        Calculamos el rendimiendo del mecanismo invertido:
-
-        $$\eta' = 0.96 \times 0.96 = 0.92$$
-
-        Por otra parte, calculamos el índice de reducción:
-
-        $$i_{2Brazo} = \frac{w_2}{w_{brazo}} = -10.43 < 10$$
-
-        Calculamos el rendimiento:
-
-        $$\eta_{2Brazo} = \frac{1 + \eta'(i_{2Brazo} - 1)}{i_{2Brazo}} = 0.914$$
-
-        Aplicamos la definición de rendimiento.
-
-        $$\eta_{2Brazo} = -\frac{M_{Brazo}w_{Brazo}}{M_2w_2}$$
-
-        En consecuencia, obtenemos:
-
-        $$\frac{M_{Brazo}}{M_2} = 9.53$$
-
-        Nos apoyamos en el equilibrio de pares y obtenemos:
-
-        $$M_2 + M_A + M_{Brazo} = 0$$
-
-        Por tanto, tenemos:
-
-        $$\frac{M_2}{M_A} = -0.095$$
-
-        \paragraph{\textbf{c)}}
-
-        La relación la obtenemos en el apartado anterior:
-
-        $$\frac{M_{Brazo}}{M_2} = 9.53$$
-
-        \paragraph{\textbf{d}}
-
-        El rendimiendo lo obtenemos en los apartados anteriores:
-
-        $$\eta_{2Brazo} = 0.914$$
-
-        \subsection{Análisis Tren de engranajes compuesto}
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.75\textwidth]{imagenes/1.8.png}
-        \end{figure}
-
-        En el mecanismo planetario de la figura, un motor, no representado en ella, acciona el eje 1 que gira a 750rpm. La rueda A está inmovilizada por un freno no representado en la figura.
-
-        Suponiendo un rendimiento de 0.98 para cada etapa simple de engranaje exterior, se pide:
-
+        \item A distancia (pilotada)
         \begin{itemize}
-            \item[a)] Velocidad del eje de salida 2 cuando el eje 1 gira a 750rpm.
+            \item Accionamiento neumático
+            \item Accionamiento eléctrico
         \end{itemize}
+    \end{itemize}
+    \item Según el tiempo de accionamiento
+    \begin{itemize}
+        \item Monoestable o de mando permanente
+        \item Biestable o de mando momenténeo (por impulsos)
+        \item Temporizador
+    \end{itemize}
+\end{itemize}
+
+A la hora de diseñar los circuitos neumáticos, con respecto a las conexiones, seguiremos la siguiente notación:
+
+\begin{itemize}
+    \item Conexión con el generador: p
+    \item Conexión con los elementos generadores: a, b, c, ...
+    \item Conexión con los elementos de purgar: r, s, t, ...
+    \item Orificios de pilotaje: x, y, z, ...
+\end{itemize}
+
+\subsubsection{Elementos de captación}
+
+Los elementos de captación permiten obtener información del sistema sobre la posición de ciertos elementos y actuar automáticamente sobre la distribución y la regulación. Estos se clasificane en: 
+
+\begin{itemize}
+    \item Captadores por contacto
+    \begin{itemize}
+        \item Rodillo
+        \item Rodillo escamoteable
+    \end{itemize}
+    \item captadores sin contacto
+    \begin{itemize}
+        \item Detectores de paso de toberas
+        \item Detectores de paso de horquilla
+        \item Detectores de proximidad
+        \item Obturadores de fuga
+    \end{itemize}
+\end{itemize}
+
+\subsection{Análisis cinemático y dinámico}
+
+Por lo que respecta al análisis de velocidades, obtenemos los siguientes resultados.
+\begin{itemize}
+    \item Velocidad acotada entre 0.1 y 1.5 m/s debido a:
+    \begin{itemize}
+        \item Impactos al final de la carrera
+        \item Calor generado en los rozamientos émbolo-Cilindro
+        \item Compresión del aire
+    \end{itemize}
+    \item La velocidad es función de:
+    \begin{itemize}
+        \item Caudal, a presión y fuerza antagonista constante.
+        \item Fuerza antagonista, a presión y caudal constante.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Análisis constructivo y de funcionamiento}
+
+Por lo que respecta a los materiales empleados en los elementos del circuito neumático tenemos:
+
+\begin{itemize}
+    \item Cuerpos de los cilindros
+    \begin{itemize}
+        \item Metálicos: acero, alumnio, latón y bronce.
+        \item No metálicos: nylon, policarbonato, pvc rígido.
+    \end{itemize}
+    \item Tapas de los cilindros: acero, aluminio, latón.
+    \item Émbolos: aluminio (común), latón.
+    \item Vástagos: acero dulce, acero cromada, acero inoxidable.
+    \item Cojinetes del vástago: acero sinterizado en forma de casquillos
+    \item Juntas de estanqueidad: butilo, caucho naturas, neopreno, poliuretano, teflón, siliconas.
+    \item Válvulas: acero inoxidable, aluminio, latón y bronce.
+    \item Tuberías:
+    \begin{itemize}
+        \item Rigidas: cobre, acero.
+        \item Flexibles: nylon, goma (reforzada con algodón)
+    \end{itemize}
+\end{itemize}
+
+Es común enfrentarse a los siguiente fallos, una vez se trabaja con elementos de circuitos neumáticos.
+
+\begin{itemize}
+    \item Válvulas:
+    \begin{itemize}
+        \item Colocación incorrecta
+        \item Suciedad interior
+        \item Desgaste
+    \end{itemize}
+    \item Mangueras:
+    \begin{itemize}
+        \item Colocación incorrecta
+        \item Longitud inexacta
+    \end{itemize}
+    \item Cilindros:
+    \begin{itemize}
+        \item Movimiento errático del pistón
+        \item Atascos producidos por la suciedad
+        \item Pérdidas de fluido
+    \end{itemize}
+    \item Vástagos (los más frecuentes):
+    \begin{itemize}
+        \item Rotura por fatiga
+        \item Pandeo
+    \end{itemize}
+\end{itemize}
 
-        \vspace{0.5cm}
-        \hrule
-        \vspace{0.5cm}
+\subsubsection{Análisis de circuitos neumáticos}
 
-        \paragraph{\textbf{a)}}
+En esta sección analizamos diferentes circuitos neumático, para entender mejor los simbolos que se usan y su funcionamiento.
 
-        En primer lugar debemos identificar los elementos de los cuales esta compuesto nuestro sistema. Nos encontramos ante dos trenes de engranajes planterarios, uno simple y otro diferencial.
-        
-        Por tanto, analizamos por separado los dos trenes de engranajes.
+\paragraph{Control de un cilindro de doble efecto con retorno automático}
 
-        \subparagraph{Tren de engranjes planetario simple}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.75\textwidth]{imagenes/2.1.png}
+    \caption{Circuito Neumático: Control de un cilindro de doble efecto con retorno automático}
+\end{figure}
 
-        El tren de engranajes simple esta compuesto por una corona fija, rueda dentada A, un solar, rueda dentada D, y como satelite una rueda compuesta, B y C. 
+El primer paso para entender un circuito neumático es identificar los diferentes elementos del circuito.
 
-        La potencia entra por el brazo portasatélites, con una velocidad angular, $w_4$, de 750rpm.
+El primer elemento en el que ponemos el foco, es el elemento generador. 
 
-        Sea el índice de reducción del mecanismo invertido. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{imagenes/EG.png}
+    \caption{Símbolo Elemento generador}
+\end{figure}
 
-        $$i'_{DA} = (-\frac{Z_C}{Z_D}) \times (-\frac{Z_A}{Z_B}) = 5.74$$
+Posteriormente nos encontramos con los elementos distribuidores. 
 
-        Aplicamos la fórmula de Willis para obtener la velocidad de giro del planetario. 
+\begin{enumerate}
+    \item Válvula 3/2 monoestable (pulsador con muelle que reposiciona a la primera posición al soltar).
+    \item Válvula 3/2 monoestable con fin de carrera. 
+    \item Válvula 4/2 biestable doblemente pilotada.
+\end{enumerate}
 
-        $$i'_{DA} = \frac{w_D - w_{brazo}}{w_A - w_{brazo}} = 5.74$$
+A continuación analizamos el comportamiento de los elementos distribuidores.
 
-        donde al estar la corona fija, $w_A = 0$. En consecuencia, obtenemos:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{imagenes/Pulsador.png}
+    \caption{Válvula 3/2 monoestable (pulsador)}
+\end{figure}
 
-        $$w_D = -3555[rpm]$$
+El pulsador conecta, mientras se mantenga pulsado, el elemento generador con la vávula 4/2 biestable doblemente pilotada. Al ser monoestable, indicado con el muelle en el simbolo, una vez se deja de pulsar se desconecta el elemento generador de la válvula 4/2 biestable, al ser esta biestable mantiene la posición a la espera de otra interacción.
 
-        Una vez conocemos la velocidad de giro del solar podemos analizar el tren de engranajes planetario diferencial. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{imagenes/V32FC.png}
+    \caption{Válvula 3/2 monoestable con fin de carrera}
+\end{figure}
 
-        \subparagraph{Tren de engranajes planetario diferencial}
+La vávula 3/2 monoestable con fin de carrera actua de forma analoga al pulsador. Sin embargo, el elemento que lo activa es el fin de carrera pulsado una vez se cruza cierto limite, marcado en la figura con la linea 1.3, por el vastago del cilindro de émbolo de doble efecto. Al activarse el fin de carrera, se conecta el elemento generador con la válvula 4/2 biestable alterando su estado.
 
-        El tren de engranajes planetario diferencial esta compuesto por una corona, rueda dentada G, un solar, rueda dentada D, y como satelite una rueda compuesta, E y F. Además debemos tener en cuenta que el brazo portasatélites es el mismo que el de tren de engranajes simple. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{imagenes/V4_2B.png}
+    \caption{Válvula 4/2 biestable doblemente pilotada}
+\end{figure}
 
-        Sea el índice de reducción del mecanismo invertido es:
+La válvula 4/2 biestable, indicado con la ausencia de muelles, mantiene un tipo de conexión dependiendo de si recibe una conexión por un lado o otro, manteniendo el último estado.
 
-        $$i'_{DG} = (-\frac{Z_E}{Z_D}) \times (-\frac{Z_G}{Z_F}) = 8.72$$
+Por último, nos encontramos con el elemento receptor, cilindro de émbolo de doble efecto.
 
-        Aplicamos la formula de Willis y obtenemos la velocidad de giro angulo de la corono, salida del sistema.
+\subparagraph{Análisis del comportamiento}
 
-        $$i'_{DG} = \frac{w_D - w_{brazo}}{w_G - w_{brazo}} = 8.72$$
+A continuación representamos las conexiones en los hipoteticos estados del sistema: sin pulsar, pulsado y émbolo limite.
 
-        Por tanto, concluimos con:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.75\textwidth]{imagenes/NP.png}
+    \caption{Conexiones: sin pulsar}
+\end{figure}
 
-        $$w_G = 256.31[rpm]$$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.75\textwidth]{imagenes/P.png}
+    \caption{Conexiones: pulsado}
+\end{figure}
 
-        \subsection{Polipasto accionado por correas}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.75\textwidth]{imagenes/EL.png}
+    \caption{Conexiones: émbolo limite}
+\end{figure}
 
-        \begin{figure}[!h]
-            \centering
-            \includegraphics[width=.75\textwidth]{imagenes/1.4.png}
-        \end{figure}
-        
-        En el mecanismo planetario de la figura, un motor, no representado en ella, acciona el eje que gira a 12rpm. La rueda A está inmovilizada.
+\paragraph{Movimiento de vaivén}
 
-        Suponiendo un rendimiento de 0.98 para cada etapa simple de engranaje exterior, se pide:
+En el circuito neumático del movimiento de vaivén no se introduce ningún nuevo elemento así que nos centramos en analizar el comportamiento.
 
-        \begin{itemize}
-            \item[a)] Verificar la condición de coaxialidad.
-            \item[b)] Verificar que se pueden montar dos satelites.
-            \item[c)] Calcular la velocidad angular de salida, $w_D$.
-            \item[d)] Calcular rendimiento del sistema.   
-        \end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{imagenes/2.2.png}
+    \caption{Circuito Neumático: Movimiento de vaivén}
+\end{figure}
 
-        \vspace{0.5cm}
-        \hrule
-        \vspace{0.5cm}
+\subparagraph{Análisis del comportamiento} Distinguimos los siguientes estados: reposo, inicio, avance, retroceso. 
 
-        \paragraph{\textbf{a)}}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{imagenes/MV_Reposo.png}
+    \caption{Conexiones: Reposo}
+\end{figure}
 
-        La condición de coaxialidad viene dada por:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{imagenes/MV_Inicio.png}
+    \caption{Conexiones: Inicio}
+\end{figure}
 
-        $$Z_A + Z_B = Z_C + Z_D = 91$$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{imagenes/MV_Avance.png}
+    \caption{Conexiones: Avance}
+\end{figure}
 
-        \paragraph{\textbf{b)}}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{imagenes/MV_Retroceso.png}
+    \caption{Conexiones: Retroceso}
+\end{figure}
 
-        Verificamos la condición de montaje de 2 satelites.
+Como podemos observar, el mecanismo neumático funciona mientras se mantenga pulsado el pulsador, ya que es este el que introduce la energía que mueve la valvula biestable. Es interesante dibujar el diagrama de estados del sistema, ya que se visualizan mejor las transiciones entre estados.
 
-        $$\frac{Z_CZ_A - Z_BZ_D}{2} = k_1Z_C - k_2Z_B = 2730$$
+Cabe destacar que el final de carrera 1.2, esta presente para que las dos valvulas 1.2 y 1.3 no estén activas simultaneamente. 
 
-        Por tanto; se verifica para $k_1,k_2\in \mathbb{N}$.
+\paragraph{Movimiento de vaivén temporizado}
 
-        \paragraph{\textbf{c)}}
+El nuevo circuito neumático propone limitar el movimiento de vaivén a un cierto tiempo. Es decir, una vez pulzado el pulsador se realiza el movimiento de vaiven durante x segundos. Posteriormente, es necesario dejar de pulsar para reiniciar el sistema.
 
-        Se trata de un tren de engranajes simples en el que la potencia entra por el brazo portasatélites.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{imagenes/2.3.png}
+    \caption{Circuito Neumático: Movimiento de vaivén temporizado}
+\end{figure}
 
-        Sea el índice de reducción del mecanismo invertido equivalente.
+Lo interesante del circuito viene del analisis del nuevo elemento.
 
-        $$i'_{AD} = (-\frac{Z_B}{Z_A}) \times (-\frac{Z_D}{Z_C}) = 0.042$$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{imagenes/Temporizador.png}
+    \caption{Vávula temporizada}
+\end{figure}
 
-        Aplicamos la fórmula de Willis para obtener la velocidad angular de salida.
+El funcionamiento consiste en que una vez entra potencia a la valvula de retención se va llenando el deposito hasta que alcanza la potencia necesaria para desplazar el biestable al nuevo estado. En cosencuencia debemos interpretar el temporizador como un retardo.
 
-        $$i'_{AD} = \frac{w_A - w_{brazo}}{w_D - w_{brazo}}$$
 
-        Por tanto; obtenemos:
 
-        $$w_D = -273.714[rpm]$$
 
-        \paragraph{\textbf{d)}}
 
-        Calculamos el índice de reducción del sistema:
-
-        $$i_{bD} = \frac{w_b}{w_D} = -0.043$$
-
-        Sea el rendimiento del mecanismo invertido es:
-
-        $$\eta' = 0.98 \times 0.98$$
-
-        Como estamos trabajando con un tren de engranajes planetario donde la potencia entra por el brazo portasatélites y tiene un indice de reducción menor que 0, aplicamos la formula del rendimiento.
-
-        $$\eta_{bD} = \frac{\eta'}{1 - i_{bD}(1 - \eta')} = 0.959$$
-
-
-    \chapter{Resortes y Mecanismos Neumáticos}
-        \section{Resortes}
-        \section{Mecanismos Neumáticos}
-
-        En los mecanimos neumáticos el mvoimiento y la transmisión de ferzas se consiguen a través de un elemento fluido gaseoso, como el aire. 
-
-        Estos tipos de mecanimos presentan las siguientes ventajas: fácil transporte de la energía, sin circuito de retorno (hidráulica), sin problemas derivados de las fugas e insensibilidad ante cambios ambientales. Sin embargo, presentan limitaciones por compresibilidad del aire, muy costosos para grandes volúmenes y ser muy ruidosos.
-
-        La comparación con los mecánismos hidraulicos ayuda a entender las principales ventajas.
-
-        En los mecanimos neumáticos, el aire se expulsa a la atmosfera (no necesita retorno), las fugas no importan (es solo aire), pero la compresibilidad limita precisión y fuerza máxima. 
-
-        Por otra parte, los mecanismos hidraulicos necesitan circuitos cerrados, las fugas son problemáticas, pero permiten mayores fuerzas y mejor control de posición.  
-        
-        \subsection{Análisis topológico}
-        Los mecanimos neumáticos presentan un esquema general compuestos por cinco tipos de elementos.
-        \begin{itemize}
-            \item Elementos Generadores.
-            \item Elementos Reguladores.
-            \item Elementos Receptores.
-            \item Elementos Captadores.
-            \item Elementos Distribuidores.
-        \end{itemize}
-
-        \subsubsection{Elementos Generadores}
-
-        Los elementos generadores producen la presión y el caudal requeridos. Los principales elementos generadores con los que trabajaremos son: 
-
-        \begin{itemize}
-            \item Compresores de émbolo.
-            \begin{itemize}
-                \item De pistón
-                \item De diafragma
-            \end{itemize}
-            \item Compresores rotativos.
-            \begin{itemize}
-                \item Multicelulares
-                \item De tornillo helicoidal
-                \item Compresores roots
-            \end{itemize}
-            \item Turbocompresores.
-            \begin{itemize}
-                \item Axiales
-                \item Radiales
-            \end{itemize}
-        \end{itemize}
-
-        \subsubsection{Elementos Receptores}
-
-        Los elementos receptores recogen el fluido a una presión determinada y realizan el trabajo mecánico deseado. Los principales elementos recpetores con los que trabajaremos son:
-
-        \begin{itemize}
-            \item Cilindros Neumáticos
-            \begin{itemize}
-                \item Cilindros de émbolo
-                \begin{itemize}
-                    \item De simple efecto
-                    \item De dobre efecto
-                \end{itemize}
-                \item Cilindros de membrana
-                \begin{itemize}
-                    \item Membrana elástica (sin vástago)
-                    \item Membrana arrollable y vástago
-                \end{itemize}
-                \item Otros tipos
-                \begin{itemize}
-                    \item Cilindros con amortiguación interna regulable y no regulable
-                    \item Cilindros de doble vástago
-                    \item Cilindro tándem
-                    \item Cilidro multiposicional
-                    \item Cilindro de impacto
-                    \item Cilindro de cable
-                    \item Cilindro para movimiento de giro
-                    \item Cilindro de émbolo giratorio
-                \end{itemize}
-            \end{itemize}
-            \item Motores Neumáticos
-            \begin{itemize}
-                \item De émbolo
-                \begin{itemize}
-                    \item Radiales y axiales
-                \end{itemize}
-                \item De paletas
-                \item Turbomotores
-            \end{itemize}
-        \end{itemize}
-
-        \subsubsection{Elementos De Regulación}
-
-        Los elementos de regulación mantienen ciertos parámetros entre límites preestablecidos. Los principales elementos reguladores con los que trabajaremos son:
-
-        \begin{itemize}
-            \item Válvulas reguladoras de presión
-            \begin{itemize}
-                \item Sin orificio de escape
-                \item Con orificio de escape
-                \item Limitadora de presión
-                \item Válvula de secuencia
-            \end{itemize}
-            \item Válvulas reguladoras de caudal
-            \begin{itemize}
-                \item De estrangulación constante
-                \item De estrangulación variable
-            \end{itemize}
-            \item Válvulas de cierre
-        \end{itemize}
-
-        Los elementos de regulación juegan principalmente con la relación presión-caudal.
-
-        \subsubsection{Elementos De Distribución}
-
-        Los elementos de distribución dirigen el fluido hacia uno o otro punto del circuito, según órdenes recibidas y que modifican su posición.
-
-        Trabajamos con vias, compuestas por:
-        \begin{itemize}
-            \item Conexiones de entrada de fluido
-            \item Conexiones de salida hacia los elementos receptores
-            \item Orificios de purga
-        \end{itemize}
-
-        Sin embargo, podemos clasificar en más detalle los tipos de vias según los siguientes parametros.
-        \begin{itemize}
-            \item Según función que realizan
-            \begin{itemize}
-                \item Vávulas distribuidoras o de vías
-                \item Válvulas antiretorno o de bloqueo 
-                \item Válvulas de simultaneidad
-                \item Selectores de circuito 
-            \end{itemize}
-            \item Según el tipo de construcción
-            \begin{itemize}
-                \item Vávulas de asiento
-                \begin{itemize}
-                    \item Esférico (de bola)
-                    \item De disco plano
-                \end{itemize}
-                \item Vávulas de corredera
-                \begin{itemize}
-                    \item Distribuidora axial (corredora-embolo)
-                    \item Cursor de plano axial (émbolo y cursor)
-                    \item Discor giratorio
-                \end{itemize} 
-            \end{itemize}
-            \item Según el número de vías controladas
-            \begin{itemize}
-                \item Vávula de dos vías
-                \item Vávula de tres vías
-                \item Válvula de cuatro vías 
-                \item Vávula de múltiples vías
-            \end{itemize}
-            \item Según el número de posiciones de maniobra del distribuidor
-            \begin{itemize}
-                \item Válvula de dos posiciones
-                \item Vávula de tres posiciones
-            \end{itemize}
-            \item Según la forma de accionamiento del distribuidor
-            \begin{itemize}
-                \item Accionamiento directo
-                \begin{itemize}
-                    \item Accionamiento manual
-                    \item Accionamiento mecánico
-                \end{itemize}
-                \item A distancia (pilotada)
-                \begin{itemize}
-                    \item Accionamiento neumático
-                    \item Accionamiento eléctrico
-                \end{itemize}
-            \end{itemize}
-            \item Según el tiempo de accionamiento
-            \begin{itemize}
-                \item Monoestable o de mando permanente
-                \item Biestable o de mando momenténeo (por impulsos)
-                \item Temporizador
-            \end{itemize}
-        \end{itemize}
-
-        A la hora de diseñar los circuitos neumáticos, con respecto a las conexiones, seguiremos la siguiente notación:
-
-        \begin{itemize}
-            \item Conexión con el generador: p
-            \item Conexión con los elementos generadores: a, b, c, ...
-            \item Conexión con los elementos de purgar: r, s, t, ...
-            \item Orificios de pilotaje: x, y, z, ...
-        \end{itemize}
-
-        \subsubsection{Elementos de captación}
-
-        Los elementos de captación permiten obtener información del sistema sobre la posición de ciertos elementos y actuar automáticamente sobre la distribución y la regulación. Estos se clasificane en: 
-
-        \begin{itemize}
-            \item Captadores por contacto
-            \begin{itemize}
-                \item Rodillo
-                \item Rodillo escamoteable
-            \end{itemize}
-            \item captadores sin contacto
-            \begin{itemize}
-                \item Detectores de paso de toberas
-                \item Detectores de paso de horquilla
-                \item Detectores de proximidad
-                \item Obturadores de fuga
-            \end{itemize}
-        \end{itemize}
-
-        \subsection{Análisis cinemático y dinámico}
-
-        Por lo que respecta al análisis de velocidades, obtenemos los siguientes resultados.
-        \begin{itemize}
-            \item Velocidad acotada entre 0.1 y 1.5 m/s debido a:
-            \begin{itemize}
-                \item Impactos al final de la carrera
-                \item Calor generado en los rozamientos émbolo-Cilindro
-                \item Compresión del aire
-            \end{itemize}
-            \item La velocidad es función de:
-            \begin{itemize}
-                \item Caudal, a presión y fuerza antagonista constante.
-                \item Fuerza antagonista, a presión y caudal constante.
-            \end{itemize}
-        \end{itemize}
-
-        \subsection{Análisis constructivo y de funcionamiento}
-
-        Por lo que respecta a los materiales empleados en los elementos del circuito neumático tenemos:
-        
-        \begin{itemize}
-            \item Cuerpos de los cilindros
-            \begin{itemize}
-                \item Metálicos: acero, alumnio, latón y bronce.
-                \item No metálicos: nylon, policarbonato, pvc rígido.
-            \end{itemize}
-            \item Tapas de los cilindros: acero, aluminio, latón.
-            \item Émbolos: aluminio (común), latón.
-            \item Vástagos: acero dulce, acero cromada, acero inoxidable.
-            \item Cojinetes del vástago: acero sinterizado en forma de casquillos
-            \item Juntas de estanqueidad: butilo, caucho naturas, neopreno, poliuretano, teflón, siliconas.
-            \item Válvulas: acero inoxidable, aluminio, latón y bronce.
-            \item Tuberías:
-            \begin{itemize}
-                \item Rigidas: cobre, acero.
-                \item Flexibles: nylon, goma (reforzada con algodón)
-            \end{itemize}
-        \end{itemize}
-        
-        Es común enfrentarse a los siguiente fallos, una vez se trabaja con elementos de circuitos neumáticos.
-
-        \begin{itemize}
-            \item Válvulas:
-            \begin{itemize}
-                \item Colocación incorrecta
-                \item Suciedad interior
-                \item Desgaste
-            \end{itemize}
-            \item Mangueras:
-            \begin{itemize}
-                \item Colocación incorrecta
-                \item Longitud inexacta
-            \end{itemize}
-            \item Cilindros:
-            \begin{itemize}
-                \item Movimiento errático del pistón
-                \item Atascos producidos por la suciedad
-                \item Pérdidas de fluido
-            \end{itemize}
-            \item Vástagos (los más frecuentes):
-            \begin{itemize}
-                \item Rotura por fatiga
-                \item Pandeo
-            \end{itemize}
-        \end{itemize}
-
-        \subsubsection{Análisis de circuitos neumáticos}
-
-        En esta sección analizamos diferentes circuitos neumático, para entender mejor los simbolos que se usan y su funcionamiento.
-
-        \paragraph{Control de un cilindro de doble efecto con retorno automático}
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.75\textwidth]{imagenes/2.1.png}
-            \caption{Circuito Neumático: Control de un cilindro de doble efecto con retorno automático}
-        \end{figure}
-
-        El primer paso para entender un circuito neumático es identificar los diferentes elementos del circuito.
-
-        El primer elemento en el que ponemos el foco, es el elemento generador. 
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/EG.png}
-            \caption{Símbolo Elemento generador}
-        \end{figure}
-
-        Posteriormente nos encontramos con los elementos distribuidores. 
-
-        \begin{enumerate}
-            \item Válvula 3/2 monoestable (pulsador con muelle que reposiciona a la primera posición al soltar).
-            \item Válvula 3/2 monoestable con fin de carrera. 
-            \item Válvula 4/2 biestable doblemente pilotada.
-        \end{enumerate}
-
-        A continuación analizamos el comportamiento de los elementos distribuidores.
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/Pulsador.png}
-            \caption{Válvula 3/2 monoestable (pulsador)}
-        \end{figure}
-
-        El pulsador conecta, mientras se mantenga pulsado, el elemento generador con la vávula 4/2 biestable doblemente pilotada. Al ser monoestable, indicado con el muelle en el simbolo, una vez se deja de pulsar se desconecta el elemento generador de la válvula 4/2 biestable, al ser esta biestable mantiene la posición a la espera de otra interacción.
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/V32FC.png}
-            \caption{Válvula 3/2 monoestable con fin de carrera}
-        \end{figure}
-
-        La vávula 3/2 monoestable con fin de carrera actua de forma analoga al pulsador. Sin embargo, el elemento que lo activa es el fin de carrera pulsado una vez se cruza cierto limite, marcado en la figura con la linea 1.3, por el vastago del cilindro de émbolo de doble efecto. Al activarse el fin de carrera, se conecta el elemento generador con la válvula 4/2 biestable alterando su estado.
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/V4_2B.png}
-            \caption{Válvula 4/2 biestable doblemente pilotada}
-        \end{figure}
-
-        La válvula 4/2 biestable, indicado con la ausencia de muelles, mantiene un tipo de conexión dependiendo de si recibe una conexión por un lado o otro, manteniendo el último estado.
-
-        Por último, nos encontramos con el elemento receptor, cilindro de émbolo de doble efecto.
-
-        \subparagraph{Análisis del comportamiento}
-
-        A continuación representamos las conexiones en los hipoteticos estados del sistema: sin pulsar, pulsado y émbolo limite.
-        
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.75\textwidth]{imagenes/NP.png}
-            \caption{Conexiones: sin pulsar}
-        \end{figure}
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.75\textwidth]{imagenes/P.png}
-            \caption{Conexiones: pulsado}
-        \end{figure}
-
-        \begin{figure}[h!]
-            \centering
-            \includegraphics[width=.75\textwidth]{imagenes/EL.png}
-            \caption{Conexiones: émbolo limite}
-        \end{figure}
-
-        \paragraph{Movimiento de vaivén}
-
-        En el circuito neumático del movimiento de vaivén no se introduce ningún nuevo elemento así que nos centramos en analizar el comportamiento.
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/2.2.png}
-            \caption{Circuito Neumático: Movimiento de vaivén}
-        \end{figure}
-
-        \subparagraph{Análisis del comportamiento} Distinguimos los siguientes estados: reposo, inicio, avance, retroceso. 
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/MV_Reposo.png}
-            \caption{Conexiones: Reposo}
-        \end{figure}
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/MV_Inicio.png}
-            \caption{Conexiones: Inicio}
-        \end{figure}
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/MV_Avance.png}
-            \caption{Conexiones: Avance}
-        \end{figure}
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/MV_Retroceso.png}
-            \caption{Conexiones: Retroceso}
-        \end{figure}
-
-        Como podemos observar, el mecanismo neumático funciona mientras se mantenga pulsado el pulsador, ya que es este el que introduce la energía que mueve la valvula biestable. Es interesante dibujar el diagrama de estados del sistema, ya que se visualizan mejor las transiciones entre estados.
-
-        Cabe destacar que el final de carrera 1.2, esta presente para que las dos valvulas 1.2 y 1.3 no estén activas simultaneamente. 
-
-        \paragraph{Movimiento de vaivén temporizado}
-
-        El nuevo circuito neumático propone limitar el movimiento de vaivén a un cierto tiempo. Es decir, una vez pulzado el pulsador se realiza el movimiento de vaiven durante x segundos. Posteriormente, es necesario dejar de pulsar para reiniciar el sistema.
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/2.3.png}
-            \caption{Circuito Neumático: Movimiento de vaivén temporizado}
-        \end{figure}
-
-        Lo interesante del circuito viene del analisis del nuevo elemento.
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=.5\textwidth]{imagenes/Temporizador.png}
-            \caption{Vávula temporizada}
-        \end{figure}
-
-        El funcionamiento consiste en que una vez entra potencia a la valvula de retención se va llenando el deposito hasta que alcanza la potencia necesaria para desplazar el biestable al nuevo estado. En cosencuencia debemos interpretar el temporizador como un retardo.
-
-    \chapter{Transmisiones Flexibles}
-        \section{Correas}
-        \section{Cadenas}
-        \section{Cables}
+\chapter{Transmisiones Flexibles}
+\section{Correas}
+\section{Cadenas}
+\section{Cables}
 \end{document}
